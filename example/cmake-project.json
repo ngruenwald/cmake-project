@@ -1,0 +1,27 @@
+{
+    "package": {
+        "name": "hello_world",
+        "version": "0.1.0",
+        "description": "outputs hello world"
+    },
+    "dependencies": {
+        "fmt": {
+            "method": "fetch_content",
+            "version": "10.1.1",
+            "url": "https://github.com/fmtlib/fmt/archive/refs/tags/{{version}}.zip"
+        }
+    },
+    "dev-dependencies": {
+        "catch2": {
+            "method": "fetch_content",
+            "version": "3.4.0",
+            "url_hash": "SHA256=cd175f5b7e62c29558d4c17d2b94325ee0ab6d0bf1a4b3d61bc8dbcc688ea3c2",
+            "url": "https://github.com/catchorg/Catch2/archive/refs/tags/v{{version}}.zip",
+            "update_disconnected": true,
+            "cmake_args": [
+                "-D", "CATCH_INSTALL_DOCS=OFF",
+                "-D", "CATCH_INSTALL_EXTRAS=OFF"
+            ]
+        }
+    }
+}

@@ -1,0 +1,155 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/CMakeProject",
+    "definitions": {
+        "CMakeProject": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "package": {
+                    "$ref": "#/definitions/Package"
+                },
+                "dependencies": {
+                    "$ref": "#/definitions/Dependencies"
+                },
+                "dev-dependencies": {
+                    "$ref": "#/definitions/Dependencies"
+                },
+                "build-dependencies": {
+                    "$ref": "#/definitions/Dependencies"
+                }
+            },
+            "required": [
+                "package"
+            ],
+            "title": "CMakeProject"
+        },
+        "Package": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "authors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "documentation": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "repository": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "readme": {
+                    "type": "string"
+                },
+                "license": {
+                    "type": "string"
+                },
+                "license-file": {
+                    "type": "string"
+                },
+                "keywords": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dependency_defaults": {
+                    "$ref": "#/definitions/DependencyDefaults"
+                }
+            },
+            "required": [
+                "name",
+                "version"
+            ],
+            "title": "Package"
+        },
+        "DependencyDefaults": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "method": {
+                    "type": "string"
+                },
+                "branch": {
+                    "type": "string"
+                }
+            },
+            "title": "DependencyDefaults"
+        },
+        "Dependencies": {
+            "type": "object",
+            "additionalProperties": true,
+            "title": "Dependencies"
+        },
+        "FindPackageDependency": {
+            "type": "object",
+            "properties": {
+                "method": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                },
+                "quiet": {
+                    "type": "boolean"
+                },
+                "module": {
+                    "type": "boolean"
+                },
+                "optional": {
+                    "type": "boolean"
+                },
+                "components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "optional_components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "global": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "FetchContentDependency": {
+            "type": "object",
+            "properties": {
+                "method": {
+                    "type": "string"
+                }
+            }
+        },
+        "ExternalProjectDependency": {
+            "type": "object",
+            "properties": {
+                "method": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
