@@ -12,7 +12,7 @@ but CMake does have support for working with JSON data, so JSON it is.
 
 ```.json
 {
-    "package": {
+    "project": {
         "name": "hello_world",
         "version": "0.1.0",
         "description": "outputs hello world"
@@ -30,7 +30,7 @@ The full format is defined in the [schema file][1] (wip).
 
 ### Properties
 
-#### package
+#### project
 
 | Name                  | Type          | Description                       |
 |-----                  |-----          | -----------                       |
@@ -47,7 +47,7 @@ The full format is defined in the [schema file][1] (wip).
 | categories            | list[string]  | List of categories                |
 | dependency_defaults   | object        | Default settings for dependencies |
 
-#### package.dependency_defaults
+#### project.dependency_defaults
 
 | Name    | Type    | Description                             |
 |-----    |-----    |------------                             |
@@ -60,7 +60,7 @@ Dependencies can be specified as a simple string (e.g. "libfoo": "1.0.0"),
 or as an object (e.g. "libfoo": { "version": "1.0.0" }).
 
 When the simple form is used, or when the optional properties are not set,
-_package.dependency_defaults_ apply.
+_project.dependency_defaults_ apply.
 
 Most properties depend on the method used (see below). But the following
 properties are common to most of them.

@@ -42,6 +42,8 @@ endif()
 #
 
 #
+# cmp_parse_project_file(filename)
+#
 # Reads a cmake-project file
 # This will create the following variables:
 #   Format: <CMAKE_PROJECT_VAR_PREFIX><VAR_NAME>
@@ -71,23 +73,23 @@ function(cmp_parse_project_file filename)
   message(TRACE "loading '${filename}'")
   file(READ "${filename}" filecontent)
 
-  # package
-  _CMP_READ_PACKAGE_FIELD_REQ(PROJECT_NAME "${filecontent}" "name")
-  _CMP_READ_PACKAGE_FIELD_REQ(PROJECT_VERSION "${filecontent}" "version")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_DESCRIPTION "${filecontent}" "description" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_AUTHORS "${filecontent}" "authors" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_HOMEPAGE_URL "${filecontent}" "documentation" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_REPOSITORY_URL "${filecontent}" "repository" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_README_FILE "${filecontent}" "readme" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_LICENSE_TYPE "${filecontent}" "license" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_LICENSE_FILE "${filecontent}" "license-file" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_KEYWORDS "${filecontent}" "keywords" "")
-  _CMP_READ_PACKAGE_FIELD_OPT(PROJECT_CATEGORIES "${filecontent}" "categories" "")
+  # project
+  _CMP_READ_PROJECT_FIELD_REQ(PROJECT_NAME "${filecontent}" "name")
+  _CMP_READ_PROJECT_FIELD_REQ(PROJECT_VERSION "${filecontent}" "version")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_DESCRIPTION "${filecontent}" "description" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_AUTHORS "${filecontent}" "authors" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_HOMEPAGE_URL "${filecontent}" "documentation" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_REPOSITORY_URL "${filecontent}" "repository" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_README_FILE "${filecontent}" "readme" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_LICENSE_TYPE "${filecontent}" "license" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_LICENSE_FILE "${filecontent}" "license-file" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_KEYWORDS "${filecontent}" "keywords" "")
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_CATEGORIES "${filecontent}" "categories" "")
 # FIXME
-#  _READ_PACKAGE_FIELD_OPT(PROJECT_LANGUAGES "${filecontent}" "languages" "C;CXX")
+#  _READ_PROJECT_FIELD_OPT(PROJECT_LANGUAGES "${filecontent}" "languages" "C;CXX")
   set(${CMAKE_PROJECT_VAR_PREFIX}PROJECT_LANGUAGES "C;CXX" PARENT_SCOPE)
 
-  _cmp_read_package_field(dd_data "${filecontent}" "dependency-defaults" DEFAULT "")
+  _cmp_read_project_field(dd_data "${filecontent}" "dependency-defaults" DEFAULT "")
   _cmp_get_opt(dd_method "${dd_data}" "method" "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
   _cmp_get_opt(dd_branch "${dd_data}" "branch" "${CMAKE_PROJECT_DEFAULT_GIT_BRANCH}")
 
@@ -107,6 +109,8 @@ function(cmp_parse_project_file filename)
 endfunction()
 
 #
+# _cmp_get_opt(result data key def)
+#
 # Retrieve optional entry from JSON object
 #
 # @param[out] result    The retreived data, or the given default value
@@ -123,24 +127,26 @@ function(_cmp_get_opt result data key def)
 endfunction()
 
 #
-# Reads an entry from the "package" section.
+# _cmp_read_project_field(result content fieldname [DEFAULT default])
+#
+# Reads an entry from the "project" section.
 #
 # @param[out] result      The value of the requested field
 # @param[in]  content     The content of the project file
 # @param[in]  fieldname   The name of the field to retrieve
 # @param[in]  DEFAULT     Optional default value, in case that the field is not present
 #
-function(_cmp_read_package_field result content fieldname)
+function(_cmp_read_project_field result content fieldname)
   set(oneValueArgs DEFAULT)
   cmake_parse_arguments(ARG "" "${oneValueArgs}" "" ${ARGN})
 
-  string(JSON var ERROR_VARIABLE error GET "${content}" "package" "${fieldname}")
+  string(JSON var ERROR_VARIABLE error GET "${content}" "project" "${fieldname}")
   if("${error}" STREQUAL "NOTFOUND")
-    string(JSON var_type TYPE "${content}" "package" "${fieldname}")
+    string(JSON var_type TYPE "${content}" "project" "${fieldname}")
     if("${var_type}" STREQUAL "STRING" OR "${var_type}" STREQUAL "NUMBER" OR "${var_type}" STREQUAL "BOOLEAN")
       set(${result} ${var} PARENT_SCOPE)
     elseif("${var_type}" STREQUAL "ARRAY")
-      string(JSON arr_length LENGTH "${content}" "package" "${fieldname}")
+      string(JSON arr_length LENGTH "${content}" "project" "${fieldname}")
       if(${arr_length} GREATER 0)
         math(EXPR arr_length "${arr_length}-1")
         foreach(idx RANGE ${arr_length})
@@ -158,10 +164,12 @@ function(_cmp_read_package_field result content fieldname)
   elseif("DEFAULT" IN_LIST ARG_KEYWORDS_MISSING_VALUES)
     set(${result} "" PARENT_SCOPE)
   else()
-    message(FATAL_ERROR "field 'package.${fieldname}' not found in cmake project file.")
+    message(FATAL_ERROR "field 'project.${fieldname}' not found in cmake project file.")
   endif()
 endfunction()
 
+#
+# _cmp_read_dependencies(result content fieldname)
 #
 # Reads the specified dependencies
 #
@@ -178,6 +186,8 @@ function(_cmp_read_dependencies_fn result content fieldname)
   set(${result} ${var} PARENT_SCOPE)
 endfunction()
 
+#
+# cmp_find_project_dependencies([TYPE type])
 #
 # Find project dependencies using different methods (e.g. find_package, FetchContent, ...)
 #
@@ -202,6 +212,8 @@ function(cmp_find_project_dependencies)
   endforeach()
 endfunction()
 
+#
+# _cmp_find_project_dependencies(type)
 #
 # Find project dependencies using different methods (e.g. find_package, ...)
 #
@@ -239,7 +251,8 @@ function(_cmp_find_project_dependencies type)
 
 endfunction()
 
-
+#
+# _cmp_find_project_dependency(name data)
 #
 # Find a single dependency using different methods (e.g. find_package, ...)
 #
@@ -254,35 +267,29 @@ function(_cmp_find_project_dependency name data)
     set(method "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
   endif()
 
-  if("${method}" STREQUAL "find_package")
-    _cmp_find_package("${name}" "${data}")
-  elseif("${method}" STREQUAL "fetch_content")
-    _cmp_fetch_content("${name}" "${data}")
-  elseif("${method}" STREQUAL "external_project")
-    _cmp_external_project("${name}" "${data}")
-  else()
-    if(NOT COMMAND cmp_${method})
-      if(EXISTS ${CMAKE_PROJECT_EXTRA_MODULES_DIR}/cmp_${method}.cmake)
-        include(${CMAKE_PROJECT_EXTRA_MODULES_DIR}/cmp_${method}.cmake)
-      else()
-        message(DEBUG "${CMAKE_PROJECT_EXTRA_MODULES_DIR}/cmp_${method}.cmake does not exist")
-      endif()
-    endif()
-    if(COMMAND cmp_${method})
-      cmake_language(CALL cmp_${method} "${name}" "${data}")
+  if(NOT COMMAND cmp_${method})
+    if(EXISTS ${CMAKE_PROJECT_EXTRA_MODULES_DIR}/cmp_${method}.cmake)
+      include(${CMAKE_PROJECT_EXTRA_MODULES_DIR}/cmp_${method}.cmake)
     else()
-      message(FATAL_ERROR "Unknown dependency method '${method}'.")
+      message(DEBUG "${CMAKE_PROJECT_EXTRA_MODULES_DIR}/cmp_${method}.cmake does not exist")
     endif()
+  endif()
+  if(COMMAND cmp_${method})
+    cmake_language(CALL cmp_${method} "${name}" "${data}")
+  else()
+    message(FATAL_ERROR "Unknown dependency method '${method}'.")
   endif()
 endfunction()
 
+#
+# cmp_find_package(name data)
 #
 # Find and install dependency via find_package
 #
 # @param[in] name   Name of the dependency
 # @param[in] data   Additional parameters
 #
-function(_cmp_find_package name data)
+function(cmp_find_package name data)
   _cmp_get_opt(version        "${data}" "version"             "")
   _cmp_get_opt(quiet          "${data}" "quiet"               ON)
   _cmp_get_opt(module         "${data}" "module"              OFF)
@@ -323,12 +330,14 @@ function(_cmp_find_package name data)
 endfunction()
 
 #
+# cmp_fetch_content(name data)
+#
 # Find and install dependency via FetchContent
 #
 # @param[in] name   Name of the dependency
 # @param[in] data   Additional parameters
 #
-function(_cmp_fetch_content name data)
+function(cmp_fetch_content name data)
   _cmp_parse_common_properties(params "${data}")
 
   include(FetchContent)
@@ -340,18 +349,22 @@ function(_cmp_fetch_content name data)
 endfunction()
 
 #
+# cmp_external_project(name data)
+#
 # Find and install dependency via ExternalProject
 #
 # @param[in] name   Name of the dependency
 # @param[in] data   Additional parameters
 #
-function(_cmp_external_project)
+function(cmp_external_project)
   _cmp_parse_common_properties(params "${data}")
 
   include(ExternalProject)
   ExternalProject_Add("${name}" ${params})
 endfunction()
 
+#
+# _cmp_parse_common_properties(result data)
 #
 # Parses common properties for fetch_content and external_project
 #
@@ -409,17 +422,21 @@ function(_cmp_parse_common_properties result data)
 endfunction()
 
 #
+# _CMP_READ_PROJECT_FIELD_REQ(result content fieldname)
+#
 # Helper macro to read required JSON property
 #
 # @param[out] result      Property value
 # @param[in]  content     JSON input
 # @param[in]  fieldname   Name of the property
 #
-macro(_CMP_READ_PACKAGE_FIELD_REQ result content fieldname)
-  _cmp_read_package_field(var "${content}" "${fieldname}")
+macro(_CMP_READ_PROJECT_FIELD_REQ result content fieldname)
+  _cmp_read_project_field(var "${content}" "${fieldname}")
   set(${CMAKE_PROJECT_VAR_PREFIX}${result} ${var} PARENT_SCOPE)
 endmacro()
 
+#
+# _CMP_READ_PROJECT_FIELD_OPT(result content fieldname default)
 #
 # Helper macro to read optional JSON property
 #
@@ -428,11 +445,13 @@ endmacro()
 # @param[in]  fieldname   Name of the property
 # @param[in]  default     Default value in case that the property is not present
 #
-macro(_CMP_READ_PACKAGE_FIELD_OPT result content fieldname default)
-  _cmp_read_package_field(var "${content}" "${fieldname}" DEFAULT "${default}")
+macro(_CMP_READ_PROJECT_FIELD_OPT result content fieldname default)
+  _cmp_read_project_field(var "${content}" "${fieldname}" DEFAULT "${default}")
   set(${CMAKE_PROJECT_VAR_PREFIX}${result} ${var} PARENT_SCOPE)
 endmacro()
 
+#
+# _CMP_READ_DEPENDENCIES(result content fieldname)
 #
 # Helper macro to read dependencies
 #

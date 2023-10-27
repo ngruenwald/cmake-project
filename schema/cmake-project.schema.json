@@ -6,8 +6,8 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "package": {
-                    "$ref": "#/definitions/Package"
+                "project": {
+                    "$ref": "#/definitions/Project"
                 },
                 "dependencies": {
                     "$ref": "#/definitions/Dependencies"
@@ -20,11 +20,11 @@
                 }
             },
             "required": [
-                "package"
+                "project"
             ],
             "title": "CMakeProject"
         },
-        "Package": {
+        "Project": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -80,7 +80,7 @@
                 "name",
                 "version"
             ],
-            "title": "Package"
+            "title": "Project"
         },
         "DependencyDefaults": {
             "type": "object",

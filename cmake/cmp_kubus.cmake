@@ -1,6 +1,8 @@
 # https://github.com/ngruenwald/kubus-cmake
 
 #
+# cmp_kubus(name data)
+#
 # Find and install dependency via kubus_find_package
 #
 # @param[in] name   Name of the dependency
