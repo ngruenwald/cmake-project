@@ -1,0 +1,9 @@
+{
+    "method": "fetch_content",
+    "url": "https://github.com/catchorg/Catch2/archive/refs/tags/v{{version}}.zip",
+    "update_disconnected": true,
+    "cmake_args": [
+        "-D", "CATCH_INSTALL_DOCS=OFF",
+        "-D", "CATCH_INSTALL_EXTRAS=OFF"
+    ]
+}

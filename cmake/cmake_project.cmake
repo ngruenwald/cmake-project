@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.20)
 set(CM_EMPTY_STRING "")
 
 if(NOT DEFINED CM_MESSAGE_PREFIX)
-set(CM_MESSAGE_PREFIX "")
+  set(CM_MESSAGE_PREFIX "")
 endif()
 
 if(NOT DEFINED CMAKE_PROJECT_VAR_PREFIX)
@@ -328,12 +328,21 @@ endfunction()
 # @param[in]  data    Additional dependency information (JSON formatted)
 #
 function(_cmp_find_project_dependency name data)
-  _cmp_get_opt(method "${data}" "method"  "")
   _cmp_get_opt(skip   "${data}" "skip"    OFF)
 
   if(${skip})
     return()
   endif()
+
+  _cmp_get_opt(recipe "${data}" "recipe"  "")
+
+  if(NOT "${recipe}" STREQUAL "")
+    message(TRACE ${CM_MESSAGE_PREFIX} "loading recipe '${recipe}'")
+    file(READ "${recipe}" recipe_data)
+    _cmp_merge_json_data(data "${recipe_data}" "${data}")
+  endif()
+
+  _cmp_get_opt(method "${data}" "method"  "")
 
   if("${method}" STREQUAL "")
     set(method "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
@@ -363,6 +372,7 @@ endfunction()
 #
 function(cmp_find_package name data)
   _cmp_get_opt(version        "${data}" "version"             "")
+
   _cmp_get_opt(quiet          "${data}" "quiet"               ON)
   _cmp_get_opt(module         "${data}" "module"              OFF)
   _cmp_get_opt(optional       "${data}" "optional"            OFF)
@@ -372,7 +382,7 @@ function(cmp_find_package name data)
 
   string(JSON data_type TYPE "${data}")
   if("${data_type}" STREQUAL "STRING" OR "${data_type}" STREQUAL "NUMBER")
-    set(version     "${data}")
+    set(version "${data}")
   endif()
 
   list(APPEND params "${name}")
@@ -481,6 +491,49 @@ function(cmp_external_project)
 endfunction()
 
 #
+# _cmp_merge_json_data(result base additional)
+#
+# Merges the entreis from "additional" to "base".
+# Existing keys are overwritten.
+#
+# @param[out] result      The merged data
+# @param[in]  base        The initial data
+# @param[in]  additional  The data to add
+#
+function(_cmp_merge_json_data result base additional)
+  # add/update entries from additional to base
+
+  set(tgt ${base})
+
+  string(JSON length LENGTH "${additional}")
+  math(EXPR length "${length}-1")
+
+  if(${length} GREATER 0)
+    foreach(idx RANGE ${length})
+      string(JSON key MEMBER "${additional}" ${idx})
+      string(JSON val GET    "${additional}" ${key})
+      string(JSON typ TYPE   "${additional}" ${key})
+      if("${typ}" STREQUAL "STRING")
+        string(JSON tgt SET "${tgt}" "${key}" "\"${val}\"")
+      elseif("${typ}" STREQUAL "BOOLEAN")
+        if(${val})
+          string(JSON tgt SET "${tgt}" "${key}" true)
+        else()
+          string(JSON tgt SET "${tgt}" "${key}" false)
+        endif()
+      # elseif("${typ}" STREQUAL "ARRAY")
+      # elseif("${typ}" STREQUAL "OBJECT")
+      else()
+        message("${typ}: ${val}")
+        string(JSON tgt ERROR_VARIABLE err SET "${tgt}" "${key}" "${val}")
+      endif()
+    endforeach()
+  endif()
+
+  set(${result} ${tgt} PARENT_SCOPE)
+endfunction()
+
+#
 # _cmp_parse_common_properties(result data)
 #
 # Parses common properties for fetch_content and external_project
@@ -523,7 +576,7 @@ function(_cmp_parse_common_properties result data)
   if(NOT "${binary_dir}" STREQUAL "NOTFOUND")
     message("binary_dir: '${binary_dir}'")
     list(APPEND params BINARY_DIR "${binary_dir}")
-    endif()
+  endif()
 
   #
   # Download Step Options - URL
