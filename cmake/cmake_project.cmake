@@ -410,8 +410,26 @@ function(cmp_find_package name data)
   if(${global})
     list(APPEND params GLOBAL)
   endif()
+
   # TODO: see full signature https://cmake.org/cmake/help/latest/command/find_package.html#id8
   find_package(${params})
+
+  if(${name}_FOUND)
+    string(TOUPPER "${name}" uname)
+    if(DEFINED ${name}_VERSION)
+      set(fversion ${${name}_VERSION})
+    elseif(DEFINED ${name}_VERSION_STRING)
+      set(fversion ${${name}_VERSION_STRING})
+    elseif(DEFINED ${uname}_VERSION)
+      set(fversion ${${uname}_VERSION})
+    elseif(DEFINED ${uname}_VERSION_STRING)
+      set(fversion ${${uname}_VERSION_STRING})
+    else()
+      set(fversion ${version})
+    endif()
+  endif()
+
+  message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (package)")
 endfunction()
 
 #
@@ -433,6 +451,9 @@ function(cmp_fetch_content name data)
   # if(NOT ${name} IN_LIST fetch_content_libs)
   #   list(APPEND fetch_content_libs ${name})
   # endif()
+
+  _cmp_ext_version(fversion ${data})
+  message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (fetch)")
 endfunction()
 
 #
@@ -491,6 +512,32 @@ function(cmp_external_project)
 
     add_dependencies(${target_name} ${name})
   endforeach()
+
+  _cmp_ext_version(fversion ${data})
+  message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (external)")
+endfunction()
+
+#
+# _cmp_ext_version(result data)
+#
+# Tries to extract a version from the given data.
+# Returns the configured version, or the configured git tag.
+#
+# @param[out] result  The extracted version
+# @param[in]  data    JSON data
+#
+function(_cmp_ext_version result data)
+  _cmp_get_opt(version  "${data}" "version" "")
+  _cmp_get_opt(git_tag  "${data}" "git_tag" "")
+
+  if(NOT "${version}" STREQUAL "")
+    set(${result} ${version} PARENT_SCOPE)
+  elseif(NOT "${git_tag}" STREQUAL "")
+    set(${result} ${git_tag} PARENT_SCOPE)
+  else()
+    set(${result} "" PARENT_SCOPE)
+  endif()
+
 endfunction()
 
 #
