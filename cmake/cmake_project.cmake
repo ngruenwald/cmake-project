@@ -437,6 +437,47 @@ function(cmp_external_project)
 
   include(ExternalProject)
   ExternalProject_Add("${name}" ${params})
+
+  # TODO
+  set(include_dir ${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}/include)
+  if(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
+    set(libsuffix 64)
+  else()
+    set(libsuffix "")
+  endif()
+  set(binary_dir ${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}/lib${libsuffix})
+
+  # We cannot use find_library because ExternalProject_Add() is performed at build time.
+  # And to please the property INTERFACE_INCLUDE_DIRECTORIES,
+  # we make the include directory in advance.
+  file(MAKE_DIRECTORY ${include_dir})
+
+  _cmp_get_opt(targets "${data}" "targets" "")
+
+  foreach(target IN ITEMS ${targets})
+    _cmp_get_opt(target_name    "${target}" "target"  "")
+    _cmp_get_opt(target_binary  "${target}" "binary"  "")
+
+    if("${target_name}" STREQUAL "")
+      continue()
+    endif()
+
+    if("${target_binary}" STREQUAL "")
+      add_library(${target_name} INTERFACE IMPORTED GLOBAL)
+    else()
+      if(WIN32)
+        set(suffix ".lib")
+      else()
+        set(suffix ".a")
+      endif()
+      add_library(${target_name} STATIC IMPORTED GLOBAL)
+      set_target_properties(${target_name} PROPERTIES IMPORTED_LOCATION ${binary_dir}/${target_binary}${suffix})
+    endif()
+
+    set_target_properties(${target_name} PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${include_dir})
+
+    add_dependencies(${target_name} ${name})
+  endforeach()
 endfunction()
 
 #
