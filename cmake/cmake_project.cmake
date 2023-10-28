@@ -447,12 +447,21 @@ function(_cmp_parse_common_properties result data)
   _cmp_get_opt(version              "${data}" "version"             "")
   _cmp_get_opt(git_repository       "${data}" "git_repository"      "")
   _cmp_get_opt(git_tag              "${data}" "git_tag"             "")
-  _cmp_get_opt(git_shallow          "${data}" "git_shallow"         true)
+  _cmp_get_opt(git_shallow          "${data}" "git_shallow"         ON)
   _cmp_get_opt(url                  "${data}" "url"                 "")
   _cmp_get_opt(url_hash             "${data}" "url_hash"            "")
-  _cmp_get_opt(update_disconnected  "${data}" "update_disconnected" true)
+  _cmp_get_opt(update_disconnected  "${data}" "update_disconnected" ON)
   _cmp_get_opt(cmake_args           "${data}" "cmake_args"          "")
-  _cmp_get_opt(depends              "${data}" "depends"             "")
+  _cmp_get_opt(depends              "${data}" "depends"             "NOTFOUND")
+  _cmp_get_opt(build_in_source      "${data}" "build_in_source"     OFF)
+
+  _cmp_get_opt(update_command       "${data}" "update_command"      "NOTFOUND")
+  _cmp_get_opt(configure_command    "${data}" "configure_command"   "NOTFOUND")
+  _cmp_get_opt(build_command        "${data}" "build_command"       "NOTFOUND")
+  _cmp_get_opt(install_command      "${data}" "install_command"     "NOTFOUND")
+  _cmp_get_opt(test_command         "${data}" "test_command"        "NOTFOUND")
+  _cmp_get_opt(patch_command        "${data}" "patch_command"       "NOTFOUND")
+  _cmp_get_opt(binary_dir           "${data}" "binary_dir"          "NOTFOUND")
 
   if(DEFINED CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION)
     list(PREPEND cmake_args "-D" "CMAKE_INSTALL_PREFIX=${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}")
@@ -462,17 +471,20 @@ function(_cmp_parse_common_properties result data)
     list(PREPEND cmake_args "-D" "CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}")
   endif()
 
-  list(APPEND params UPDATE_DISCONNECTED ${update_disconnected})
+  #
+  # Directory Options
+  #
 
-  if(NOT "${git_repository}" STREQUAL "")
-    list(APPEND params GIT "${git_repository}")
-
-    if(NOT "${git_tag}" STREQUAL "")
-      list(APPEND params GIT_TAG "${git_tag}")
+  if(NOT "${binary_dir}" STREQUAL "NOTFOUND")
+    message("binary_dir: '${binary_dir}'")
+    list(APPEND params BINARY_DIR "${binary_dir}")
     endif()
 
-    list(APPEND params GIT_SHALLOW ${git_shallow})
-  elseif(NOT "${url}" STREQUAL "")
+  #
+  # Download Step Options - URL
+  #
+
+  if(NOT "${url}" STREQUAL "")
     string(REPLACE "{{version}}" "${version}" url "${url}")
 
     list(APPEND params URL "${url}")
@@ -482,13 +494,89 @@ function(_cmp_parse_common_properties result data)
     endif()
 
     list(APPEND params DOWNLOAD_EXTRACT_TIMESTAMP ON)
-  else()
-    message(FATAL_ERROR "fetch_content requires 'git' or 'url'.")
   endif()
 
-  if(NOT "${depends}" STREQUAL "")
+  #
+  # Download Step Options - Git
+  #
+
+  if(NOT "${git_repository}" STREQUAL "")
+    list(APPEND params GIT "${git_repository}")
+
+    if(NOT "${git_tag}" STREQUAL "")
+      list(APPEND params GIT_TAG "${git_tag}")
+    endif()
+
+    list(APPEND params GIT_SHALLOW ${git_shallow})
+  endif()
+
+  #
+  # Update Step Options
+  #
+
+  if(NOT "${update_command}" STREQUAL "NOTFOUND")
+    list(APPEND params UPDATE_COMMAND "${update_command}")
+  endif()
+
+  list(APPEND params UPDATE_DISCONNECTED ${update_disconnected})
+
+  #
+  # Patch Step Options
+  #
+
+  if(NOT "${patch_command}" STREQUAL "NOTFOUND")
+    list(APPEND params PATCH_COMMAND "${patch_command}")
+  endif()
+
+  #
+  # Configure Step Options
+  #
+
+  if(NOT "${configure_command}" STREQUAL "NOTFOUND")
+    list(APPEND params CONFIGURE_COMMAND "${configure_command}")
+  elseif(NOT "${cmake_args}" STREQUAL "")
+    list(APPEND params CMAKE_ARGS ${cmake_args})
+  endif()
+
+  #
+  # Build Step Options
+  #
+
+  if(NOT "${build_command}" STREQUAL "NOTFOUND")
+    list(APPEND params BUILD_COMMAND "${build_command}")
+  endif()
+
+  if(${build_in_source})
+    list(APPEND params BUILD_IN_SOURCE ${build_in_source})
+  endif()
+
+  #
+  # Install Step Options
+  #
+
+  if(NOT "${install_command}" STREQUAL "NOTFOUND")
+    list(APPEND params INSTALL_COMMAND "${install_command}")
+  endif()
+
+  #
+  # Test Step Options
+  #
+
+  if(NOT "${test_command}" STREQUAL "NOTFOUND")
+    list(APPEND params TEST_COMMAND "${test_command}")
+  endif()
+
+  #
+  # Target Options
+  #
+
+  if(NOT "${depends}" STREQUAL "NOTFOUND")
     list(APPEND params DEPENDS ${depends})
   endif()
+
+  #
+  # ---
+  #
 
   set(${result} ${params} PARENT_SCOPE)
 endfunction()
