@@ -3,8 +3,8 @@
   "url": "https://github.com/openssl/openssl/archive/refs/tags/openssl-{{version}}.zip",
   "configure_command": [
       "./Configure", "-static", "no-shared",
-      "--prefix=${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}",
-      "--openssldir=${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}"
+      "--prefix=@CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION@",
+      "--openssldir=@CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION@"
   ],
   "build_command": ["make"],
   "install_command": ["make", "install_sw"],

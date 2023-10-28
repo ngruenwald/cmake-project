@@ -342,6 +342,9 @@ function(_cmp_find_project_dependency name data)
     _cmp_merge_json_data(data "${recipe_data}" "${data}")
   endif()
 
+  # expand variables
+  string(CONFIGURE "${data}" data @ONLY)
+
   _cmp_get_opt(method "${data}" "method"  "")
 
   if("${method}" STREQUAL "")
@@ -524,7 +527,6 @@ function(_cmp_merge_json_data result base additional)
       # elseif("${typ}" STREQUAL "ARRAY")
       # elseif("${typ}" STREQUAL "OBJECT")
       else()
-        message("${typ}: ${val}")
         string(JSON tgt ERROR_VARIABLE err SET "${tgt}" "${key}" "${val}")
       endif()
     endforeach()
