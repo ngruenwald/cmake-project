@@ -4,6 +4,8 @@ cmake_minimum_required(VERSION 3.20)
 # defaults
 #
 
+set(CM_EMPTY_STRING "")
+
 if(NOT DEFINED CM_MESSAGE_PREFIX)
 set(CM_MESSAGE_PREFIX "")
 endif()
@@ -123,11 +125,73 @@ endfunction()
 # @param[in]  def       The default value, in case that the key is not present
 #
 function(_cmp_get_opt result data key def)
-  string(JSON tmp ERROR_VARIABLE err GET "${data}" "${key}")
+  string(JSON type ERROR_VARIABLE err TYPE "${data}" "${key}")
+
   if(NOT "${err}" STREQUAL "NOTFOUND")
-    set(tmp ${def})
+    set(${result} ${def} PARENT_SCOPE)
+    return()
   endif()
+
+  if("${type}" STREQUAL "NULL")
+    set(${result} "" PARENT_SCOPE)  # TODO: how to handle null?
+    return()
+  endif()
+
+  string(JSON tmp GET "${data}" "${key}")
+
+  if("${type}" STREQUAL "ARRAY")
+    _cmp_convert_array(lst "${tmp}")
+    set(${result} ${lst} PARENT_SCOPE)
+    return()
+  endif()
+
+  #  NUMBER, STRING, BOOLEAN, or OBJECT
   set(${result} ${tmp} PARENT_SCOPE)
+endfunction()
+
+#
+# _cmp_convert_array(result data [member] [empty_string])
+#
+# Converts a JSON array to a CMake list.
+#
+# @param[out] result  Output CMake list
+# @param[in]  data    Input JSON data
+# @param[in]  ARGV3   Optional key/index for lookup
+# @param[in]  ARGV4   Optional empty string
+#
+function(_cmp_convert_array result data)
+  if(DEFINED ${ARGV3})
+    set(member "${ARGV3}")
+  else()
+    set(member "")
+  endif()
+  if(DEFINED ${ARGV4})
+    set(empty_string "${ARGV4}")
+  else()
+    set(empty_string "${CM_EMPTY_STRING}")
+  endif()
+
+  string(JSON length ERROR_VARIABLE error LENGTH "${data}" ${member})
+  if(NOT "${error}" STREQUAL "NOTFOUND")
+    set(${result} "" PARENT_SCOPE)
+    return()
+  endif()
+
+  if(${length} LESS_EQUAL 0)
+    set(${result} "" PARENT_SCOPE)
+    return()
+  endif()
+
+  math(EXPR length "${length}-1")
+  foreach(idx RANGE ${length})
+    string(JSON entry GET "${data}" ${member} ${idx})
+    if("${entry}" STREQUAL "")
+      set(entry ${empty_string})
+    endif()
+    list(APPEND lst "${entry}")
+  endforeach()
+
+  set(${result} ${lst} PARENT_SCOPE)
 endfunction()
 
 #
@@ -298,8 +362,8 @@ function(cmp_find_package name data)
   _cmp_get_opt(quiet          "${data}" "quiet"               ON)
   _cmp_get_opt(module         "${data}" "module"              OFF)
   _cmp_get_opt(optional       "${data}" "optional"            OFF)
-  _cmp_get_opt(components     "${data}" "components"          "")
-  _cmp_get_opt(components_opt "${data}" "optional_components" "")
+  _cmp_get_opt(components     "${data}" "components"          "NOTFOUND")
+  _cmp_get_opt(components_opt "${data}" "optional_components" "NOTFOUND")
   _cmp_get_opt(global         "${data}" "global"              OFF)
 
   string(JSON data_type TYPE "${data}")
@@ -320,10 +384,10 @@ function(cmp_find_package name data)
   if(NOT ${optional})
     list(APPEND params REQUIRED)
   endif()
-  if(NOT "${components}" STREQUAL "")
+  if(NOT "${components}" STREQUAL "NOTFOUND")
     list(APPEND params COMPONENTS ${components})
   endif()
-  if(NOT "${components_opt}" STREQUAL "")
+  if(NOT "${components_opt}" STREQUAL "NOTFOUND")
     list(APPEND OPTIONAL_COMPONENTS ${components_opt})
   endif()
   if(${global})
