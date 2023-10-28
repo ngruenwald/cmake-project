@@ -328,8 +328,12 @@ endfunction()
 # @param[in]  data    Additional dependency information (JSON formatted)
 #
 function(_cmp_find_project_dependency name data)
-  _cmp_get_opt(method   "${data}" "method"  "")
-  _cmp_get_opt(git_url  "${data}" "git"     "")
+  _cmp_get_opt(method "${data}" "method"  "")
+  _cmp_get_opt(skip   "${data}" "skip"    OFF)
+
+  if(${skip})
+    return()
+  endif()
 
   if("${method}" STREQUAL "")
     set(method "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
