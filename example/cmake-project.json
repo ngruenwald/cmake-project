@@ -9,6 +9,26 @@
             "method": "fetch_content",
             "version": "10.1.1",
             "url": "https://github.com/fmtlib/fmt/archive/refs/tags/{{version}}.zip"
+        },
+        "openssl": {
+            "skip": false,
+            "method": "external_project",
+            "version": "3.1.4",
+            "url": "https://github.com/openssl/openssl/archive/refs/tags/openssl-{{version}}.zip",
+            "url_hash": "SHA256=c087d98815696d3f1b19848604aef1382d11e216634d3b72bd61ec27fb645f80",
+            "configure_command": [
+                "./Configure", "-static", "no-shared",
+                "--prefix=${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}",
+                "--openssldir=${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}"
+            ],
+            "build_command": ["make"],
+            "install_command": ["make", "install_sw"],
+            "test_command": [""],
+            "build_in_source": true,
+            "targets": [
+                { "target": "OpenSSL::Crypto", "binary": "libcrypto" },
+                { "target": "OpenSSL::SSL",    "binary": "libssl"    }
+            ]
         }
     },
     "dev-dependencies": {
