@@ -1,6 +1,6 @@
 # CMake Project
 
-This CMake module is inspired by Rust's _cargo.toml_
+This is an __experimental__ CMake module which is inspired by Rust's _cargo.toml_
 and Python's _pyproject.toml_ files.
 
 ## File Format
