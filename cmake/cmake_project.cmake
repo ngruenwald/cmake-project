@@ -442,6 +442,28 @@ endfunction()
 function(cmp_fetch_content name data)
   _cmp_parse_common_properties(params "${data}")
 
+  _cmp_get_opt(exclude_from_all "${data}" "exclude_from_all"  ON)
+  _cmp_get_opt(system           "${data}" "system"            ON)
+
+  if(${exclude_from_all})
+    list(APPEND params EXCLUDE_FROM_ALL)
+  endif()
+
+  if(${system} AND "${CMAKE_VERSION}" VERSION_GREATER_EQUAL "3.25.0")
+    list(APPEND params SYSTEM)
+  endif()
+
+  _cmp_get_opt(options "${data}" "options" "")
+  if(NOT "${options}" STREQUAL "")
+    string(JSON options_count LENGTH "${options}")
+    math(EXPR options_count "${options_count}-1")
+    foreach(idx RANGE ${options_count})
+      string(JSON key MEMBER "${options}" ${idx})
+      string(JSON val GET    "${options}" ${key})
+      set(${key} ${val} CACHE STRING "${name} - option - ${key}" FORCE)
+    endforeach()
+  endif()
+
   message(TRACE ${CM_MESSAGE_PREFIX} "fetch_content(name: ${name}, params: ${params})")
 
   include(FetchContent)
@@ -465,6 +487,34 @@ endfunction()
 #
 function(cmp_external_project)
   _cmp_parse_common_properties(params "${data}")
+
+  _cmp_get_opt(cmake_args       "${data}" "cmake_args"      "")
+  _cmp_get_opt(options_as_args  "${data}" "options_as_args" ON)
+
+  if(${options_as_args})
+    _cmp_get_opt(options "${data}" "options" "")
+    if(NOT "${options}" STREQUAL "")
+      string(JSON options_count LENGTH "${options}")
+      math(EXPR options_count "${options_count}-1")
+      foreach(idx RANGE ${options_count})
+        string(JSON key MEMBER "${options}" ${idx})
+        string(JSON val GET    "${options}" ${key})
+        list(APPEND cmake_args "-D" "${key}=${val}")
+      endforeach()
+    endif()
+  endif()
+
+  if(NOT "${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}" STREQUAL "")
+    list(PREPEND cmake_args "-D" "CMAKE_INSTALL_PREFIX=${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}")
+  endif()
+
+  if(NOT "${CMAKE_BUILD_TYPE}" STREQUAL "")
+    list(PREPEND cmake_args "-D" "CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}")
+  endif()
+
+  if(NOT "${cmake_args}" STREQUAL "")
+    list(APPEND params CMAKE_ARGS ${cmake_args})
+  endif()
 
   message(TRACE ${CM_MESSAGE_PREFIX} "external_project(name: ${name}, params: ${params})")
 
@@ -597,7 +647,6 @@ function(_cmp_parse_common_properties result data)
   _cmp_get_opt(url                  "${data}" "url"                 "")
   _cmp_get_opt(url_hash             "${data}" "url_hash"            "")
   _cmp_get_opt(update_disconnected  "${data}" "update_disconnected" ON)
-  _cmp_get_opt(cmake_args           "${data}" "cmake_args"          "")
   _cmp_get_opt(depends              "${data}" "depends"             "NOTFOUND")
   _cmp_get_opt(build_in_source      "${data}" "build_in_source"     OFF)
 
@@ -608,14 +657,6 @@ function(_cmp_parse_common_properties result data)
   _cmp_get_opt(test_command         "${data}" "test_command"        "NOTFOUND")
   _cmp_get_opt(patch_command        "${data}" "patch_command"       "NOTFOUND")
   _cmp_get_opt(binary_dir           "${data}" "binary_dir"          "NOTFOUND")
-
-  if(DEFINED CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION)
-    list(PREPEND cmake_args "-D" "CMAKE_INSTALL_PREFIX=${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}")
-  endif()
-
-  if(DEFINED CMAKE_BUILD_TYPE)
-    list(PREPEND cmake_args "-D" "CMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}")
-  endif()
 
   #
   # Directory Options
@@ -680,8 +721,6 @@ function(_cmp_parse_common_properties result data)
 
   if(NOT "${configure_command}" STREQUAL "NOTFOUND")
     list(APPEND params CONFIGURE_COMMAND "${configure_command}")
-  elseif(NOT "${cmake_args}" STREQUAL "")
-    list(APPEND params CMAKE_ARGS ${cmake_args})
   endif()
 
   #
