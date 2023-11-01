@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "source": "https://github.com/libgit2/libgit2",
+    "target": "libgit2"
+  },
+
+  "version": "1.7.1",
+
+  "method": "fetch_content",
+  "url": "https://github.com/libgit2/libgit2/archive/refs/tags/v{{version}}.zip",
+  "update_disconnected": true,
+  "options": {
+    "BUILD_SHARED_LIBS": "OFF",
+    "BUILD_TESTS": "OFF",
+    "USE_THREADS": "ON"
+  }
+}

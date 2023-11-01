@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "https://github.com/ToruNiina/toml11",
+    "target": "toml11::toml11"
+  },
+
+  "version": "3.7.1",
+
+  "method": "fetch_content",
+  "url": "https://github.com/ToruNiina/toml11/archive/refs/tags/v{{version}}.zip",
+  "update_disconnected": true,
+  "options": {
+    "toml11_BUILD_TESTS": "OFF"
+  }
+}

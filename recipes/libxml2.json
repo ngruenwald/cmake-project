@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "https://github.com/GNOME/libxml2",
+    "target": ""
+  },
+
+  "version": "2.11.5",
+
+  "method": "fetch_content",
+  "url": "https://github.com/GNOME/libxml2/archive/refs/tags/v{{version}}.zip",
+  "update_disconnected": true,
+  "options": {
+    "BUILD_SHARED_LIBS": "OFF"
+  }
+}

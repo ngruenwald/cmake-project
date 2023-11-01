@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "source": "https://github.com/nlohmann/json",
+    "target": "nlohmann_json::nlohmann_json"
+  },
+
+  "version": "3.11.2",
+
+  "method": "fetch_content",
+  "url": "https://github.com/nlohmann/json/archive/refs/tags/v{{version}}.zip",
+  "update_disconnected": true,
+  "options": {
+    "JSON_BuildTests": "OFF",
+    "JSON_MultipleHeaders": "OFF"
+  },
+  "override_find_package": true
+}

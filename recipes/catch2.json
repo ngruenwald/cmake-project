@@ -1,9 +1,16 @@
 {
-    "method": "fetch_content",
-    "url": "https://github.com/catchorg/Catch2/archive/refs/tags/v{{version}}.zip",
-    "update_disconnected": true,
-    "cmake_args": [
-        "-D", "CATCH_INSTALL_DOCS=OFF",
-        "-D", "CATCH_INSTALL_EXTRAS=OFF"
-    ]
+  "meta": {
+    "source": "https://github.com/catchorg/Catch2",
+    "target": "Catch2::Catch2WithMain, Catch2::Catch2"
+  },
+
+  "version": "3.4.0",
+
+  "method": "fetch_content",
+  "url": "https://github.com/catchorg/Catch2/archive/refs/tags/v{{version}}.zip",
+  "update_disconnected": true,
+  "options": {
+    "CATCH_INSTALL_DOCS": "OFF",
+    "CATCH_INSTALL_EXTRAS": "OFF"
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "source": "https://github.com/p-ranav/argparse",
+    "target": "argparse::argparse"
+  },
+
+  "version": "2.9",
+
+  "method": "fetch_content",
+  "url": "https://github.com/p-ranav/argparse/archive/refs/tags/v{{version}}.zip",
+  "update_disconnected": true,
+  "options": {
+    "ARGPARSE_BUILD_TESTS": "OFF",
+    "ARGPARSE_LONG_VERSION_ARG_ONLY": "OFF"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "source": "https://github.com/jarro2783/cxxopts",
+    "target": "cxxopts::cxxopts"
+  },
+
+  "version": "3.1.1",
+
+  "method": "fetch_content",
+  "url": "https://github.com/jarro2783/cxxopts/archive/refs/tags/v{{version}}.zip",
+  "update_disconnected": true,
+  "options": {
+    "CXXOPTS_BUILD_EXAMPLES": "OFF",
+    "CXXOPTS_BUILD_TESTS": "OFF"
+  }
+}

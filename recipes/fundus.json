@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "source": "https://github.com/ngruenwald/fundus",
+    "target": "fundus::fundus"
+  },
+
+  "version": "main",
+
+  "method": "fetch_content",
+  "url": "https://github.com/ngruenwald/fundus/archive/refs/heads/{{version}}.zip",
+  "options": {
+    "FUNDUS_TESTS": "OFF"
+  }
+}
