@@ -78,6 +78,7 @@ endif()
 function(cmp_parse_project_file filename)
   message(TRACE ${CM_MESSAGE_PREFIX} "loading '${filename}'")
   file(READ "${filename}" filecontent)
+  string(CONFIGURE "${filecontent}" filecontent @ONLY)
 
   # project
   _CMP_READ_PROJECT_FIELD_REQ(PROJECT_NAME "${filecontent}" "name")
@@ -339,11 +340,9 @@ function(_cmp_find_project_dependency name data)
   if(NOT "${recipe}" STREQUAL "")
     message(TRACE ${CM_MESSAGE_PREFIX} "loading recipe '${recipe}'")
     file(READ "${recipe}" recipe_data)
+    string(CONFIGURE "${recipe_data}" recipe_data @ONLY)
     _cmp_merge_json_data(data "${recipe_data}" "${data}")
   endif()
-
-  # expand variables
-  string(CONFIGURE "${data}" data @ONLY)
 
   _cmp_get_opt(method "${data}" "method"  "")
 
