@@ -665,7 +665,6 @@ function(_cmp_parse_common_properties result data)
   #
 
   if(NOT "${binary_dir}" STREQUAL "NOTFOUND")
-    message("binary_dir: '${binary_dir}'")
     list(APPEND params BINARY_DIR "${binary_dir}")
   endif()
 
