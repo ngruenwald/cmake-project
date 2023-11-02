@@ -535,6 +535,8 @@ function(cmp_external_project)
   # we make the include directory in advance.
   file(MAKE_DIRECTORY ${include_dir})
 
+  _cmp_ext_version(fversion ${data})
+
   _cmp_get_opt(targets "${data}" "targets" "")
 
   foreach(target IN ITEMS ${targets})
@@ -558,11 +560,11 @@ function(cmp_external_project)
     endif()
 
     set_target_properties(${target_name} PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${include_dir})
+    set_target_properties(${target_name} PROPERTIES VERSION "${fversion}")
 
     add_dependencies(${target_name} ${name})
   endforeach()
 
-  _cmp_ext_version(fversion ${data})
   message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (external)")
 endfunction()
 
