@@ -17,7 +17,7 @@ def main() -> None:
     parser.add_argument("--force", action="store_true", help="Force check")
     parser.add_argument("--token", default=None, help="Github access token")
     parser.add_argument("--yes", action="store_true", help="Accept all changes")
-    parser.add_argument("--output", defalt=None, help="Output file")
+    parser.add_argument("--output", default=None, help="Output file")
     args = parser.parse_args()
 
     if args.token:
