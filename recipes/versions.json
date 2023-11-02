@@ -1,10 +1,10 @@
 {
   "meta": {
-    "date": "2023-11-01T20:13:01.919979"
+    "date": "2023-11-02T05:23:49.181218"
   },
   "versions": {
     "abseil/abseil-cpp": {
-      "version": "20230802.0",
+      "version": "20230802.1",
       "date": "2023-09-18T14:40:01Z",
       "sha256": "497ebdc3a4885d9209b9bd416e8c3f71e7a1fb8af249f6c2a80b7cbeefcd7e21"
     },
@@ -370,10 +370,10 @@
       "sha256": "bf5078669dfe837d711d70357a11fc9544b7dc247f8bede220a8bbf047d54a9a"
     },
     "protocolbuffers/protobuf": {
-      "version": "4.24.4",
-      "date": "2023-10-03T22:27:05Z",
+      "version": "4.25.0",
+      "date": "2023-11-01T20:03:44Z",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "sha256": "593da7c60398f6281449885ed534879425595f4b8f2424904fb558d948c6ffee"
+      "sha256": "fc76b57363bbee0795532aa96334ba55724b50306d0d2103c5c7afd58c5ca154"
     },
     "facebook/proxygen": {
       "version": "2023.10.30.00",
