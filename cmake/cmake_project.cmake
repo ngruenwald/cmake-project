@@ -276,10 +276,91 @@ function(cmp_find_project_dependencies)
     message(FATAL_ERROR ${CM_MESSAGE_PREFIX} "invalid dependency type '${ARG_TYPE}'. Possible values: prod, dev, build")
   endif()
 
+  # clear global properties
+  set_property(GLOBAL PROPERTY __cmp_propagate_variables)
+  set_property(GLOBAL PROPERTY __cmp_propagate_triggers)
+
   foreach(type IN ITEMS ${ARG_TYPE})
     _cmp_find_project_dependencies(${type})
   endforeach()
+
+  # set variables (local and parent scope)
+  _M_CMP_SET_VARS()
+  _M_CMP_SET_VARS(PARENT_SCOPE)
+
+  # execute trigger functions
+  _M_CMP_RUN_TRIGGERS(__cmp_propagate_triggers)
+
+  # clear global properties
+  set_property(GLOBAL PROPERTY __cmp_propagate_variables)
+  set_property(GLOBAL PROPERTY __cmp_propagate_triggers)
 endfunction()
+
+#
+# _cmp_propagate_list_var(varname)
+#
+# Stores the variable content in a global property.
+#
+# @param[in]  varname  Name of the variable to store
+#
+# global properties:
+#   * __cmp_propagate_variables             ... list of variables
+#   * __cmp_propagate_variables_${varname}  ... variable data
+#
+function(_cmp_propagate_list_var varname)
+  get_property(variables GLOBAL PROPERTY __cmp_propagate_variables)
+  list(APPEND variables "${varname}")
+  list(REMOVE_DUPLICATES variables)
+  set_property(GLOBAL PROPERTY __cmp_propagate_variables "${variables}")
+
+  if(NOT "${${varname}}" STREQUAL "")
+    get_property(content GLOBAL PROPERTY __cmp_propagate_variables_${varname})
+    list(APPEND content ${${varname}})
+    set_property(GLOBAL PROPERTY __cmp_propagate_variables_${varname} "${content}")
+  endif()
+endfunction()
+
+#
+# _cmp_propagate_trigger(funcname)
+#
+# Stores the trigger function name in a global property.
+#
+# @param[in]  funcname  Name of the trigger function
+#
+# global properties:
+#   * __cmp_propagate_triggers ... list of functions
+#
+function(_cmp_propagate_trigger funcname)
+  get_property(triggers GLOBAL PROPERTY __cmp_propagate_triggers)
+  list(APPEND triggers "${funcname}")
+  set_property(GLOBAL PROPERTY __cmp_propagate_triggers "${triggers}")
+endfunction()
+
+#
+# Sets the "variables" stored in the global property
+#
+macro(_M_CMP_SET_VARS)
+  get_property(variables GLOBAL PROPERTY __cmp_propagate_variables)
+  foreach(item IN ITEMS ${variables})
+    get_property(content GLOBAL PROPERTY __cmp_propagate_variables_${item})
+    set(${item} "${content}" ${ARGN})
+  endforeach()
+endmacro()
+
+#
+# Executes the "trigger" functions stored in the global property
+#
+macro(_M_CMP_RUN_TRIGGERS varname)
+  get_property(triggers GLOBAL PROPERTY ${varname})
+  list(REMOVE_DUPLICATES triggers)
+  foreach(trigger IN ITEMS ${triggers})
+    if(COMMAND ${trigger})
+      cmake_language(CALL ${trigger})
+    else()
+      message(WARNING ${CM_MESSAGE_PREFIX} "unknown trigger method '${trigger}'.")
+    endif()
+  endforeach()
+endmacro()
 
 #
 # _cmp_find_project_dependencies(type)
