@@ -18,6 +18,8 @@ def main() -> None:
     parser.add_argument("--token", default=None, help="Github access token")
     parser.add_argument("--yes", action="store_true", help="Accept all changes")
     parser.add_argument("--output", default=None, help="Output file")
+    parser.add_argument("--package", default=None, help="Process only specified package")
+    parser.add_argument("--add", default=None, help="Add new package")
     args = parser.parse_args()
 
     if args.token:
@@ -27,8 +29,17 @@ def main() -> None:
     now = datetime.utcnow()
     data = read_version_file("versions.json")
     data["meta"]["date"] = now.isoformat()
-    for package, info in data["versions"].items():
+    if args.add:
+        parts = args.add.split(":", maxsplit=1)
+        package = parts[0]
+        version = parts[1] if len(parts) > 1 else ""
+        info = {"version": version}
         update_package(package, info, args.force, args.yes)
+        data["versions"].update({package: info})
+    else:
+        for package, info in data["versions"].items():
+            if not args.package or args.package == package:
+                update_package(package, info, args.force, args.yes)
     filename = args.output if args.output else f"versions-{now.date().isoformat()}.json"
     write_version_file(filename, data)
 
@@ -127,16 +138,18 @@ def parse_version(s: str):
     if len(s) > 0:
         for ed in extra_delimiters:
             s = s.replace(ed, delimiter)
-        parts = s.split(delimiter)
-        major = to_int(parts, 0)
-        minor = to_int(parts, 1)
-        patch = to_int(parts, 2)
-        tweak = to_int(parts, 3)
-        crazy = to_int(parts, 4)
+    parts = s.split(delimiter)
+    major = to_int(parts, 0)
+    minor = to_int(parts, 1)
+    patch = to_int(parts, 2)
+    tweak = to_int(parts, 3)
+    crazy = to_int(parts, 4)
     return (major, minor, patch, tweak, crazy)
 
 
 def trim_version_string(s: str) -> str:
+    if not s:
+        return s
     for idx in range(0, len(s)):
         if s[idx].isnumeric():
             break
