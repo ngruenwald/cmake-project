@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import regex
 import requests
 
@@ -9,7 +10,12 @@ from hashlib import sha256
 from time import sleep
 
 
-TOKEN = None
+TOKEN: str | None = None
+
+
+def set_token(token: str) -> None:
+    global TOKEN
+    TOKEN = token
 
 
 def main() -> None:
@@ -22,9 +28,10 @@ def main() -> None:
     parser.add_argument("--add", default=None, help="Add new package")
     args = parser.parse_args()
 
-    if args.token:
-        global TOKEN
-        TOKEN = args.token
+    if args.token is not None:
+        set_token(args.token)
+    else:
+        set_token(os.getenv("TOKEN"))
 
     now = datetime.utcnow()
     data = read_version_file("versions.json")
