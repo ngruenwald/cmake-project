@@ -1,0 +1,24 @@
+#ifndef __VERSIONS_H__
+#define __VERSIONS_H__
+
+struct VersionInfo
+{
+    const char* name;
+    const char* version;
+};
+
+static const char* ProjectName = "@PROJECT_NAME@";
+static const char* ProjectVersion = "@PROJECT_VERSION@";
+static const char* ProjectDescription = "@PROJECT_DESCRIPTION@";
+
+static const struct VersionInfo ProjectDependencies[]
+{
+@project_dependencies@
+};
+
+static const struct VersionInfo TargetDependencies[]
+{
+@target_dependencies@
+};
+
+#endif // __VERSIONS_H__

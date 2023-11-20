@@ -9,7 +9,7 @@
             "version": "10.1.1",
             "recipe": "${CMAKE_SOURCE_DIR}/../recipes/fmt.json"
         },
-        "libxml2": {},
+        "LibXml2": {},
         "openssl": {
             "skip": false,
             "version": "3.1.4",
