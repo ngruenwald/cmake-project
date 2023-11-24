@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2023-11-19T21:09:44.702782"
+    "date": "2023-11-24T12:20:05.232068"
   },
   "versions": {
     "abseil/abseil-cpp": {
@@ -137,14 +137,14 @@
       "sha256": "ebfecb4c0cbeac3f65e571c0243b31535c45fc768697957b1fdb7d9021d14339"
     },
     "richiesams/fibertaskinglib": {
-      "version": "2.0.0",
-      "date": "2023-10-30T03:48:03Z",
-      "sha256": "7eaaf576c787e733b73b63ba184260ee80ab55a87228ac1f8d32aa2683fdf59e"
+      "version": "2.0.3",
+      "date": "2023-11-21T14:21:18Z",
+      "sha256": "b7dc29af21cea1e594070a29bae5292ee8248c430160634727bafd8635c40ceb"
     },
     "facebookincubator/fizz": {
-      "version": "2023.11.13.00",
-      "date": "2023-11-09T17:32:14Z",
-      "sha256": "ebcfbe99c64ec8da41766e315ef92672e84fd45863c462ec88d1d29eb6d66a21"
+      "version": "2023.11.20.00",
+      "date": "2023-11-16T17:34:41Z",
+      "sha256": "bf3497582a31d359d9c3e2de3cda17acb62ee7095882aec4a41b9d4712c3364a"
     },
     "fmtlib/fmt": {
       "version": "10.1.1",
@@ -263,9 +263,9 @@
       "sha256": "8e9b5d68e32fd94e5733bb6e1f47001e16254295ab351cd33efdf9d26d93d2ea"
     },
     "abedra/libvault": {
-      "version": "0.58.0",
-      "date": "2023-10-07T17:10:28Z",
-      "sha256": "960e13a2893792a7060ea8feee145c5e7469393e5f7d702db3d09c87bf4be2dc"
+      "version": "0.59.0",
+      "date": "2023-11-20T12:03:47Z",
+      "sha256": "668e71e1689f6142735387989042945e42fd6e0483f223ce3a08121887a335ce"
     },
     "webmproject/libwebm": {
       "version": "1.0.0.31",
@@ -346,10 +346,10 @@
       "sha256": "d2b0e59cb9fd55999f56c57b6580783542d1e653d3ca888d69c19170691d7346"
     },
     "openssl/openssl": {
-      "version": "3.1.4",
-      "date": "2023-10-24T13:41:51Z",
+      "version": "3.2.0",
+      "date": "2023-11-23T13:20:19Z",
       "tag_filter": "^openssl-\\d+\\.\\d+\\.\\d+$",
-      "sha256": "c087d98815696d3f1b19848604aef1382d11e216634d3b72bd61ec27fb645f80"
+      "sha256": "90e96cca3b02d9b06b3bf5a9e2f83990b079a8fc5824eaed68814d4f45526217"
     },
     "open-telemetry/opentelemetry-cpp": {
       "version": "1.12.0",
@@ -381,9 +381,9 @@
       "sha256": "ea27494a2e4c6debab9c548f9b7da5260d5ded1604ada8dc5367375e3f9e6d14"
     },
     "facebook/proxygen": {
-      "version": "2023.11.13.00",
-      "date": "2023-11-10T03:30:07Z",
-      "sha256": "a49f98304694ad63bf2cdc52c8905d0fdc801b12d64304d1a45312fe80d73b7d"
+      "version": "2023.11.20.00",
+      "date": "2023-11-18T17:32:15Z",
+      "sha256": "fac0ffb66e905b3c2905ee1d2055869a4c78ee145d5d76c7ea47d9efc6a3d157"
     },
     "zeux/pugixml": {
       "version": "1.14",
@@ -412,9 +412,9 @@
       "sha256": "1c6e51ac49fc805090a9bb630981010f9e118ea010c20c82b37454820ff3f143"
     },
     "baresip/re": {
-      "version": "3.6.2",
-      "date": "2023-11-06T15:50:50Z",
-      "sha256": "adf881c64ae8ece0c717b06655b9605f8ab83118095757b1a605f668ee55d1f7"
+      "version": "3.7.0",
+      "date": "2023-11-22T09:30:54Z",
+      "sha256": "2666f9cdf315776d899c2cf2815f04ed332d8d51ce443dcddf195cb283bc2eef"
     },
     "cameron314/readerwriterqueue": {
       "version": "1.0.6",
@@ -462,9 +462,9 @@
       "sha256": "dd5193ee84989c6b78bb9607f03910b141299157c93d77a8dbf3592f70a78b52"
     },
     "tink-crypto/tink-cc": {
-      "version": "2.0.0",
-      "date": "2023-04-27T07:02:20Z",
-      "sha256": "103ddfce800e77f3b3b6b2c808a8611bc734b31ddb12fbcfd8bebc1b96a7e963"
+      "version": "2.1.0",
+      "date": "2023-11-22T16:58:35Z",
+      "sha256": "3804afecbe7096d3786b660e9cd5f365f064743eec52d76984abb9da38dd0fb3"
     },
     "toruniina/toml11": {
       "version": "3.7.1",
@@ -542,6 +542,11 @@
       "date": "2021-04-01T00:17:30Z",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
       "sha256": "ce1e7b27ad362cb9745de7da3d266a996b085ca75a12ac62c881f88ab6894acf"
+    },
+    "eliaskosunen/scnlib": {
+      "version": "2.0.0-beta",
+      "date": "2023-10-29T18:48:19Z",
+      "sha256": "c4796baabd5e9303029e91470ba20b61315ddf8b7b4e76b738ce8960be8c8b1c"
     }
   }
 }
