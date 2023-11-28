@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2023-11-24T12:20:05.232068"
+    "date": "2023-11-28T06:35:33.872399"
   },
   "versions": {
     "abseil/abseil-cpp": {
@@ -60,6 +60,9 @@
       "version": "1.0.4",
       "date": "2023-06-10T23:21:27Z",
       "sha256": "6874cb028c27bf0d00ebdb3784c65e0aae004f9ad287301708aa9d8b836be57a"
+    },
+    "ngruenwald/config": {
+      "version": "main"
     },
     "cjlove/config-cpp": {
       "version": "master"
@@ -127,9 +130,9 @@
       "sha256": "6745e17682d6e2be1ea31ec8bf1814a3d7cb17d61d120e5f2ee5a075926634ad"
     },
     "drogonframework/drogon": {
-      "version": "1.9.0-rc.1",
-      "date": "2023-09-24T02:52:52Z",
-      "sha256": "5f0b3d8bad248606e58e4dd886215d3c94dc2e29b6f0dd68fc6a54272cf8c39c"
+      "version": "1.9.1",
+      "date": "2023-11-27T10:55:54Z",
+      "sha256": "061b2b595b2ee7518ff37b577651b760555e615806f08f34ce712313c0749f02"
     },
     "wqking/eventpp": {
       "version": "0.1.3",
@@ -142,9 +145,9 @@
       "sha256": "b7dc29af21cea1e594070a29bae5292ee8248c430160634727bafd8635c40ceb"
     },
     "facebookincubator/fizz": {
-      "version": "2023.11.20.00",
-      "date": "2023-11-16T17:34:41Z",
-      "sha256": "bf3497582a31d359d9c3e2de3cda17acb62ee7095882aec4a41b9d4712c3364a"
+      "version": "2023.11.27.00",
+      "date": "2023-11-23T00:03:51Z",
+      "sha256": "aba4ca2ef8c2290d1811924c1d25032934e486882bca8c6a7da90b166762cb86"
     },
     "fmtlib/fmt": {
       "version": "10.1.1",
@@ -381,9 +384,9 @@
       "sha256": "ea27494a2e4c6debab9c548f9b7da5260d5ded1604ada8dc5367375e3f9e6d14"
     },
     "facebook/proxygen": {
-      "version": "2023.11.20.00",
-      "date": "2023-11-18T17:32:15Z",
-      "sha256": "fac0ffb66e905b3c2905ee1d2055869a4c78ee145d5d76c7ea47d9efc6a3d157"
+      "version": "2023.11.27.00",
+      "date": "2023-11-24T17:32:07Z",
+      "sha256": "4b78993aaaf14c0a76b478183e213194ddb69bb6ae9166c45424e820830e2ddb"
     },
     "zeux/pugixml": {
       "version": "1.14",
@@ -547,6 +550,54 @@
       "version": "2.0.0-beta",
       "date": "2023-10-29T18:48:19Z",
       "sha256": "c4796baabd5e9303029e91470ba20b61315ddf8b7b4e76b738ce8960be8c8b1c"
+    },
+    "erikd/libsndfile": {
+      "version": "1.2.2",
+      "date": "2023-08-13T08:53:51Z",
+      "sha256": "14899cc522be3442df041ba74d6477bd91619a9be508e5097176e054d0b7ed5c"
+    },
+    "muellan/clipp": {
+      "version": "1.2.3",
+      "date": "2019-04-27T10:12:25Z",
+      "sha256": "51f820de9f04866a9a94235258ec51ebfee12f3f3d0ca86a84cf4ddfe50411a3"
+    },
+    "p-ranav/indicators": {
+      "version": "2.3",
+      "date": "2023-02-15T15:17:27Z",
+      "sha256": "c1deca4b72d655ba457882a5d1b75011f99253c6a2cc8d2f5bc7c49324b2e4ff"
+    },
+    "paulftw/hiberlite": {
+      "version": "master"
+    },
+    "redis/hiredis": {
+      "version": "1.2.0",
+      "date": "2023-07-12T07:31:17Z",
+      "sha256": "a166bac2e394ad4282e6413a56e0411ae4631bd7484ca076f8093fcdd6d8ae63"
+    },
+    "rbock/sqlpp11": {
+      "version": "0.64",
+      "date": "2023-10-03T07:45:21Z",
+      "sha256": "afb0fb1833ee463994d87a7c86ef944850b60786b98ba35a879c41c37d6c1768"
+    },
+    "srombauts/sqlitecpp": {
+      "version": "3.3.1",
+      "date": "2023-08-27T21:11:58Z",
+      "sha256": "e1bdc1ff47f201bc2b77703de1001ea5e525151fa57c22ed43f06335b4784603"
+    },
+    "thalhammer/jwt-cpp": {
+      "version": "0.7.0-rc.0",
+      "date": "2022-11-05T14:03:37Z",
+      "sha256": "1d76db0a3a5bb977442a884c38bd887fbc3e5632d3b98c95db7d26c420f5af8d"
+    },
+    "sqlite/sqlite": {
+      "version": "3.44.2",
+      "date": "2023-11-24T11:41:44Z",
+      "sha256": "30ae0d0948c421806edcbba330abf31d5720f7656f69bd257efab3c3322f24e0"
+    },
+    "opencv/opencv": {
+      "version": "4.8.1",
+      "date": "2023-09-27T07:54:33Z",
+      "sha256": "b0383d3655afafd34c27fe11cb17d448df0a5392bd7c5629f9991a80f5841dbc"
     }
   }
 }
