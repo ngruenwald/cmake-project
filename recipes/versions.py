@@ -26,6 +26,7 @@ def main() -> None:
     parser.add_argument("--output", default=None, help="Output file")
     parser.add_argument("--package", default=None, help="Process only specified package")
     parser.add_argument("--add", default=None, help="Add new package")
+    parser.add_argument("--delay", type=float, default=None, help="Delay in seconds between package checks")
     args = parser.parse_args()
 
     if args.token is not None:
@@ -45,6 +46,8 @@ def main() -> None:
         data["versions"].update({package: info})
     else:
         for package, info in data["versions"].items():
+            if args.delay:
+                sleep(args.delay)
             if not args.package or args.package == package:
                 update_package(package, info, args.force, args.yes)
     filename = args.output if args.output else f"versions-{now.date().isoformat()}.json"
