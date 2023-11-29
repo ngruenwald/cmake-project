@@ -1,603 +1,603 @@
 {
   "meta": {
-    "date": "2023-11-28T06:35:33.872399"
+    "date": "2023-11-29T06:03:22.096121"
   },
   "versions": {
-    "abseil/abseil-cpp": {
-      "version": "20230802.1",
-      "date": "2023-09-18T14:40:01Z",
-      "sha256": "497ebdc3a4885d9209b9bd416e8c3f71e7a1fb8af249f6c2a80b7cbeefcd7e21"
-    },
-    "p-ranav/argparse": {
-      "version": "3.0",
-      "date": "2023-11-06T01:15:14Z",
-      "sha256": "674e724c2702f0bfef1619161815257a407e1babce30d908327729fba6ce4124"
-    },
-    "chriskohlhoff/asio": {
-      "version": "1-28-2",
-      "date": "2023-10-25T13:33:31Z",
-      "sha256": "417536ed4d31645b550d6c475a952544d1aab30a04d7228e6ce6ca935bf2dc1b"
-    },
-    "bombela/backward-cpp": {
-      "version": "1.6",
-      "date": "2021-08-12T22:49:08Z",
-      "sha256": "9b07e12656ab9af8779a84e06865233b9e30fadbb063bf94dd81d318081db8c2"
-    },
-    "google/benchmark": {
-      "version": "1.8.3",
-      "date": "2023-08-31T12:16:50Z",
-      "sha256": "abfc22e33e3594d0edf8eaddaf4d84a2ffc491ad74b6a7edc6e7a608f690e691"
-    },
     "3hren/blackhole": {
-      "version": "1.9.0",
       "date": "2017-09-12T12:23:26Z",
-      "sha256": ""
+      "sha256": "",
+      "version": "1.9.0"
     },
-    "woltapp/blurhash": {
+    "abedra/libvault": {
+      "date": "2023-11-20T12:03:47Z",
+      "sha256": "668e71e1689f6142735387989042945e42fd6e0483f223ce3a08121887a335ce",
+      "version": "0.59.0"
+    },
+    "abseil/abseil-cpp": {
+      "date": "2023-09-18T14:40:01Z",
+      "sha256": "497ebdc3a4885d9209b9bd416e8c3f71e7a1fb8af249f6c2a80b7cbeefcd7e21",
+      "version": "20230802.1"
+    },
+    "agauniyal/rang": {
+      "date": "2021-07-30T14:22:25Z",
+      "sha256": "ae4552eaf502f8d2c88cfb6bd62c1f09eced009478dd6bbd46137dce9b8baedc",
+      "version": "3.2"
+    },
+    "andrerenaud/pdfgen": {
+      "date": "2021-06-07T23:02:34Z",
+      "sha256": "a2ac755712bb59213d0b45bb425fb64b3815d739fcab0733b06044b94e95e0ea",
+      "version": "0.1.0"
+    },
+    "andrewrk/libsoundio": {
+      "date": "2019-02-20T13:25:44Z",
+      "sha256": "8e9b5d68e32fd94e5733bb6e1f47001e16254295ab351cd33efdf9d26d93d2ea",
+      "version": "2.0.0"
+    },
+    "arashpartow/strtk": {
       "version": "master"
     },
-    "google/brotli": {
-      "version": "1.1.0",
-      "date": "2023-08-29T10:59:55Z",
-      "sha256": "9d7ec775e67cdb3d0328f63f314b381d57f0f985499bbf2e55b15138a3621b19"
+    "baresip/re": {
+      "date": "2023-11-22T09:30:54Z",
+      "sha256": "2666f9cdf315776d899c2cf2815f04ed332d8d51ce443dcddf195cb283bc2eef",
+      "version": "3.7.0"
     },
-    "catchorg/catch2": {
-      "version": "3.4.0",
-      "date": "2023-07-13T11:37:30Z",
-      "sha256": "cd175f5b7e62c29558d4c17d2b94325ee0ab6d0bf1a4b3d61bc8dbcc688ea3c2"
+    "bfgroup/lyra": {
+      "date": "2022-11-07T21:49:52Z",
+      "sha256": "bc1bba5d4897205484c2f135db825f1189a74520592ee59d4f58b36c58c92f35",
+      "version": "1.6.1"
     },
-    "tjol/ckdl": {
-      "version": "0.1.2",
-      "date": "2023-10-03T14:13:26Z",
-      "sha256": "2dc68da7d741bea64246446dabf3decbe101e8ca3e395ce603471090e389cb58"
+    "bloomen/transwarp": {
+      "date": "2022-06-24T10:57:36Z",
+      "sha256": "41c45e1131233fed24ded3e5e49ec412e97b76bdeaf3bd7259a7c8c8f2f7189a",
+      "version": "2.2.3"
     },
-    "daniele77/cli": {
-      "version": "2.1.0",
-      "date": "2023-06-29T16:48:03Z",
-      "sha256": "91a37ea8cf940ac79ff82aece4b748f68e44645ced6d861d34c4b099f46afc1f"
-    },
-    "cameron314/concurrentqueue": {
-      "version": "1.0.4",
-      "date": "2023-06-10T23:21:27Z",
-      "sha256": "6874cb028c27bf0d00ebdb3784c65e0aae004f9ad287301708aa9d8b836be57a"
-    },
-    "ngruenwald/config": {
-      "version": "main"
-    },
-    "cjlove/config-cpp": {
-      "version": "master"
-    },
-    "jart/cosmopolitan": {
-      "version": "3.1",
-      "date": "2023-11-19T04:30:47Z",
-      "tag_filter": "^\\d+(\\.\\d+){1,3}$",
-      "sha256": "8619919fe427005b2e2e5a1a0bc4bf888e539b513614daf738231fb5cff14c97"
-    },
-    "ryanhaining/cppitertools": {
-      "version": "2.1",
-      "date": "2020-04-21T17:05:14Z",
-      "sha256": "204fa0c872c0f34c9263862a5f4b93a9858fde9fdae8064febc7683863f1497d"
-    },
-    "jafarlihi/cppq": {
-      "version": "master"
-    },
-    "yhirose/cpp-httplib": {
-      "version": "0.14.1",
-      "date": "2023-10-01T02:13:14Z",
-      "sha256": "19205ac9afdd5ac32a341e29a2d1b25ab486a0c34ad4e195680cfcb3d1004777"
-    },
-    "yhirose/cpp-mmaplib": {
-      "version": "master"
-    },
-    "yhirose/cpp-peglib": {
-      "version": "1.8.5",
-      "date": "2023-07-15T01:38:38Z",
-      "sha256": "a32f69240e35d7d84c9a47fa6b33100573e8f0086ea311f9336217a00944a321"
-    },
-    "yhirose/cpp-unicodelib": {
-      "version": "master"
-    },
-    "libcpr/cpr": {
-      "version": "1.10.5",
-      "date": "2023-10-14T12:45:47Z",
-      "sha256": "846c5aeeeb090bac96abb577025dc20f06e8a777da2ab2ac7b75254b43a3ed65"
-    },
-    "fungos/cr": {
-      "version": "master"
-    },
-    "crowcpp/crow": {
-      "version": "1.0+5",
-      "date": "2022-08-22T19:32:22Z",
-      "sha256": "f95128a8976fae6f2922823e07da59edae277a460776572a556a4b663ff5ee4b"
-    },
-    "curl/curl": {
-      "version": "8_4_0",
-      "date": "2023-10-11T05:34:19Z",
-      "tag_filter": "^curl-\\d+_\\d+_\\d+$",
-      "sha256": "8033fbc10342bdfb5ceaacbd27acbf94fbd7567ffb127b5c971dd4d95b660ebe"
-    },
-    "jarro2783/cxxopts": {
-      "version": "3.1.1",
-      "date": "2023-02-15T20:02:16Z",
-      "sha256": "25b644a2bfa9c6704d723be51b026bc02420dfdee1277a49bfe5df3f19b0eaa4"
-    },
-    "mamedev/delegates": {
-      "version": "master"
-    },
-    "doctest/doctest": {
-      "version": "2.4.11",
-      "date": "2023-03-15T12:35:29Z",
-      "sha256": "6745e17682d6e2be1ea31ec8bf1814a3d7cb17d61d120e5f2ee5a075926634ad"
-    },
-    "drogonframework/drogon": {
-      "version": "1.9.1",
-      "date": "2023-11-27T10:55:54Z",
-      "sha256": "061b2b595b2ee7518ff37b577651b760555e615806f08f34ce712313c0749f02"
-    },
-    "wqking/eventpp": {
-      "version": "0.1.3",
-      "date": "2023-09-21T00:06:57Z",
-      "sha256": "ebfecb4c0cbeac3f65e571c0243b31535c45fc768697957b1fdb7d9021d14339"
-    },
-    "richiesams/fibertaskinglib": {
-      "version": "2.0.3",
-      "date": "2023-11-21T14:21:18Z",
-      "sha256": "b7dc29af21cea1e594070a29bae5292ee8248c430160634727bafd8635c40ceb"
-    },
-    "facebookincubator/fizz": {
-      "version": "2023.11.27.00",
-      "date": "2023-11-23T00:03:51Z",
-      "sha256": "aba4ca2ef8c2290d1811924c1d25032934e486882bca8c6a7da90b166762cb86"
-    },
-    "fmtlib/fmt": {
-      "version": "10.1.1",
-      "date": "2023-08-26T15:20:41Z",
-      "sha256": "3c2e73019178ad72b0614a3124f25de454b9ca3a1afe81d5447b8d3cbdb6d322"
-    },
-    "mengrao/fmtlog": {
-      "version": "2.2.1",
-      "date": "2022-09-11T09:19:36Z",
-      "sha256": "c70458b9f67682093d88fd64f20fe1d387d2e7194f5a6d9f7f8a7b78a9c9d966"
-    },
-    "ngruenwald/fundus": {
-      "version": "main"
-    },
-    "kjellkod/g3log": {
-      "version": "2.3",
-      "date": "2023-02-20T13:16:34Z",
-      "sha256": "d03ac04f225bcfe28e59d2cb536c7b17f5687527ddbb3b71415bffd85b8338c9"
-    },
-    "gflags/gflags": {
-      "version": "2.2.2",
-      "date": "2018-11-11T21:21:00Z",
-      "sha256": "19713a36c9f32b33df59d1c79b4958434cb005b5b47dc5400a7a4b078111d9b5"
-    },
-    "p-ranav/glob": {
-      "version": "0.0.1",
-      "date": "2021-05-10T16:58:47Z",
-      "sha256": "9a71c57d2f9aa5ed0361af50434d12badb3644b42024cab3ed87398669e9930c"
-    },
-    "google/glog": {
-      "version": "0.6.0",
-      "date": "2022-04-04T22:03:27Z",
-      "sha256": "122fb6b712808ef43fbf80f75c52a21c9760683dae470154f02bddfc61135022"
-    },
-    "google/googletest": {
-      "version": "1.14.0",
-      "date": "2023-08-02T15:24:13Z",
-      "sha256": "1f357c27ca988c3f7c6b4bf68a9395005ac6761f034046e9dde0896e3aba00e4"
-    },
-    "grpc/grpc": {
-      "version": "1.59.2",
-      "date": "2023-10-30T17:33:54Z",
-      "sha256": "97dfec69bd95816f7531db8bae5ae19dfec0094b798ccc2f91db50769ef3a390"
-    },
-    "microsoft/gsl": {
-      "version": "4.0.0",
-      "date": "2022-01-28T23:22:59Z",
-      "sha256": "eb91fcb10a6aa5ccb1d224e07a56c8ecffe9a1bb601fa1848276ec46a2200bfb"
-    },
-    "google/guetzli": {
-      "version": "1.0.1",
-      "date": "2017-03-21T16:26:36Z",
-      "sha256": "439b14130b8c929cc569bd068d71285106da939320354e5073a33526d9f25f1a"
-    },
-    "ybainier/hypodermic": {
-      "version": "2.5.3",
-      "date": "2021-09-21T16:39:45Z",
-      "sha256": "61f728c87903876c573a7a931b96663bb67c59d35b03e2863972c63d4e3d16e1"
-    },
-    "ocornut/imgui": {
-      "version": "1.90",
-      "date": "2023-11-15T14:20:20Z",
-      "sha256": "fbe086f5bfc631db509acea851734f6996d6d2ef8fdeacb3f097f6def21e8af8"
-    },
-    "sfml/imgui-sfml": {
-      "version": "2.6",
-      "date": "2023-08-16T19:48:26Z",
-      "sha256": "0d28217ae7a17f846c1e994942b18e6f592e2c60bea1e3bf07e2d2d443cd1449"
+    "blueloveth/pocketpy": {
+      "date": "2023-11-10T08:18:03Z",
+      "sha256": "b9dbb2182db148688f8d889aa3ead19b58cd39a5cbed9862d98ee7ab3851e481",
+      "version": "1.3.0"
     },
     "bnhoyt/inih": {
       "version": "master"
     },
-    "pantor/inja": {
-      "version": "3.4.0",
-      "date": "2023-01-29T12:10:03Z",
-      "sha256": "4ad04d380b8377874c7a097a662c1f67f40da5fb7d3abc3851544f59c3613a20"
+    "bombela/backward-cpp": {
+      "date": "2021-08-12T22:49:08Z",
+      "sha256": "9b07e12656ab9af8779a84e06865233b9e30fadbb063bf94dd81d318081db8c2",
+      "version": "1.6"
     },
-    "jinja2cpp/jinja2cpp": {
-      "version": "1.3.1",
-      "date": "2023-11-19T20:10:21Z",
-      "sha256": "f56ff908867688851f0b157c30dca3843e7a707411956c3b0d5bf01967181e8c"
+    "cameron314/concurrentqueue": {
+      "date": "2023-06-10T23:21:27Z",
+      "sha256": "6874cb028c27bf0d00ebdb3784c65e0aae004f9ad287301708aa9d8b836be57a",
+      "version": "1.0.4"
     },
-    "j0r1/jrtplib": {
-      "version": "3.11.2",
-      "date": "2020-04-18T09:44:45Z",
-      "sha256": "01dca8bbcecfb0c9cea07d4487bf60e1bc0bd805fbd3bdcecb4664824549983c"
+    "cameron314/readerwriterqueue": {
+      "date": "2021-08-14T20:41:41Z",
+      "sha256": "253ae10bb6dd28da2bb7e7538b9d010bfd1914fcafff758e6d50ea5a475afcfa",
+      "version": "1.0.6"
     },
-    "nlohmann/json": {
-      "version": "3.11.2",
-      "date": "2022-08-12T13:06:06Z",
-      "sha256": "95651d7d1fcf2e5c3163c3d37df6d6b3e9e5027299e6bd050d157322ceda9ac9"
+    "catchorg/catch2": {
+      "date": "2023-07-13T11:37:30Z",
+      "sha256": "cd175f5b7e62c29558d4c17d2b94325ee0ab6d0bf1a4b3d61bc8dbcc688ea3c2",
+      "version": "3.4.0"
     },
-    "libarchive/libarchive": {
-      "version": "3.7.2",
-      "date": "2023-09-11T21:59:08Z",
-      "sha256": "d4d41a5f4839ce85f36c9e67b0f78db96e8732402db3f55881c8429b0c30f210"
+    "chriskohlhoff/asio": {
+      "date": "2023-10-25T13:33:31Z",
+      "sha256": "417536ed4d31645b550d6c475a952544d1aab30a04d7228e6ce6ca935bf2dc1b",
+      "version": "1-28-2"
     },
-    "khizmax/libcds": {
-      "version": "2.3.3",
-      "date": "2018-12-31T16:30:07Z",
-      "sha256": "05a355ab59e6b9383788c771e8f0e7622b302b87b8732fc29538d4a4764f1f0c"
+    "cjlove/config-cpp": {
+      "version": "master"
     },
-    "libgit2/libgit2": {
-      "version": "1.7.1",
-      "date": "2023-08-14T20:49:40Z",
-      "sha256": "f2d5622f538da8218c12f7d42aa66f44a5075965b52852579e4de75192cec215"
+    "cpp-netlib/url": {
+      "date": "2020-09-11T18:42:01Z",
+      "sha256": "360b595cffa2116b17052cf9035e177969de6c4601b56da094d758b89bdb5801",
+      "version": "1.13.0"
     },
-    "libharu/libharu": {
-      "version": "2.4.4",
-      "date": "2023-09-18T19:47:01Z",
-      "sha256": "4a4eda43baff5c34a248d3316a1e5a8c7a66db01f08eafd0cf8c0117db540345"
+    "crowcpp/crow": {
+      "date": "2022-08-22T19:32:22Z",
+      "sha256": "f95128a8976fae6f2922823e07da59edae277a460776572a556a4b663ff5ee4b",
+      "version": "1.0+5"
     },
-    "andrewrk/libsoundio": {
-      "version": "2.0.0",
-      "date": "2019-02-20T13:25:44Z",
-      "sha256": "8e9b5d68e32fd94e5733bb6e1f47001e16254295ab351cd33efdf9d26d93d2ea"
+    "curl/curl": {
+      "date": "2023-10-11T05:34:19Z",
+      "sha256": "8033fbc10342bdfb5ceaacbd27acbf94fbd7567ffb127b5c971dd4d95b660ebe",
+      "tag_filter": "^curl-\\d+_\\d+_\\d+$",
+      "version": "8_4_0"
     },
-    "abedra/libvault": {
-      "version": "0.59.0",
-      "date": "2023-11-20T12:03:47Z",
-      "sha256": "668e71e1689f6142735387989042945e42fd6e0483f223ce3a08121887a335ce"
+    "cyan4973/xxhash": {
+      "date": "2015-08-20T16:05:38Z",
+      "sha256": "564deca95f970ae8e33cad1ac408749b42fe060b1c10e934645dbc241dc97ae7",
+      "version": "42"
     },
-    "webmproject/libwebm": {
-      "version": "1.0.0.31",
-      "date": "2023-10-26T17:44:02Z",
-      "sha256": "4d26c064a513b5c355d36004aa318f8bee029769d6ca60e3ed3bcf33bfabed6f"
+    "daminetreg/xxhr": {
+      "date": "2018-09-14T09:21:54Z",
+      "sha256": "a0008a345826ee2f934343d6fcb1e857812cf632cf7d4096a79e581ed7b5ea28",
+      "version": "1.0.0"
+    },
+    "daniele77/cli": {
+      "date": "2023-06-29T16:48:03Z",
+      "sha256": "91a37ea8cf940ac79ff82aece4b748f68e44645ced6d861d34c4b099f46afc1f",
+      "version": "2.1.0"
+    },
+    "doctest/doctest": {
+      "date": "2023-03-15T12:35:29Z",
+      "sha256": "6745e17682d6e2be1ea31ec8bf1814a3d7cb17d61d120e5f2ee5a075926634ad",
+      "version": "2.4.11"
+    },
+    "drogonframework/drogon": {
+      "date": "2023-11-27T10:55:54Z",
+      "sha256": "061b2b595b2ee7518ff37b577651b760555e615806f08f34ce712313c0749f02",
+      "version": "1.9.1"
+    },
+    "eliaskosunen/scnlib": {
+      "date": "2023-10-29T18:48:19Z",
+      "sha256": "c4796baabd5e9303029e91470ba20b61315ddf8b7b4e76b738ce8960be8c8b1c",
+      "version": "2.0.0-beta"
+    },
+    "erikd/libsndfile": {
+      "date": "2023-08-13T08:53:51Z",
+      "sha256": "14899cc522be3442df041ba74d6477bd91619a9be508e5097176e054d0b7ed5c",
+      "version": "1.2.2"
+    },
+    "facebook/proxygen": {
+      "date": "2023-11-24T17:32:07Z",
+      "sha256": "4b78993aaaf14c0a76b478183e213194ddb69bb6ae9166c45424e820830e2ddb",
+      "version": "2023.11.27.00"
+    },
+    "facebook/zstd": {
+      "date": "2023-04-04T20:13:52Z",
+      "sha256": "c5c8daa1d40dabc51790c62a5b86af2b36dfc4e1a738ff10dc4a46ea4e68ee51",
+      "version": "1.5.5"
+    },
+    "facebookincubator/fizz": {
+      "date": "2023-11-23T00:03:51Z",
+      "sha256": "aba4ca2ef8c2290d1811924c1d25032934e486882bca8c6a7da90b166762cb86",
+      "version": "2023.11.27.00"
+    },
+    "fmtlib/fmt": {
+      "date": "2023-08-26T15:20:41Z",
+      "sha256": "3c2e73019178ad72b0614a3124f25de454b9ca3a1afe81d5447b8d3cbdb6d322",
+      "version": "10.1.1"
+    },
+    "foonathan/memory": {
+      "date": "2023-01-11T11:39:00Z",
+      "sha256": "55f870f623999743578bb14444c3bd08d65a6966b5798744b379de9f90f070da",
+      "version": "0.7-3"
+    },
+    "fr00b0/nod": {
+      "date": "2022-05-02T05:35:42Z",
+      "sha256": "e5f9880d6bb526b8e538285e62741745e19ebf3655e2959d206e724c80c69e32",
+      "version": "0.5.4"
+    },
+    "fungos/cr": {
+      "version": "master"
+    },
+    "gabime/spdlog": {
+      "date": "2023-07-08T14:12:25Z",
+      "sha256": "6174bf8885287422a6c6a0312eb8a30e8d22bcfcee7c48a6d02d1835d7769232",
+      "version": "1.12.0"
+    },
+    "gflags/gflags": {
+      "date": "2018-11-11T21:21:00Z",
+      "sha256": "19713a36c9f32b33df59d1c79b4958434cb005b5b47dc5400a7a4b078111d9b5",
+      "version": "2.2.2"
     },
     "gnome/libxml2": {
-      "version": "2021-3541",
       "date": "2021-05-13T12:55:12Z",
-      "sha256": "a27d20a1856ba4959e3464043599a9d8fd7cf274f8aa5d04f089d59be666e201"
+      "sha256": "a27d20a1856ba4959e3464043599a9d8fd7cf274f8aa5d04f089d59be666e201",
+      "version": "2021-3541"
     },
-    "bfgroup/lyra": {
-      "version": "1.6.1",
-      "date": "2022-11-07T21:49:52Z",
-      "sha256": "bc1bba5d4897205484c2f135db825f1189a74520592ee59d4f58b36c58c92f35"
+    "google/benchmark": {
+      "date": "2023-08-31T12:16:50Z",
+      "sha256": "abfc22e33e3594d0edf8eaddaf4d84a2ffc491ad74b6a7edc6e7a608f690e691",
+      "version": "1.8.3"
     },
-    "zeromq/libzmq": {
-      "version": "4.3.5",
-      "date": "2023-10-08T23:01:14Z",
-      "sha256": "49b9d6cd12275d94a27724fcda646554f13af27857e3fe778b72cb245c74976e"
+    "google/brotli": {
+      "date": "2023-08-29T10:59:55Z",
+      "sha256": "9d7ec775e67cdb3d0328f63f314b381d57f0f985499bbf2e55b15138a3621b19",
+      "version": "1.1.0"
     },
-    "lz4/lz4": {
-      "version": "131",
-      "date": "2015-06-29T09:48:37Z",
-      "sha256": "f1cfb5761ed0a55265defd8c3bcb55d2fac78a437264077bd45b842224c05045"
+    "google/glog": {
+      "date": "2022-04-04T22:03:27Z",
+      "sha256": "122fb6b712808ef43fbf80f75c52a21c9760683dae470154f02bddfc61135022",
+      "version": "0.6.0"
     },
-    "neargye/magic_enum": {
-      "version": "0.9.5",
-      "date": "2023-11-16T08:32:10Z",
-      "sha256": "6259fe6629a6d865081ad2911a5bce8b687f8d086ae04560e2d7ce3883e9ea8d"
+    "google/googletest": {
+      "date": "2023-08-02T15:24:13Z",
+      "sha256": "1f357c27ca988c3f7c6b4bf68a9395005ac6761f034046e9dde0896e3aba00e4",
+      "version": "1.14.0"
+    },
+    "google/guetzli": {
+      "date": "2017-03-21T16:26:36Z",
+      "sha256": "439b14130b8c929cc569bd068d71285106da939320354e5073a33526d9f25f1a",
+      "version": "1.0.1"
     },
     "google/marl": {
       "version": "main"
     },
     "google/mediapipe": {
-      "version": "0.10.8",
       "date": "2023-11-03T00:58:44Z",
-      "sha256": "174ae018c4701860d8b532967a47a70f27a52ce0f99f2e650cbfdd7d170a4860"
+      "sha256": "174ae018c4701860d8b532967a47a70f27a52ce0f99f2e650cbfdd7d170a4860",
+      "version": "0.10.8"
     },
-    "foonathan/memory": {
-      "version": "0.7-3",
-      "date": "2023-01-11T11:39:00Z",
-      "sha256": "55f870f623999743578bb14444c3bd08d65a6966b5798744b379de9f90f070da"
+    "grpc/grpc": {
+      "date": "2023-10-30T17:33:54Z",
+      "sha256": "97dfec69bd95816f7531db8bae5ae19dfec0094b798ccc2f91db50769ef3a390",
+      "version": "1.59.2"
     },
-    "skypjack/meta": {
-      "version": "1.4.9",
-      "date": "2019-09-30T11:47:36Z",
-      "sha256": "ecf082056f16ffea9238c24ebc18d5fe6d8910dd05e2598b7176574d977f8010"
+    "j0r1/jrtplib": {
+      "date": "2020-04-18T09:44:45Z",
+      "sha256": "01dca8bbcecfb0c9cea07d4487bf60e1bc0bd805fbd3bdcecb4664824549983c",
+      "version": "3.11.2"
     },
-    "neargye/nameof": {
-      "version": "0.10.3",
-      "date": "2023-03-30T16:19:30Z",
-      "sha256": "68d87795eaf785100ed43ceebb2af3048ee49aced18de8d351ddaacca29b7f3b"
-    },
-    "nanomsg/nanomsg": {
-      "version": "1.2",
-      "date": "2022-04-18T23:29:26Z",
-      "sha256": "7ef32d36513b498169a105c08e39732b903b66800302db140730f38434c64867"
-    },
-    "nghttp2/nghttp2": {
-      "version": "1.58.0",
-      "date": "2023-10-27T10:55:46Z",
-      "sha256": "d1f409a6e8e40dfe4fe125ab5448225b519ac3c99290ab36dcdf3f4b78e5e347"
-    },
-    "nanomsg/nng": {
-      "version": "12",
-      "date": "2019-12-12T13:09:48Z",
-      "sha256": "d7472a77ca0e235d6d74e6a0258b5df12a0f9de14aa2109c8b9bb319a11258a7"
-    },
-    "fr00b0/nod": {
-      "version": "0.5.4",
-      "date": "2022-05-02T05:35:42Z",
-      "sha256": "e5f9880d6bb526b8e538285e62741745e19ebf3655e2959d206e724c80c69e32"
-    },
-    "oatpp/oatpp": {
-      "version": "1.3.0",
-      "date": "2021-11-19T00:43:04Z",
-      "sha256": "d2b0e59cb9fd55999f56c57b6580783542d1e653d3ca888d69c19170691d7346"
-    },
-    "openssl/openssl": {
-      "version": "3.2.0",
-      "date": "2023-11-23T13:20:19Z",
-      "tag_filter": "^openssl-\\d+\\.\\d+\\.\\d+$",
-      "sha256": "90e96cca3b02d9b06b3bf5a9e2f83990b079a8fc5824eaed68814d4f45526217"
-    },
-    "open-telemetry/opentelemetry-cpp": {
-      "version": "1.12.0",
-      "date": "2023-10-16T08:38:49Z",
-      "sha256": "ec050965cc99e62884bf7afe9112b5bd50494e3d47297cc9bc09ea61d4dbc188"
-    },
-    "xiph/opus": {
-      "version": "15",
-      "date": "2012-06-19T00:46:31Z",
-      "sha256": "621807f423b2c3a9bdd3414a41b2fcd39a8f93cf12b1cb47dd7363cd89e41702"
-    },
-    "andrerenaud/pdfgen": {
-      "version": "0.1.0",
-      "date": "2021-06-07T23:02:34Z",
-      "sha256": "a2ac755712bb59213d0b45bb425fb64b3815d739fcab0733b06044b94e95e0ea"
-    },
-    "pistacheio/pistache": {
+    "jafarlihi/cppq": {
       "version": "master"
     },
-    "blueloveth/pocketpy": {
-      "version": "1.3.0",
-      "date": "2023-11-10T08:18:03Z",
-      "sha256": "b9dbb2182db148688f8d889aa3ead19b58cd39a5cbed9862d98ee7ab3851e481"
+    "jarro2783/cxxopts": {
+      "date": "2023-02-15T20:02:16Z",
+      "sha256": "25b644a2bfa9c6704d723be51b026bc02420dfdee1277a49bfe5df3f19b0eaa4",
+      "version": "3.1.1"
     },
-    "protocolbuffers/protobuf": {
-      "version": "4.25.1",
-      "date": "2023-11-15T18:52:57Z",
-      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "sha256": "ea27494a2e4c6debab9c548f9b7da5260d5ded1604ada8dc5367375e3f9e6d14"
-    },
-    "facebook/proxygen": {
-      "version": "2023.11.27.00",
-      "date": "2023-11-24T17:32:07Z",
-      "sha256": "4b78993aaaf14c0a76b478183e213194ddb69bb6ae9166c45424e820830e2ddb"
-    },
-    "zeux/pugixml": {
-      "version": "1.14",
-      "date": "2023-09-07T18:55:13Z",
-      "sha256": "86a2b2f16d3e107b9ea5043ef9c458306b94d38f6203d58a196dc9b9dc6351a6"
-    },
-    "agauniyal/rang": {
-      "version": "3.2",
-      "date": "2021-07-30T14:22:25Z",
-      "sha256": "ae4552eaf502f8d2c88cfb6bd62c1f09eced009478dd6bbd46137dce9b8baedc"
-    },
-    "tencent/rapidjson": {
-      "version": "1.1.0",
-      "date": "2016-08-25T07:59:05Z",
-      "sha256": "8e00c38829d6785a2dfb951bb87c6974fa07dfe488aa5b25deec4b8bc0f6a3ab"
-    },
-    "raysan5/raylib": {
-      "version": "4.5.0",
-      "date": "2023-03-18T16:37:04Z",
-      "tag_filter": "^\\d+\\.\\d+\\.\\d+$",
-      "sha256": "32c25fed7cee561b9aa2614b4edd029c6baf3d2e7dba69d51e52da17a567e319"
-    },
-    "robloach/raylib-cpp": {
-      "version": "5.0.0",
-      "date": "2023-11-18T18:45:31Z",
-      "sha256": "1c6e51ac49fc805090a9bb630981010f9e118ea010c20c82b37454820ff3f143"
-    },
-    "baresip/re": {
-      "version": "3.7.0",
-      "date": "2023-11-22T09:30:54Z",
-      "sha256": "2666f9cdf315776d899c2cf2815f04ed332d8d51ce443dcddf195cb283bc2eef"
-    },
-    "cameron314/readerwriterqueue": {
-      "version": "1.0.6",
-      "date": "2021-08-14T20:41:41Z",
-      "sha256": "253ae10bb6dd28da2bb7e7538b9d010bfd1914fcafff758e6d50ea5a475afcfa"
-    },
-    "scylladb/seastar": {
-      "version": "master"
-    },
-    "sfml/sfml": {
-      "version": "2.6.1",
-      "date": "2023-10-17T19:18:36Z",
-      "sha256": "d7c4c524b4224dbc31f802a270f62503a3c37540897de06290d856a74d6faf7c"
-    },
-    "zhanggyb/sigcxx": {
-      "version": "master"
-    },
-    "gabime/spdlog": {
-      "version": "1.12.0",
-      "date": "2023-07-08T14:12:25Z",
-      "sha256": "6174bf8885287422a6c6a0312eb8a30e8d22bcfcee7c48a6d02d1835d7769232"
-    },
-    "sql-builder": {
-      "version": "master"
-    },
-    "nothings/stb": {
-      "version": "master"
-    },
-    "arashpartow/strtk": {
-      "version": "master"
-    },
-    "p-ranav/tabulate": {
-      "version": "1.5",
-      "date": "2023-02-20T14:40:03Z",
-      "sha256": "91622a382263b1262e9ac31cf30a16f405c66dc02f983f9997901c46623593cd"
-    },
-    "taskflow/taskflow": {
-      "version": "3.6.0",
-      "date": "2023-05-07T06:15:28Z",
-      "sha256": "c5735d5e42f9eda746f682628b542c43e8eebf5c42ea2ae6ac3581e809fcca96"
-    },
-    "ngruenwald/tempus": {
-      "version": "0.1.1",
-      "date": "2022-07-28T15:43:33Z",
-      "sha256": "dd5193ee84989c6b78bb9607f03910b141299157c93d77a8dbf3592f70a78b52"
-    },
-    "tink-crypto/tink-cc": {
-      "version": "2.1.0",
-      "date": "2023-11-22T16:58:35Z",
-      "sha256": "3804afecbe7096d3786b660e9cd5f365f064743eec52d76984abb9da38dd0fb3"
-    },
-    "toruniina/toml11": {
-      "version": "3.7.1",
-      "date": "2022-03-12T16:44:29Z",
-      "sha256": "4124577f989d6a558229ef8f06944ca210e4cf1fe72975eaa2528f1a53f129c4"
-    },
-    "marzer/tomlplusplus": {
-      "version": "3.4.0",
-      "date": "2023-10-13T13:25:17Z",
-      "sha256": "ad2a4cd786e25305d802e7490ea65a2531195e5834bf6b4fa5a323421fd81f9b"
-    },
-    "bloomen/transwarp": {
-      "version": "2.2.3",
-      "date": "2022-06-24T10:57:36Z",
-      "sha256": "41c45e1131233fed24ded3e5e49ec412e97b76bdeaf3bd7259a7c8c8f2f7189a"
-    },
-    "cpp-netlib/url": {
-      "version": "1.13.0",
-      "date": "2020-09-11T18:42:01Z",
-      "sha256": "360b595cffa2116b17052cf9035e177969de6c4601b56da094d758b89bdb5801"
-    },
-    "userver-framework/userver": {
-      "version": "1.0.0",
-      "date": "2023-09-20T17:09:22Z",
-      "sha256": "f12c5f8852e6aca40544637c49dde2d3e794bfb4b8466892306246d92319829c"
-    },
-    "nemtrif/utfcpp": {
-      "version": "4.0.2",
-      "date": "2023-11-04T15:33:22Z",
-      "sha256": "bba757b3ca541ba973b1f18afe3d97589f53ce95904d9430701bd16d0ccd5f70"
-    },
-    "twitter/vireo": {
-      "version": "master"
-    },
-    "microsoft/wil": {
-      "version": "1.0.231028.1",
-      "date": "2023-10-27T21:40:37Z",
-      "sha256": "b9f06b661ceb4ada74402eb38459ba82288872b82a0ba548cf9d11ca1e9e449a"
-    },
-    "quicknir/wise_enum": {
-      "version": "3.0.0",
-      "date": "2018-10-11T01:13:02Z",
-      "sha256": "e38712ff2aa711592bc85800297a85e233109e6b750d882d4bf8099082fe4001"
-    },
-    "cyan4973/xxhash": {
-      "version": "42",
-      "date": "2015-08-20T16:05:38Z",
-      "sha256": "564deca95f970ae8e33cad1ac408749b42fe060b1c10e934645dbc241dc97ae7"
-    },
-    "daminetreg/xxhr": {
-      "version": "1.0.0",
-      "date": "2018-09-14T09:21:54Z",
-      "sha256": "a0008a345826ee2f934343d6fcb1e857812cf632cf7d4096a79e581ed7b5ea28"
+    "jart/cosmopolitan": {
+      "date": "2023-11-19T04:30:47Z",
+      "sha256": "8619919fe427005b2e2e5a1a0bc4bf888e539b513614daf738231fb5cff14c97",
+      "tag_filter": "^\\d+(\\.\\d+){1,3}$",
+      "version": "3.1"
     },
     "jbeder/yaml-cpp": {
-      "version": "0.8.0",
       "date": "2023-08-10T19:27:56Z",
-      "sha256": "334e80ab7b52e14c23f94e041c74bab0742f2281aad55f66be2f19f4b7747071"
+      "sha256": "334e80ab7b52e14c23f94e041c74bab0742f2281aad55f66be2f19f4b7747071",
+      "version": "0.8.0"
+    },
+    "jinja2cpp/jinja2cpp": {
+      "date": "2023-11-19T20:10:21Z",
+      "sha256": "f56ff908867688851f0b157c30dca3843e7a707411956c3b0d5bf01967181e8c",
+      "version": "1.3.1"
+    },
+    "khizmax/libcds": {
+      "date": "2018-12-31T16:30:07Z",
+      "sha256": "05a355ab59e6b9383788c771e8f0e7622b302b87b8732fc29538d4a4764f1f0c",
+      "version": "2.3.3"
+    },
+    "kjellkod/g3log": {
+      "date": "2023-02-20T13:16:34Z",
+      "sha256": "d03ac04f225bcfe28e59d2cb536c7b17f5687527ddbb3b71415bffd85b8338c9",
+      "version": "2.3"
+    },
+    "libarchive/libarchive": {
+      "date": "2023-09-11T21:59:08Z",
+      "sha256": "d4d41a5f4839ce85f36c9e67b0f78db96e8732402db3f55881c8429b0c30f210",
+      "version": "3.7.2"
+    },
+    "libcpr/cpr": {
+      "date": "2023-10-14T12:45:47Z",
+      "sha256": "846c5aeeeb090bac96abb577025dc20f06e8a777da2ab2ac7b75254b43a3ed65",
+      "version": "1.10.5"
+    },
+    "libgit2/libgit2": {
+      "date": "2023-08-14T20:49:40Z",
+      "sha256": "f2d5622f538da8218c12f7d42aa66f44a5075965b52852579e4de75192cec215",
+      "version": "1.7.1"
+    },
+    "libharu/libharu": {
+      "date": "2023-09-18T19:47:01Z",
+      "sha256": "4a4eda43baff5c34a248d3316a1e5a8c7a66db01f08eafd0cf8c0117db540345",
+      "version": "2.4.4"
+    },
+    "lz4/lz4": {
+      "date": "2015-06-29T09:48:37Z",
+      "sha256": "f1cfb5761ed0a55265defd8c3bcb55d2fac78a437264077bd45b842224c05045",
+      "version": "131"
     },
     "madler/zlib": {
-      "version": "1.3",
       "date": "2023-08-18T08:45:36Z",
-      "sha256": "e6ee0c09dccf864ec23f2df075401cc7c68a67a8a633ff182e7abcb7c673356e"
+      "sha256": "e6ee0c09dccf864ec23f2df075401cc7c68a67a8a633ff182e7abcb7c673356e",
+      "version": "1.3"
     },
-    "facebook/zstd": {
-      "version": "1.5.5",
-      "date": "2023-04-04T20:13:52Z",
-      "sha256": "c5c8daa1d40dabc51790c62a5b86af2b36dfc4e1a738ff10dc4a46ea4e68ee51"
+    "mamedev/delegates": {
+      "version": "master"
+    },
+    "marzer/tomlplusplus": {
+      "date": "2023-10-13T13:25:17Z",
+      "sha256": "ad2a4cd786e25305d802e7490ea65a2531195e5834bf6b4fa5a323421fd81f9b",
+      "version": "3.4.0"
+    },
+    "mengrao/fmtlog": {
+      "date": "2022-09-11T09:19:36Z",
+      "sha256": "c70458b9f67682093d88fd64f20fe1d387d2e7194f5a6d9f7f8a7b78a9c9d966",
+      "version": "2.2.1"
+    },
+    "microsoft/gsl": {
+      "date": "2022-01-28T23:22:59Z",
+      "sha256": "eb91fcb10a6aa5ccb1d224e07a56c8ecffe9a1bb601fa1848276ec46a2200bfb",
+      "version": "4.0.0"
+    },
+    "microsoft/wil": {
+      "date": "2023-10-27T21:40:37Z",
+      "sha256": "b9f06b661ceb4ada74402eb38459ba82288872b82a0ba548cf9d11ca1e9e449a",
+      "version": "1.0.231028.1"
+    },
+    "muellan/clipp": {
+      "date": "2019-04-27T10:12:25Z",
+      "sha256": "51f820de9f04866a9a94235258ec51ebfee12f3f3d0ca86a84cf4ddfe50411a3",
+      "version": "1.2.3"
+    },
+    "nanomsg/nanomsg": {
+      "date": "2022-04-18T23:29:26Z",
+      "sha256": "7ef32d36513b498169a105c08e39732b903b66800302db140730f38434c64867",
+      "version": "1.2"
+    },
+    "nanomsg/nng": {
+      "date": "2019-12-12T13:09:48Z",
+      "sha256": "d7472a77ca0e235d6d74e6a0258b5df12a0f9de14aa2109c8b9bb319a11258a7",
+      "version": "12"
+    },
+    "neargye/magic_enum": {
+      "date": "2023-11-16T08:32:10Z",
+      "sha256": "6259fe6629a6d865081ad2911a5bce8b687f8d086ae04560e2d7ce3883e9ea8d",
+      "version": "0.9.5"
+    },
+    "neargye/nameof": {
+      "date": "2023-03-30T16:19:30Z",
+      "sha256": "68d87795eaf785100ed43ceebb2af3048ee49aced18de8d351ddaacca29b7f3b",
+      "version": "0.10.3"
+    },
+    "nemtrif/utfcpp": {
+      "date": "2023-11-04T15:33:22Z",
+      "sha256": "bba757b3ca541ba973b1f18afe3d97589f53ce95904d9430701bd16d0ccd5f70",
+      "version": "4.0.2"
+    },
+    "nghttp2/nghttp2": {
+      "date": "2023-10-27T10:55:46Z",
+      "sha256": "d1f409a6e8e40dfe4fe125ab5448225b519ac3c99290ab36dcdf3f4b78e5e347",
+      "version": "1.58.0"
+    },
+    "ngruenwald/config": {
+      "version": "main"
     },
     "ngruenwald/cpp-soaplib": {
       "version": "main"
     },
-    "portaudio/portaudio": {
-      "version": "19.7.0",
-      "date": "2021-04-01T00:17:30Z",
-      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "sha256": "ce1e7b27ad362cb9745de7da3d266a996b085ca75a12ac62c881f88ab6894acf"
+    "ngruenwald/fundus": {
+      "version": "main"
     },
-    "eliaskosunen/scnlib": {
-      "version": "2.0.0-beta",
-      "date": "2023-10-29T18:48:19Z",
-      "sha256": "c4796baabd5e9303029e91470ba20b61315ddf8b7b4e76b738ce8960be8c8b1c"
+    "ngruenwald/tempus": {
+      "date": "2022-07-28T15:43:33Z",
+      "sha256": "dd5193ee84989c6b78bb9607f03910b141299157c93d77a8dbf3592f70a78b52",
+      "version": "0.1.1"
     },
-    "erikd/libsndfile": {
-      "version": "1.2.2",
-      "date": "2023-08-13T08:53:51Z",
-      "sha256": "14899cc522be3442df041ba74d6477bd91619a9be508e5097176e054d0b7ed5c"
+    "nlohmann/json": {
+      "date": "2022-08-12T13:06:06Z",
+      "sha256": "95651d7d1fcf2e5c3163c3d37df6d6b3e9e5027299e6bd050d157322ceda9ac9",
+      "version": "3.11.2"
     },
-    "muellan/clipp": {
-      "version": "1.2.3",
-      "date": "2019-04-27T10:12:25Z",
-      "sha256": "51f820de9f04866a9a94235258ec51ebfee12f3f3d0ca86a84cf4ddfe50411a3"
+    "nothings/stb": {
+      "version": "master"
+    },
+    "oatpp/oatpp": {
+      "date": "2021-11-19T00:43:04Z",
+      "sha256": "d2b0e59cb9fd55999f56c57b6580783542d1e653d3ca888d69c19170691d7346",
+      "version": "1.3.0"
+    },
+    "ocornut/imgui": {
+      "date": "2023-11-15T14:20:20Z",
+      "sha256": "fbe086f5bfc631db509acea851734f6996d6d2ef8fdeacb3f097f6def21e8af8",
+      "version": "1.90"
+    },
+    "open-telemetry/opentelemetry-cpp": {
+      "date": "2023-10-16T08:38:49Z",
+      "sha256": "ec050965cc99e62884bf7afe9112b5bd50494e3d47297cc9bc09ea61d4dbc188",
+      "version": "1.12.0"
+    },
+    "opencv/opencv": {
+      "date": "2023-09-27T07:54:33Z",
+      "sha256": "b0383d3655afafd34c27fe11cb17d448df0a5392bd7c5629f9991a80f5841dbc",
+      "version": "4.8.1"
+    },
+    "openssl/openssl": {
+      "date": "2023-11-23T13:20:19Z",
+      "sha256": "90e96cca3b02d9b06b3bf5a9e2f83990b079a8fc5824eaed68814d4f45526217",
+      "tag_filter": "^openssl-\\d+\\.\\d+\\.\\d+$",
+      "version": "3.2.0"
+    },
+    "p-ranav/argparse": {
+      "date": "2023-11-06T01:15:14Z",
+      "sha256": "674e724c2702f0bfef1619161815257a407e1babce30d908327729fba6ce4124",
+      "version": "3.0"
+    },
+    "p-ranav/glob": {
+      "date": "2021-05-10T16:58:47Z",
+      "sha256": "9a71c57d2f9aa5ed0361af50434d12badb3644b42024cab3ed87398669e9930c",
+      "version": "0.0.1"
     },
     "p-ranav/indicators": {
-      "version": "2.3",
       "date": "2023-02-15T15:17:27Z",
-      "sha256": "c1deca4b72d655ba457882a5d1b75011f99253c6a2cc8d2f5bc7c49324b2e4ff"
+      "sha256": "c1deca4b72d655ba457882a5d1b75011f99253c6a2cc8d2f5bc7c49324b2e4ff",
+      "version": "2.3"
+    },
+    "p-ranav/tabulate": {
+      "date": "2023-02-20T14:40:03Z",
+      "sha256": "91622a382263b1262e9ac31cf30a16f405c66dc02f983f9997901c46623593cd",
+      "version": "1.5"
+    },
+    "pantor/inja": {
+      "date": "2023-01-29T12:10:03Z",
+      "sha256": "4ad04d380b8377874c7a097a662c1f67f40da5fb7d3abc3851544f59c3613a20",
+      "version": "3.4.0"
     },
     "paulftw/hiberlite": {
       "version": "master"
     },
-    "redis/hiredis": {
-      "version": "1.2.0",
-      "date": "2023-07-12T07:31:17Z",
-      "sha256": "a166bac2e394ad4282e6413a56e0411ae4631bd7484ca076f8093fcdd6d8ae63"
+    "pistacheio/pistache": {
+      "version": "master"
+    },
+    "portaudio/portaudio": {
+      "date": "2021-04-01T00:17:30Z",
+      "sha256": "ce1e7b27ad362cb9745de7da3d266a996b085ca75a12ac62c881f88ab6894acf",
+      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
+      "version": "19.7.0"
+    },
+    "protocolbuffers/protobuf": {
+      "date": "2023-11-15T18:52:57Z",
+      "sha256": "ea27494a2e4c6debab9c548f9b7da5260d5ded1604ada8dc5367375e3f9e6d14",
+      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
+      "version": "4.25.1"
+    },
+    "quicknir/wise_enum": {
+      "date": "2018-10-11T01:13:02Z",
+      "sha256": "e38712ff2aa711592bc85800297a85e233109e6b750d882d4bf8099082fe4001",
+      "version": "3.0.0"
+    },
+    "raysan5/raylib": {
+      "date": "2023-03-18T16:37:04Z",
+      "sha256": "32c25fed7cee561b9aa2614b4edd029c6baf3d2e7dba69d51e52da17a567e319",
+      "tag_filter": "^\\d+\\.\\d+\\.\\d+$",
+      "version": "4.5.0"
     },
     "rbock/sqlpp11": {
-      "version": "0.64",
       "date": "2023-10-03T07:45:21Z",
-      "sha256": "afb0fb1833ee463994d87a7c86ef944850b60786b98ba35a879c41c37d6c1768"
+      "sha256": "afb0fb1833ee463994d87a7c86ef944850b60786b98ba35a879c41c37d6c1768",
+      "version": "0.64"
     },
-    "srombauts/sqlitecpp": {
-      "version": "3.3.1",
-      "date": "2023-08-27T21:11:58Z",
-      "sha256": "e1bdc1ff47f201bc2b77703de1001ea5e525151fa57c22ed43f06335b4784603"
+    "redis/hiredis": {
+      "date": "2023-07-12T07:31:17Z",
+      "sha256": "a166bac2e394ad4282e6413a56e0411ae4631bd7484ca076f8093fcdd6d8ae63",
+      "version": "1.2.0"
     },
-    "thalhammer/jwt-cpp": {
-      "version": "0.7.0-rc.0",
-      "date": "2022-11-05T14:03:37Z",
-      "sha256": "1d76db0a3a5bb977442a884c38bd887fbc3e5632d3b98c95db7d26c420f5af8d"
+    "richiesams/fibertaskinglib": {
+      "date": "2023-11-21T14:21:18Z",
+      "sha256": "b7dc29af21cea1e594070a29bae5292ee8248c430160634727bafd8635c40ceb",
+      "version": "2.0.3"
+    },
+    "robloach/raylib-cpp": {
+      "date": "2023-11-18T18:45:31Z",
+      "sha256": "1c6e51ac49fc805090a9bb630981010f9e118ea010c20c82b37454820ff3f143",
+      "version": "5.0.0"
+    },
+    "ryanhaining/cppitertools": {
+      "date": "2020-04-21T17:05:14Z",
+      "sha256": "204fa0c872c0f34c9263862a5f4b93a9858fde9fdae8064febc7683863f1497d",
+      "version": "2.1"
+    },
+    "scylladb/seastar": {
+      "version": "master"
+    },
+    "sfml/imgui-sfml": {
+      "date": "2023-08-16T19:48:26Z",
+      "sha256": "0d28217ae7a17f846c1e994942b18e6f592e2c60bea1e3bf07e2d2d443cd1449",
+      "version": "2.6"
+    },
+    "sfml/sfml": {
+      "date": "2023-10-17T19:18:36Z",
+      "sha256": "d7c4c524b4224dbc31f802a270f62503a3c37540897de06290d856a74d6faf7c",
+      "version": "2.6.1"
+    },
+    "skypjack/meta": {
+      "date": "2019-09-30T11:47:36Z",
+      "sha256": "ecf082056f16ffea9238c24ebc18d5fe6d8910dd05e2598b7176574d977f8010",
+      "version": "1.4.9"
+    },
+    "sql-builder": {
+      "version": "master"
     },
     "sqlite/sqlite": {
-      "version": "3.44.2",
       "date": "2023-11-24T11:41:44Z",
-      "sha256": "30ae0d0948c421806edcbba330abf31d5720f7656f69bd257efab3c3322f24e0"
+      "sha256": "30ae0d0948c421806edcbba330abf31d5720f7656f69bd257efab3c3322f24e0",
+      "version": "3.44.2"
     },
-    "opencv/opencv": {
-      "version": "4.8.1",
-      "date": "2023-09-27T07:54:33Z",
-      "sha256": "b0383d3655afafd34c27fe11cb17d448df0a5392bd7c5629f9991a80f5841dbc"
+    "srombauts/sqlitecpp": {
+      "date": "2023-08-27T21:11:58Z",
+      "sha256": "e1bdc1ff47f201bc2b77703de1001ea5e525151fa57c22ed43f06335b4784603",
+      "version": "3.3.1"
+    },
+    "taskflow/taskflow": {
+      "date": "2023-05-07T06:15:28Z",
+      "sha256": "c5735d5e42f9eda746f682628b542c43e8eebf5c42ea2ae6ac3581e809fcca96",
+      "version": "3.6.0"
+    },
+    "tencent/rapidjson": {
+      "date": "2016-08-25T07:59:05Z",
+      "sha256": "8e00c38829d6785a2dfb951bb87c6974fa07dfe488aa5b25deec4b8bc0f6a3ab",
+      "version": "1.1.0"
+    },
+    "thalhammer/jwt-cpp": {
+      "date": "2022-11-05T14:03:37Z",
+      "sha256": "1d76db0a3a5bb977442a884c38bd887fbc3e5632d3b98c95db7d26c420f5af8d",
+      "version": "0.7.0-rc.0"
+    },
+    "tink-crypto/tink-cc": {
+      "date": "2023-11-22T16:58:35Z",
+      "sha256": "3804afecbe7096d3786b660e9cd5f365f064743eec52d76984abb9da38dd0fb3",
+      "version": "2.1.0"
+    },
+    "tjol/ckdl": {
+      "date": "2023-10-03T14:13:26Z",
+      "sha256": "2dc68da7d741bea64246446dabf3decbe101e8ca3e395ce603471090e389cb58",
+      "version": "0.1.2"
+    },
+    "toruniina/toml11": {
+      "date": "2022-03-12T16:44:29Z",
+      "sha256": "4124577f989d6a558229ef8f06944ca210e4cf1fe72975eaa2528f1a53f129c4",
+      "version": "3.7.1"
+    },
+    "twitter/vireo": {
+      "version": "master"
+    },
+    "userver-framework/userver": {
+      "date": "2023-09-20T17:09:22Z",
+      "sha256": "f12c5f8852e6aca40544637c49dde2d3e794bfb4b8466892306246d92319829c",
+      "version": "1.0.0"
+    },
+    "webmproject/libwebm": {
+      "date": "2023-10-26T17:44:02Z",
+      "sha256": "4d26c064a513b5c355d36004aa318f8bee029769d6ca60e3ed3bcf33bfabed6f",
+      "version": "1.0.0.31"
+    },
+    "woltapp/blurhash": {
+      "version": "master"
+    },
+    "wqking/eventpp": {
+      "date": "2023-09-21T00:06:57Z",
+      "sha256": "ebfecb4c0cbeac3f65e571c0243b31535c45fc768697957b1fdb7d9021d14339",
+      "version": "0.1.3"
+    },
+    "xiph/opus": {
+      "date": "2012-06-19T00:46:31Z",
+      "sha256": "621807f423b2c3a9bdd3414a41b2fcd39a8f93cf12b1cb47dd7363cd89e41702",
+      "version": "15"
+    },
+    "ybainier/hypodermic": {
+      "date": "2021-09-21T16:39:45Z",
+      "sha256": "61f728c87903876c573a7a931b96663bb67c59d35b03e2863972c63d4e3d16e1",
+      "version": "2.5.3"
+    },
+    "yhirose/cpp-httplib": {
+      "date": "2023-10-01T02:13:14Z",
+      "sha256": "19205ac9afdd5ac32a341e29a2d1b25ab486a0c34ad4e195680cfcb3d1004777",
+      "version": "0.14.1"
+    },
+    "yhirose/cpp-mmaplib": {
+      "version": "master"
+    },
+    "yhirose/cpp-peglib": {
+      "date": "2023-07-15T01:38:38Z",
+      "sha256": "a32f69240e35d7d84c9a47fa6b33100573e8f0086ea311f9336217a00944a321",
+      "version": "1.8.5"
+    },
+    "yhirose/cpp-unicodelib": {
+      "version": "master"
+    },
+    "zeromq/libzmq": {
+      "date": "2023-10-08T23:01:14Z",
+      "sha256": "49b9d6cd12275d94a27724fcda646554f13af27857e3fe778b72cb245c74976e",
+      "version": "4.3.5"
+    },
+    "zeux/pugixml": {
+      "date": "2023-09-07T18:55:13Z",
+      "sha256": "86a2b2f16d3e107b9ea5043ef9c458306b94d38f6203d58a196dc9b9dc6351a6",
+      "version": "1.14"
+    },
+    "zhanggyb/sigcxx": {
+      "version": "master"
     }
   }
 }

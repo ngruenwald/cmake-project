@@ -61,7 +61,7 @@ def read_version_file(name: str) -> dict:
 
 def write_version_file(name: str, data: dict) -> None:
     with open(name, "w") as stream:
-        stream.write(json.dumps(data, indent=2))
+        stream.write(json.dumps(data, indent=2, sort_keys=True))
 
 
 def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> None:
