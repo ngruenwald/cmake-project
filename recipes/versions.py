@@ -7,6 +7,7 @@ import requests
 from datetime import datetime
 from functools import cmp_to_key
 from hashlib import sha256
+from subprocess import Popen
 from time import sleep
 
 
@@ -27,6 +28,7 @@ def main() -> None:
     parser.add_argument("--package", default=None, help="Process only specified package")
     parser.add_argument("--add", default=None, help="Add new package")
     parser.add_argument("--delay", type=float, default=None, help="Delay in seconds between package checks")
+    parser.add_argument("--commit", action="store_true", help="Create commit")
     args = parser.parse_args()
 
     if args.token is not None:
@@ -34,6 +36,7 @@ def main() -> None:
     else:
         set_token(os.getenv("TOKEN"))
 
+    changes: list[tuple[str, str, str]] = []
     now = datetime.utcnow()
     data = read_version_file("versions.json")
     data["meta"]["date"] = now.isoformat()
@@ -42,16 +45,23 @@ def main() -> None:
         package = parts[0]
         version = parts[1] if len(parts) > 1 else ""
         info = {"version": version}
-        update_package(package, info, args.force, args.yes)
+        change = update_package(package, info, args.force, args.yes)
+        if change:
+            changes.append(change)
         data["versions"].update({package: info})
     else:
         for package, info in data["versions"].items():
             if args.delay:
                 sleep(args.delay)
             if not args.package or args.package == package:
-                update_package(package, info, args.force, args.yes)
-    filename = args.output if args.output else f"versions-{now.date().isoformat()}.json"
+                change = update_package(package, info, args.force, args.yes)
+                if change:
+                    changes.append(change)
+    # filename = args.output if args.output else f"versions-{now.date().isoformat()}.json"
+    filename = args.output if args.output else "versions.json"
     write_version_file(filename, data)
+    if changes and args.commit:
+        create_commit(filename, changes)
 
 
 def read_version_file(name: str) -> dict:
@@ -64,7 +74,7 @@ def write_version_file(name: str, data: dict) -> None:
         stream.write(json.dumps(data, indent=2, sort_keys=True))
 
 
-def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> None:
+def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> tuple[str, str, str] | None:
     # TODO: lookup additional information from recipe file!
     # NOTE: currently we check all packages against github
     try:
@@ -75,12 +85,12 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> 
         # branch names
         if version in ["main", "master"]:
             print("  skipping branch")
-            return
+            return None
 
         # commits
         if version.startswith("#"):
             print("  skipping commit")
-            return
+            return None
 
         tags = api_get_list(f"https://api.github.com/repos/{package}/tags")
         tags = filter_tags(tags, info.get("tag_filter"))
@@ -98,7 +108,7 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> 
 
         if not needs_update:
             print("  no updates")
-            return
+            return None
 
         commit_sha = tag["commit"]["sha"]
         commit = api_get(f"https://api.github.com/repos/{package}/git/commits/{commit_sha}").json()
@@ -111,11 +121,11 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> 
 
         print(f"  {version } -> {tag_version}")
 
+        return (package, version, tag_version)
+
     except Exception as error:
         print(error)
-        return
-
-    return
+        return None
 
 
 def compare_tag_versions(a: str, b: str) -> int:
@@ -218,6 +228,21 @@ def ask_user(question: str) -> bool:
             return True
         if inp == "n":
             return False
+
+
+def create_commit(filename: str, changes: list[tuple[str, str, str]]) -> bool:
+    message = "maint: update versions\n"
+    for change in changes:
+        message += f"\n  * {change[0]} {change[1]}"
+    commands = [
+        ["git", "add", filename],
+        ["git", "commit", "-m", message]
+    ]
+    for command in commands:
+        proc = Popen(command)
+        if proc.wait() != 0:
+            return False
+    return True
 
 
 if __name__ == "__main__":
