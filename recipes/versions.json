@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2023-12-05T05:14:58.839056"
+    "date": "2023-12-05T20:35:01.907783"
   },
   "versions": {
     "3hren/blackhole": {
@@ -182,9 +182,10 @@
       "version": "2.2.2"
     },
     "gnome/libxml2": {
-      "date": "2021-05-13T12:55:12Z",
-      "sha256": "a27d20a1856ba4959e3464043599a9d8fd7cf274f8aa5d04f089d59be666e201",
-      "version": "2021-3541"
+      "date": "2023-12-05T19:49:22Z",
+      "sha256": "4652a6ef85a07fab1c0f46f263854e487d045c53390c08aa847bf7bc66f60993",
+      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
+      "version": "2.12.2"
     },
     "google/benchmark": {
       "date": "2023-08-31T12:16:50Z",
