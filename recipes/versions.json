@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2023-11-29T06:06:54.166564"
+    "date": "2023-12-05T05:14:58.839056"
   },
   "versions": {
     "3hren/blackhole": {
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2023-11-24T17:32:07Z",
-      "sha256": "4b78993aaaf14c0a76b478183e213194ddb69bb6ae9166c45424e820830e2ddb",
-      "version": "2023.11.27.00"
+      "date": "2023-12-03T17:32:38Z",
+      "sha256": "21ee1c707ef0c1438f3214d22ed15fbd63513785f546ed9b890768d9aa1ad209",
+      "version": "2023.12.04.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2023-11-23T00:03:51Z",
-      "sha256": "aba4ca2ef8c2290d1811924c1d25032934e486882bca8c6a7da90b166762cb86",
-      "version": "2023.11.27.00"
+      "date": "2023-12-03T17:32:38Z",
+      "sha256": "aece51f55d4405b8a309939c3d8b1a829f3209e51324d89fac1a53a10ee6b127",
+      "version": "2023.12.04.00"
     },
     "fmtlib/fmt": {
       "date": "2023-08-26T15:20:41Z",
@@ -238,10 +238,10 @@
       "version": "3.1.1"
     },
     "jart/cosmopolitan": {
-      "date": "2023-11-19T04:30:47Z",
-      "sha256": "8619919fe427005b2e2e5a1a0bc4bf888e539b513614daf738231fb5cff14c97",
+      "date": "2023-12-01T18:29:59Z",
+      "sha256": "6464377ac16288d3245c6d9145b57e28236eaba11b47d40546a34a088d65ef9c",
       "tag_filter": "^\\d+(\\.\\d+){1,3}$",
-      "version": "3.1"
+      "version": "3.1.3"
     },
     "jbeder/yaml-cpp": {
       "date": "2023-08-10T19:27:56Z",
@@ -342,9 +342,9 @@
       "version": "0.10.3"
     },
     "nemtrif/utfcpp": {
-      "date": "2023-11-04T15:33:22Z",
-      "sha256": "bba757b3ca541ba973b1f18afe3d97589f53ce95904d9430701bd16d0ccd5f70",
-      "version": "4.0.2"
+      "date": "2023-12-03T23:00:50Z",
+      "sha256": "ede5edffa2693dbf6d835c08b32e29838de728f4a1379236f151d077ec585b35",
+      "version": "4.0.3"
     },
     "nghttp2/nghttp2": {
       "date": "2023-10-27T10:55:46Z",
@@ -571,9 +571,9 @@
       "version": "2.5.3"
     },
     "yhirose/cpp-httplib": {
-      "date": "2023-10-01T02:13:14Z",
-      "sha256": "19205ac9afdd5ac32a341e29a2d1b25ab486a0c34ad4e195680cfcb3d1004777",
-      "version": "0.14.1"
+      "date": "2023-12-05T03:31:12Z",
+      "sha256": "b7dcfdf18c93c64a2590baeb439d8c684d135a7b70de511408a3202929ea150d",
+      "version": "0.14.2"
     },
     "yhirose/cpp-mmaplib": {
       "version": "master"
