@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2023-12-05T20:35:01.907783"
+    "date": "2023-12-12T06:21:44.084391"
   },
   "versions": {
     "3hren/blackhole": {
@@ -52,9 +52,9 @@
       "version": "2.2.3"
     },
     "blueloveth/pocketpy": {
-      "date": "2023-11-29T03:10:37Z",
-      "sha256": "820cccdf53a0be59ef616cd9fba0cbbd9b895e3ec3b636687a84e97c6aa41c22",
-      "version": "1.3.1"
+      "date": "2023-12-06T05:20:18Z",
+      "sha256": "0e5fb97f8043a387f48520da62e12db724d9f75fb92ffb34d70dc1c13a9ee2fb",
+      "version": "1.3.2"
     },
     "bnhoyt/inih": {
       "version": "master"
@@ -75,14 +75,14 @@
       "version": "1.0.6"
     },
     "catchorg/catch2": {
-      "date": "2023-07-13T11:37:30Z",
-      "sha256": "cd175f5b7e62c29558d4c17d2b94325ee0ab6d0bf1a4b3d61bc8dbcc688ea3c2",
-      "version": "3.4.0"
+      "date": "2023-12-10T23:55:40Z",
+      "sha256": "82079168b2304cfd0dfc70338f0c4b3caa4f3ef76b2643110d3f74a632252fc6",
+      "version": "3.5.0"
     },
     "chriskohlhoff/asio": {
-      "date": "2023-10-25T13:33:31Z",
-      "sha256": "417536ed4d31645b550d6c475a952544d1aab30a04d7228e6ce6ca935bf2dc1b",
-      "version": "1-28-2"
+      "date": "2023-11-08T13:50:57Z",
+      "sha256": "45a7967e9bbfe8b7af404daeaed4b9214fd663bef00ad4f52c3c92399297445b",
+      "version": "1-29-0"
     },
     "cjlove/config-cpp": {
       "version": "master"
@@ -98,10 +98,10 @@
       "version": "1.0+5"
     },
     "curl/curl": {
-      "date": "2023-10-11T05:34:19Z",
-      "sha256": "8033fbc10342bdfb5ceaacbd27acbf94fbd7567ffb127b5c971dd4d95b660ebe",
+      "date": "2023-12-06T07:11:44Z",
+      "sha256": "36dc348e94666f297039b7cd954532db44f59039167b4c654bf417bcb1e584b3",
       "tag_filter": "^curl-\\d+_\\d+_\\d+$",
-      "version": "8_4_0"
+      "version": "8_5_0"
     },
     "cyan4973/xxhash": {
       "date": "2015-08-20T16:05:38Z",
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2023-12-03T17:32:38Z",
-      "sha256": "21ee1c707ef0c1438f3214d22ed15fbd63513785f546ed9b890768d9aa1ad209",
-      "version": "2023.12.04.00"
+      "date": "2023-12-10T17:33:46Z",
+      "sha256": "888d3990dcfa87bf2cde43616715b950ed8dfdf7016fc9abffeb0fe1815ba579",
+      "version": "2023.12.11.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2023-12-03T17:32:38Z",
-      "sha256": "aece51f55d4405b8a309939c3d8b1a829f3209e51324d89fac1a53a10ee6b127",
-      "version": "2023.12.04.00"
+      "date": "2023-12-09T17:32:23Z",
+      "sha256": "61c012d1987f07de62a3d9e8654855cf226a8b4aa53730b7aad36c67f85e13e8",
+      "version": "2023.12.11.00"
     },
     "fmtlib/fmt": {
       "date": "2023-08-26T15:20:41Z",
@@ -260,9 +260,9 @@
       "version": "2.3.3"
     },
     "kjellkod/g3log": {
-      "date": "2023-02-20T13:16:34Z",
-      "sha256": "d03ac04f225bcfe28e59d2cb536c7b17f5687527ddbb3b71415bffd85b8338c9",
-      "version": "2.3"
+      "date": "2023-12-07T03:14:22Z",
+      "sha256": "2177e6dfd86fa7465c44c8ef5c3b6ab98ffc94e1130355d6982f7d886cb7bec9",
+      "version": "2.4"
     },
     "libarchive/libarchive": {
       "date": "2023-09-11T21:59:08Z",
@@ -343,9 +343,9 @@
       "version": "0.10.3"
     },
     "nemtrif/utfcpp": {
-      "date": "2023-12-03T23:00:50Z",
-      "sha256": "ede5edffa2693dbf6d835c08b32e29838de728f4a1379236f151d077ec585b35",
-      "version": "4.0.3"
+      "date": "2023-12-10T15:42:20Z",
+      "sha256": "4a5474b077bbc79a087454513803a6d17857e301155aa8b0b0030105c3a82ee3",
+      "version": "4.0.4"
     },
     "nghttp2/nghttp2": {
       "date": "2023-10-27T10:55:46Z",
@@ -385,9 +385,9 @@
       "version": "1.90"
     },
     "open-telemetry/opentelemetry-cpp": {
-      "date": "2023-10-16T08:38:49Z",
-      "sha256": "ec050965cc99e62884bf7afe9112b5bd50494e3d47297cc9bc09ea61d4dbc188",
-      "version": "1.12.0"
+      "date": "2023-12-06T19:39:21Z",
+      "sha256": "3f68869e6ee37156c81ec1e38f962e6f78967a22343184bf05d0b5f68abe7526",
+      "version": "1.13.0"
     },
     "opencv/opencv": {
       "date": "2023-09-27T07:54:33Z",
