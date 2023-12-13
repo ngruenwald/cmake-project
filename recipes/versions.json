@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2023-12-12T06:21:44.084391"
+    "date": "2023-12-13T21:04:53.184090"
   },
   "versions": {
     "3hren/blackhole": {
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "gnome/libxml2": {
-      "date": "2023-12-05T19:49:22Z",
-      "sha256": "4652a6ef85a07fab1c0f46f263854e487d045c53390c08aa847bf7bc66f60993",
+      "date": "2023-12-12T14:36:12Z",
+      "sha256": "b7bb1b67236310b8ddc231ae240fd0de79972cfe6c09e85fa6a57b41ce7d45fd",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "2.12.2"
+      "version": "2.12.3"
     },
     "google/benchmark": {
       "date": "2023-08-31T12:16:50Z",
@@ -216,9 +216,9 @@
       "version": "main"
     },
     "google/mediapipe": {
-      "date": "2023-11-03T00:58:44Z",
-      "sha256": "174ae018c4701860d8b532967a47a70f27a52ce0f99f2e650cbfdd7d170a4860",
-      "version": "0.10.8"
+      "date": "2023-12-12T16:53:36Z",
+      "sha256": "5ab08e246d12a8ebcb618de0c8eccf3b8d50f21177eef683ad3428e383011904",
+      "version": "0.10.9"
     },
     "grpc/grpc": {
       "date": "2023-11-28T00:12:30Z",
