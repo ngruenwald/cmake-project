@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2023-12-13T21:04:53.184090"
+    "date": "2023-12-18T20:04:07.395679"
   },
   "versions": {
     "3hren/blackhole": {
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2023-12-10T17:33:46Z",
-      "sha256": "888d3990dcfa87bf2cde43616715b950ed8dfdf7016fc9abffeb0fe1815ba579",
-      "version": "2023.12.11.00"
+      "date": "2023-12-17T17:32:15Z",
+      "sha256": "c18759808dd4e25334ff69596246c1542058b69f1214aefefc7ad31fd6df041f",
+      "version": "2023.12.18.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2023-12-09T17:32:23Z",
-      "sha256": "61c012d1987f07de62a3d9e8654855cf226a8b4aa53730b7aad36c67f85e13e8",
-      "version": "2023.12.11.00"
+      "date": "2023-12-17T17:32:15Z",
+      "sha256": "f89194abfb1fe79569f6904674ea3687c18d448defb8fa9b912ca8bf217bd2c9",
+      "version": "2023.12.18.00"
     },
     "fmtlib/fmt": {
       "date": "2023-08-26T15:20:41Z",
