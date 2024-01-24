@@ -233,7 +233,7 @@ def ask_user(question: str) -> bool:
 def create_commit(filename: str, changes: list[tuple[str, str, str]]) -> bool:
     message = "maint: update versions\n"
     for change in changes:
-        message += f"\n  * {change[0]} {change[1]}"
+        message += f"\n  * {change[0]} {change[2]}"
     commands = [
         ["git", "add", filename],
         ["git", "commit", "-m", message]
