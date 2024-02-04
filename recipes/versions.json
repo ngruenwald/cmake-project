@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-02-01T05:38:00.103609"
+    "date": "2024-02-04T17:27:20.343055"
   },
   "versions": {
     "3hren/blackhole": {
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-01-31T19:21:55Z",
-      "sha256": "d0be2d7b8be7bf1dec881baf8fca9b2b6d3fb2362b37d3304c509d9c58ca0c97",
+      "date": "2024-02-04T08:39:58Z",
+      "sha256": "ce9acd5ddf6118795354b92557ab555e594026541b067175f24c114bb7d90033",
       "tag_filter": "^b\\d+$",
-      "version": "2037"
+      "version": "2060"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-01-05T15:11:27Z",
@@ -193,10 +193,10 @@
       "version": "1.5.4"
     },
     "gnome/libxml2": {
-      "date": "2024-01-15T15:41:16Z",
-      "sha256": "7fe4969df5f75239ad1c48f06b18ce1fa7496dd034ce0e27894765b013c0aa46",
+      "date": "2024-02-04T13:53:18Z",
+      "sha256": "a8dfb31aa363724fd5f068e847dfc37ec0a7417c2c7bfd6f9cbdc791d764c133",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "2.12.4"
+      "version": "2.12.5"
     },
     "google/benchmark": {
       "date": "2023-08-31T12:16:50Z",
@@ -337,9 +337,9 @@
       "version": "1.2.3"
     },
     "nanomsg/nanomsg": {
-      "date": "2022-04-18T23:29:26Z",
-      "sha256": "7ef32d36513b498169a105c08e39732b903b66800302db140730f38434c64867",
-      "version": "1.2"
+      "date": "2024-02-03T22:45:24Z",
+      "sha256": "b5e81729261ef6746ebc470e266b917f4512312c5e6df07e89f516d02700159a",
+      "version": "1.2.1"
     },
     "nanomsg/nng": {
       "date": "2019-12-12T13:09:48Z",
@@ -586,9 +586,9 @@
       "version": "2.5.3"
     },
     "yhirose/cpp-httplib": {
-      "date": "2024-01-29T12:40:56Z",
-      "sha256": "d71077448d6b005df453263e78b8a258fd445fc26be85daeb7401ba1f0bf28f7",
-      "version": "0.15.1"
+      "date": "2024-02-03T04:29:30Z",
+      "sha256": "b290c6e195bfaddbb4f57a84eebbf80cc0df82e24d824f5dae822d0c2907b75d",
+      "version": "0.15.2"
     },
     "yhirose/cpp-mmaplib": {
       "version": "master"
