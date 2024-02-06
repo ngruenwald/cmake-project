@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-02-04T17:27:20.343055"
+    "date": "2024-02-06T05:17:42.702906"
   },
   "versions": {
     "3hren/blackhole": {
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-01-28T17:31:42Z",
-      "sha256": "64276364be086e901d220ef97f76f145b45e7484cb37f158328e770368778019",
-      "version": "2024.01.29.00"
+      "date": "2024-02-04T17:33:11Z",
+      "sha256": "a4a9226d08215a354d1c6c93c723f807144a416ab7dadd90591f359470f9cefb",
+      "version": "2024.02.05.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-01-27T17:31:35Z",
-      "sha256": "8e4f19c1ee6b57b96e8ee3750300d24f72f0dd36eda7f34100837a44400ed868",
-      "version": "2024.01.29.00"
+      "date": "2024-02-04T17:33:11Z",
+      "sha256": "35e6b7afbc2c7f1bf84d0009ba4c8bf1bf93f44acdfc9299860256bdbd89b40d",
+      "version": "2024.02.05.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-02-04T08:39:58Z",
-      "sha256": "ce9acd5ddf6118795354b92557ab555e594026541b067175f24c114bb7d90033",
+      "date": "2024-02-05T18:33:00Z",
+      "sha256": "f0253f9e1e53a232d0a1b6d5d341876bcbf17f99b1f2d579235c2ce074e351d7",
       "tag_filter": "^b\\d+$",
-      "version": "2060"
+      "version": "2074"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-01-05T15:11:27Z",
@@ -367,6 +367,9 @@
       "version": "1.59.0"
     },
     "ngruenwald/config": {
+      "version": "main"
+    },
+    "ngruenwald/config-generator": {
       "version": "main"
     },
     "ngruenwald/cpp-soaplib": {
@@ -586,9 +589,9 @@
       "version": "2.5.3"
     },
     "yhirose/cpp-httplib": {
-      "date": "2024-02-03T04:29:30Z",
-      "sha256": "b290c6e195bfaddbb4f57a84eebbf80cc0df82e24d824f5dae822d0c2907b75d",
-      "version": "0.15.2"
+      "date": "2024-02-06T03:12:43Z",
+      "sha256": "ead4fe8f6c9cba406c82dc55e3ed49174b43b643e3418a43311d00739637fbf4",
+      "version": "0.15.3"
     },
     "yhirose/cpp-mmaplib": {
       "version": "master"
