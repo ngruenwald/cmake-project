@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-03-11T05:41:45.480890"
+    "date": "2024-03-11T18:19:35.282273"
   },
   "versions": {
     "3hren/blackhole": {
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-03-03T01:31:19Z",
-      "sha256": "9db34125d1c15637d1532c5d966289fffadea8c97414c8997a2f5b1feb2232c6",
-      "version": "2024.03.04.00"
+      "date": "2024-03-10T16:32:07Z",
+      "sha256": "2055acbff02373d92ff882d83069c5185691b97b954a485272c9a334b7433fba",
+      "version": "2024.03.11.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-03-03T01:31:19Z",
-      "sha256": "a03bb4b0eca948a79503dc528aa82e3c408f9032732eddb2ef23a37d59883f0d",
-      "version": "2024.03.04.00"
+      "date": "2024-03-09T17:32:41Z",
+      "sha256": "8185d04d010cb2d60abc619d082e79222271c70e6e7b05ffdb9eeb8c93b86ee6",
+      "version": "2024.03.11.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-03-11T04:57:56Z",
-      "sha256": "7eec551091c761b38bfdb62dad97723e1068d421f590ee4257c51c8f7cc1bc75",
+      "date": "2024-03-11T09:56:41Z",
+      "sha256": "191dadfaa61acd9aabc0a3b9dd29884de8dc62037bd841ffcddc5a3de2bac96b",
       "tag_filter": "^b\\d+$",
-      "version": "2394"
+      "version": "2400"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-01-05T15:11:27Z",
