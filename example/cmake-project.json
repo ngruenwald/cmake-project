@@ -2,25 +2,28 @@
     "project": {
         "name": "hello_world",
         "version": "0.1.0",
-        "description": "outputs hello world"
+        "description": "outputs hello world",
+        "dependency-defaults": {
+            "recipes-path": "../recipes"
+        }
     },
     "dependencies": {
         "fmt": {
-            "version": "10.1.1",
-            "recipe": "${CMAKE_SOURCE_DIR}/../recipes/fmt.json"
+            "version": "10.1.1"
         },
         "LibXml2": {},
-        "openssl": {
+        "OpenSSL": {
             "skip": false,
             "version": "3.1.4",
-            "recipe": "${CMAKE_SOURCE_DIR}/../recipes/openssl.json",
             "url_hash": "SHA256=c087d98815696d3f1b19848604aef1382d11e216634d3b72bd61ec27fb645f80"
         }
     },
     "dev-dependencies": {
         "catch2": {
-            "version": "3.4.0",
-            "recipe": "${CMAKE_SOURCE_DIR}/../recipes/catch2.json"
+            "version": "3.4.0"
+        },
+        "config-generator": {
+            "recipe": "cgen.json"
         }
     }
 }
