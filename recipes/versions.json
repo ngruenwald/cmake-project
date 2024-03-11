@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-02-21T05:55:24.062439"
+    "date": "2024-03-11T05:41:45.480890"
   },
   "versions": {
     "3hren/blackhole": {
@@ -37,9 +37,9 @@
       "version": "master"
     },
     "baresip/re": {
-      "date": "2024-01-31T07:29:02Z",
-      "sha256": "f538e25410cff278ee90998c49bccbd3189037ae5228fc9e8c0ff6c1b50b4c3a",
-      "version": "3.9.0"
+      "date": "2024-03-06T13:01:45Z",
+      "sha256": "ae7cc9a7f4222554dbda2123182e7c1e8c3b88a8cd088def76061ad6bab67b0c",
+      "version": "3.10.0"
     },
     "bfgroup/lyra": {
       "date": "2022-11-07T21:49:52Z",
@@ -52,9 +52,9 @@
       "version": "2.2.3"
     },
     "blueloveth/pocketpy": {
-      "date": "2024-02-13T05:42:44Z",
-      "sha256": "138b4512f821c9d73078b3de81286c72d10dff140666fe00a1504166f81fffa5",
-      "version": "1.4.1"
+      "date": "2024-03-04T11:08:01Z",
+      "sha256": "aabf88be99d56a541105b8d4b06591d390359f2aaa587f9ab57820a73915112b",
+      "version": "1.4.2"
     },
     "bnhoyt/inih": {
       "version": "master"
@@ -75,9 +75,9 @@
       "version": "1.0.6"
     },
     "catchorg/catch2": {
-      "date": "2024-01-15T13:13:53Z",
-      "sha256": "85fcc78d0c3387b15ad82f22a94017b29e4fe7c1cf0a05c3dd465b2746eef73f",
-      "version": "3.5.2"
+      "date": "2024-03-01T21:07:10Z",
+      "sha256": "2de1868288b26a19c2aebfc3fe53a748ec3ec5fc32cc742dfccaf6c685a0dc07",
+      "version": "3.5.3"
     },
     "chriskohlhoff/asio": {
       "date": "2023-11-08T13:50:57Z",
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-02-16T17:32:34Z",
-      "sha256": "74bf21e63e5201003bc3d4e3aabd3007f8253b110477c619a2f67ccd4f40c365",
-      "version": "2024.02.19.00"
+      "date": "2024-03-03T01:31:19Z",
+      "sha256": "9db34125d1c15637d1532c5d966289fffadea8c97414c8997a2f5b1feb2232c6",
+      "version": "2024.03.04.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-02-16T17:32:34Z",
-      "sha256": "98033e85087c3892e1682a12855c67f0d723fe7bfa7f3a05509cc84f7474e7a0",
-      "version": "2024.02.19.00"
+      "date": "2024-03-03T01:31:19Z",
+      "sha256": "a03bb4b0eca948a79503dc528aa82e3c408f9032732eddb2ef23a37d59883f0d",
+      "version": "2024.03.04.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-02-20T19:07:22Z",
-      "sha256": "2c15c72514c25b37d80fb63cfe6a5aca1db7ef5df77ceb78e3081f1cf372fde0",
+      "date": "2024-03-11T04:57:56Z",
+      "sha256": "7eec551091c761b38bfdb62dad97723e1068d421f590ee4257c51c8f7cc1bc75",
       "tag_filter": "^b\\d+$",
-      "version": "2220"
+      "version": "2394"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-01-05T15:11:27Z",
@@ -227,14 +227,14 @@
       "version": "main"
     },
     "google/mediapipe": {
-      "date": "2023-12-12T16:53:36Z",
-      "sha256": "5ab08e246d12a8ebcb618de0c8eccf3b8d50f21177eef683ad3428e383011904",
-      "version": "0.10.9"
+      "date": "2024-03-05T20:04:13Z",
+      "sha256": "dfed4acc60152c828f3695b4242a982a60614b1cd54132f48f38ff967ceb6d43",
+      "version": "0.10.11"
     },
     "grpc/grpc": {
-      "date": "2024-02-20T20:23:19Z",
-      "sha256": "87d3621aefd8056db20d61b7a488d1b6fa266bffb99aade3c2ab68ed15f3da46",
-      "version": "1.62.0"
+      "date": "2024-03-08T01:33:47Z",
+      "sha256": "f672a3a3b370f2853869745110dabfb6c13af93e17ffad4676a0b95b5ec204af",
+      "version": "1.62.1"
     },
     "j0r1/jrtplib": {
       "date": "2020-04-18T09:44:45Z",
@@ -250,10 +250,10 @@
       "version": "3.2.1"
     },
     "jart/cosmopolitan": {
-      "date": "2024-02-20T19:12:09Z",
-      "sha256": "7095f095f44111621c4ec4eab7a17684dd4f1c2cf436dc877f343be31b4c8902",
+      "date": "2024-02-27T17:06:26Z",
+      "sha256": "73beaf737aa0fa84412e360d31448d3b9ac576ee2b3ebaa6e712c2eea0f08e11",
       "tag_filter": "^\\d+(\\.\\d+){1,3}$",
-      "version": "3.3"
+      "version": "3.3.2"
     },
     "jbeder/yaml-cpp": {
       "date": "2023-08-10T19:27:56Z",
@@ -362,9 +362,9 @@
       "version": "4.0.5"
     },
     "nghttp2/nghttp2": {
-      "date": "2024-01-21T09:07:18Z",
-      "sha256": "46708148c0908d84417bb19092d3e1bad7f4451b267c6665dc3255ea034c8696",
-      "version": "1.59.0"
+      "date": "2024-03-01T08:04:52Z",
+      "sha256": "3f78f5fd51277aa62cdcf6c5ae8304fc6b0bb8e84ac90c33b56d6576efc65832",
+      "version": "1.60.0"
     },
     "ngruenwald/config": {
       "version": "main"
@@ -397,14 +397,14 @@
       "version": "1.3.0"
     },
     "ocornut/imgui": {
-      "date": "2024-02-14T12:57:26Z",
-      "sha256": "e6056a61301eaacb269a7302b55fd9b78a5b47ebc43bfb0aafa9bc9fd265fc4a",
-      "version": "1.90.3"
+      "date": "2024-02-22T18:55:40Z",
+      "sha256": "c6b91ff89ecdef2ef568a2eda87d3d9f5421c619a2cdfa9836752ee84aabaf2b",
+      "version": "1.90.4"
     },
     "open-telemetry/opentelemetry-cpp": {
-      "date": "2024-02-17T16:38:30Z",
-      "sha256": "7b785126d628bcf60360f1e9b4cacec806e8dd574155fa2e49b08bf4bb05ab5e",
-      "version": "1.14.0"
+      "date": "2024-02-27T20:32:08Z",
+      "sha256": "c8611f32dc35ee2775efda99f1f3d4a185f5b3102a7617da79702588d8da4d5d",
+      "version": "1.14.2"
     },
     "opencv/opencv": {
       "date": "2023-12-27T16:46:55Z",
