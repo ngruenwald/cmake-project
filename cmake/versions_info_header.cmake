@@ -1,22 +1,86 @@
+# https://github.com/ngruenwald/cmake-project
+# SPDX-License-Identifier: MIT
 
 function(create_versions_h target)
-  set(input_filename "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/versions_info_header/versions.h.in")
-  set(output_filename "${CMAKE_CURRENT_BINARY_DIR}/versions.h")
+  set(
+    template
+[=[
+#ifndef __VERSIONS_H__
+#define __VERSIONS_H__
 
-  _get_formatted_project_dependencies(project_dependencies project_dependencies_count ${CM_PROJECT_DEPENDENCIES})
-  _get_formatted_target_dependencies(target_dependencies target_dependencies_count ${target})
-  file(READ "${input_filename}" template)
-  file(CONFIGURE OUTPUT "${output_filename}" CONTENT "${template}")
+struct VersionInfo
+{
+    const char* name;
+    const char* version;
+};
+
+static const char* ProjectName = "@PROJECT_NAME@";
+static const char* ProjectVersion = "@PROJECT_VERSION@";
+static const char* ProjectDescription = "@PROJECT_DESCRIPTION@";
+
+static const struct VersionInfo ProjectDependencies[]
+{
+@project_dependencies@
+};
+
+static const struct VersionInfo TargetDependencies[]
+{
+@target_dependencies@
+};
+
+#endif // __VERSIONS_H__
+]=]
+  )
+
+  _create_versions_header(${target} "versions.h" ${template})
 endfunction()
 
 
 function(create_versions_hpp target)
-  set(input_filename "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/versions_info_header/versions.hpp.in")
-  set(output_filename "${CMAKE_CURRENT_BINARY_DIR}/versions.hpp")
+  set(
+    template
+[=[
+#pragma once
 
+#include <array>
+#include <string_view>
+
+namespace version_info {
+
+static constexpr std::string_view ProjectName{"@PROJECT_NAME@"};
+static constexpr std::string_view ProjectVersion{"@PROJECT_VERSION@"};
+static constexpr std::string_view ProjectDescription{"@PROJECT_DESCRIPTION@"};
+
+template<std::size_t N> using VersionInfoArray =
+    std::array<std::pair<std::string_view, std::string_view>, N>;
+
+static constexpr VersionInfoArray<@project_dependencies_count@> ProjectDependencies =
+{{
+@project_dependencies@
+}};
+
+static constexpr VersionInfoArray<@target_dependencies_count@> TargetDependencies =
+{{
+@target_dependencies@
+}};
+
+} // namespace version_info
+]=]
+  )
+
+  _create_versions_header(${target} "versions.hpp" "${template}")
+endfunction()
+
+
+function(_create_versions_header target filename template)
+  if("${template}" STREQUAL "")
+    set(input_filename "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/versions_info_header/${filename}.in")
+    file(READ "${input_filename}" template)
+  endif()
+
+  set(output_filename "${CMAKE_CURRENT_BINARY_DIR}/${filename}")
   _get_formatted_project_dependencies(project_dependencies project_dependencies_count "${CM_PROJECT_DEPENDENCIES}")
   _get_formatted_target_dependencies(target_dependencies target_dependencies_count ${target})
-  file(READ "${input_filename}" template)
   file(CONFIGURE OUTPUT "${output_filename}" CONTENT "${template}")
 endfunction()
 
@@ -29,6 +93,9 @@ function(_get_formatted_target_dependencies result count target)
 
   foreach(dep IN ITEMS ${deps})
     get_target_property(version ${dep} VERSION)
+    if("${version}" STREQUAL "version-NOTFOUND")
+      set(version "")
+    endif()
     string(APPEND tmp "    { \"${dep}\", \"${version}\" },\n")
   endforeach()
 
