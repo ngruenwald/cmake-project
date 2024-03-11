@@ -1,3 +1,6 @@
+# https://github.com/ngruenwald/cmake-project
+# SPDX-License-Identifier: MIT
+
 cmake_minimum_required(VERSION 3.20)
 
 #
@@ -20,6 +23,10 @@ endif()
 
 if(NOT DEFINED CMAKE_PROJECT_DEFAULT_GIT_BRANCH)
   set(CMAKE_PROJECT_DEFAULT_GIT_BRANCH "main")
+endif()
+
+if(NOT DEFINED CMAKE_PROJECT_DEFAULT_RECIPE_PATH)
+  set(CMAKE_PROJECT_DEFAULT_RECIPE_PATH "${CMAKE_CURRENT_LIST_DIR}/recipes")
 endif()
 
 if(NOT DEFINED CMAKE_PROJECT_EXTRA_MODULES_DIR)
@@ -99,6 +106,7 @@ function(cmp_parse_project_file filename)
   _cmp_read_project_field(dd_data "${filecontent}" "dependency-defaults" DEFAULT "")
   _cmp_get_opt(dd_method "${dd_data}" "method" "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
   _cmp_get_opt(dd_branch "${dd_data}" "branch" "${CMAKE_PROJECT_DEFAULT_GIT_BRANCH}")
+  _cmp_get_opt(dd_repath "${dd_data}" "recipes-path" "${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}")
 
   if(NOT "${dd_method}" STREQUAL "")
     set(CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD "${dd_method}" PARENT_SCOPE)
@@ -106,6 +114,14 @@ function(cmp_parse_project_file filename)
 
   if(NOT "${dd_branch}" STREQUAL "")
     set(CMAKE_PROJECT_DEFAULT_GIT_BRANCH "${dd_branch}" PARENT_SCOPE)
+  endif()
+
+  if(NOT "${dd_repath}" STREQUAL "")
+    if(NOT IS_ABSOLUTE "${dd_repath}")
+      get_filename_component(filepath "${filename}" DIRECTORY)
+      set(dd_repath "${filepath}/${dd_repath}")
+    endif()
+    set(CMAKE_PROJECT_DEFAULT_RECIPE_PATH "${dd_repath}" PARENT_SCOPE)
   endif()
 
   # dependencies
@@ -417,13 +433,7 @@ function(_cmp_find_project_dependency name data)
   endif()
 
   _cmp_get_opt(recipe "${data}" "recipe"  "")
-
-  if(NOT "${recipe}" STREQUAL "")
-    message(TRACE ${CM_MESSAGE_PREFIX} "loading recipe '${recipe}'")
-    file(READ "${recipe}" recipe_data)
-    string(CONFIGURE "${recipe_data}" recipe_data @ONLY)
-    _cmp_merge_json_data(data "${recipe_data}" "${data}")
-  endif()
+  _cmp_load_recipe_data(data "${name}" "${data}" "${recipe}")
 
   _cmp_get_opt(method "${data}" "method"  "")
 
@@ -647,6 +657,44 @@ function(cmp_external_project)
   endforeach()
 
   message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (external)")
+endfunction()
+
+#
+# _cmp_load_recipe_data
+#
+# Tries to load the recipe data from the given recipe filepath.
+# If no file given, a default filename based on the recipe name is used.
+#
+# @param[out] output  The loaded recipe data
+# @param[in]  name    Dependency name
+# @param[in]  data    Input data
+# @param[in]  recipe  Recipe filename or path
+#
+function(_cmp_load_recipe_data output name data recipe)
+  if("${recipe}" STREQUAL "")
+    set(recipe "${name}.json")
+    set(recipe_fail_no_file FALSE)
+  else()
+    set(recipe_fail_no_file TRUE)
+  endif()
+
+  if(NOT "${recipe}" STREQUAL "")
+    set(recipe_path "${recipe}")
+    if(NOT IS_ABSOLUTE "${recipe_path}")
+      file(REAL_PATH "${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}/${recipe_path}" recipe_path)
+    endif()
+    if(EXISTS "${recipe_path}")
+      message(TRACE ${CM_MESSAGE_PREFIX} "loading recipe '${recipe_path}'")
+      file(READ "${recipe_path}" recipe_data)
+      string(CONFIGURE "${recipe_data}" recipe_data @ONLY)
+      _cmp_merge_json_data(data "${recipe_data}" "${data}")
+      set(${output} ${data} PARENT_SCOPE)
+    else()
+      if(${recipe_fail_no_file})
+        message(WARNING "specified recipe configuration '${recipe}' does not exist")
+      endif()
+    endif()
+  endif()
 endfunction()
 
 #
