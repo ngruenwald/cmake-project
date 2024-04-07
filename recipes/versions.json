@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-03-11T18:19:35.282273"
+    "date": "2024-04-07T08:30:22.909871"
   },
   "versions": {
     "3hren/blackhole": {
@@ -52,9 +52,9 @@
       "version": "2.2.3"
     },
     "blueloveth/pocketpy": {
-      "date": "2024-03-04T11:08:01Z",
-      "sha256": "aabf88be99d56a541105b8d4b06591d390359f2aaa587f9ab57820a73915112b",
-      "version": "1.4.2"
+      "date": "2024-03-27T08:07:35Z",
+      "sha256": "3751ce03fc85227bac2edfc6cea93d41a9161d3d170cedbaed2dc95e59f1ac38",
+      "version": "1.4.3"
     },
     "bnhoyt/inih": {
       "version": "master"
@@ -80,9 +80,9 @@
       "version": "3.5.3"
     },
     "chriskohlhoff/asio": {
-      "date": "2023-11-08T13:50:57Z",
-      "sha256": "45a7967e9bbfe8b7af404daeaed4b9214fd663bef00ad4f52c3c92399297445b",
-      "version": "1-29-0"
+      "date": "2024-04-01T21:31:23Z",
+      "sha256": "68edd869a1a59505f74be920a02115ee5d6add19c4f69ff868598206285aa0a9",
+      "version": "1-30-1"
     },
     "cjlove/config-cpp": {
       "version": "master"
@@ -98,10 +98,10 @@
       "version": "1.1.1"
     },
     "curl/curl": {
-      "date": "2024-01-31T07:02:47Z",
-      "sha256": "25c5ece4bb070cdc68eea968462f8148c6e67d7e33e3a69d953336a53c1d1a99",
+      "date": "2024-03-27T07:11:20Z",
+      "sha256": "1522999600630964adc3130eada47dc0be2a71908a36944b7aa78aad2b1006b7",
       "tag_filter": "^curl-\\d+_\\d+_\\d+$",
-      "version": "8_6_0"
+      "version": "8_7_1"
     },
     "cyan4973/xxhash": {
       "date": "2015-08-20T16:05:38Z",
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-03-10T16:32:07Z",
-      "sha256": "2055acbff02373d92ff882d83069c5185691b97b954a485272c9a334b7433fba",
-      "version": "2024.03.11.00"
+      "date": "2024-03-31T16:31:51Z",
+      "sha256": "1bb21eeeb5aaacbb32e88fecec82dabeb40bf8249583d721b892b890b7e1c16d",
+      "version": "2024.04.01.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-03-09T17:32:41Z",
-      "sha256": "8185d04d010cb2d60abc619d082e79222271c70e6e7b05ffdb9eeb8c93b86ee6",
-      "version": "2024.03.11.00"
+      "date": "2024-03-31T16:31:51Z",
+      "sha256": "6ae7161ba0b5e8fd2bbbaaa84d8bc5d151770943c0514cbb4af57fa1854936ff",
+      "version": "2024.04.01.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-03-11T09:56:41Z",
-      "sha256": "191dadfaa61acd9aabc0a3b9dd29884de8dc62037bd841ffcddc5a3de2bac96b",
+      "date": "2024-04-06T14:43:15Z",
+      "sha256": "b4bbb7c95652820d36e260d3455358ae8744c9e659420d2bd667a98c2ae0978c",
       "tag_filter": "^b\\d+$",
-      "version": "2400"
+      "version": "2619"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-01-05T15:11:27Z",
@@ -193,10 +193,10 @@
       "version": "1.5.4"
     },
     "gnome/libxml2": {
-      "date": "2024-02-04T13:53:18Z",
-      "sha256": "a8dfb31aa363724fd5f068e847dfc37ec0a7417c2c7bfd6f9cbdc791d764c133",
+      "date": "2024-03-15T11:15:36Z",
+      "sha256": "8cd337f71366b6ef8087df75784882035ea15a1d1ea975744b5ae1f824e9db48",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "2.12.5"
+      "version": "2.12.6"
     },
     "google/benchmark": {
       "date": "2023-08-31T12:16:50Z",
@@ -250,10 +250,10 @@
       "version": "3.2.1"
     },
     "jart/cosmopolitan": {
-      "date": "2024-02-27T17:06:26Z",
-      "sha256": "73beaf737aa0fa84412e360d31448d3b9ac576ee2b3ebaa6e712c2eea0f08e11",
+      "date": "2024-03-31T02:03:30Z",
+      "sha256": "41c94b99511c72ee5e55bb498955cba1397b593b9ab8b9f08fcb12c315600bd3",
       "tag_filter": "^\\d+(\\.\\d+){1,3}$",
-      "version": "3.3.2"
+      "version": "3.3.3"
     },
     "jbeder/yaml-cpp": {
       "date": "2023-08-10T19:27:56Z",
@@ -289,9 +289,9 @@
       "version": "1.10.5"
     },
     "libgit2/libgit2": {
-      "date": "2024-01-12T10:38:00Z",
-      "sha256": "9ba829ab24277b5e8a2dfdd5ea994d44a39e4c0077f9608abb817cc71bdd0ca8",
-      "version": "1.7.2"
+      "date": "2024-03-20T20:19:37Z",
+      "sha256": "cb1e312f8b3ee3f7adc874ab118965ac0d22e10e160eabfde99137a4cd04fb16",
+      "version": "1.8.0"
     },
     "libharu/libharu": {
       "date": "2023-09-18T19:47:01Z",
@@ -362,9 +362,9 @@
       "version": "4.0.5"
     },
     "nghttp2/nghttp2": {
-      "date": "2024-03-01T08:04:52Z",
-      "sha256": "3f78f5fd51277aa62cdcf6c5ae8304fc6b0bb8e84ac90c33b56d6576efc65832",
-      "version": "1.60.0"
+      "date": "2024-04-04T08:16:56Z",
+      "sha256": "236cdb58ee177f53e182c42d4de946b5598dffd04c9256f1e5fabb56ecb68c2d",
+      "version": "1.61.0"
     },
     "ngruenwald/config": {
       "version": "main"
@@ -455,10 +455,10 @@
       "version": "19.7.0"
     },
     "protocolbuffers/protobuf": {
-      "date": "2024-02-15T18:57:05Z",
-      "sha256": "efa775d5613ec628f4740c9ddd94f9c2a747287678b0588b29851ff66ef93634",
+      "date": "2024-03-27T17:31:42Z",
+      "sha256": "c968404387c9cccd18676c6e1d83a1dcc39d162a7f468dace4b243c274de1f02",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "4.25.3"
+      "version": "5.26.1"
     },
     "quicknir/wise_enum": {
       "date": "2019-07-31T16:35:59Z",
@@ -482,9 +482,9 @@
       "version": "1.2.0"
     },
     "richiesams/fibertaskinglib": {
-      "date": "2023-11-21T14:21:18Z",
-      "sha256": "b7dc29af21cea1e594070a29bae5292ee8248c430160634727bafd8635c40ceb",
-      "version": "2.0.3"
+      "date": "2024-04-01T15:24:45Z",
+      "sha256": "396ba60cce5d45ce7170ba58ffdb5ffa0b26c9a10314549320abec37fb409448",
+      "version": "2.0.4"
     },
     "robloach/raylib-cpp": {
       "date": "2024-01-22T06:21:22Z",
@@ -518,9 +518,9 @@
       "version": "master"
     },
     "sqlite/sqlite": {
-      "date": "2024-01-30T16:01:20Z",
-      "sha256": "67df3f0c4f50c9f10b643d0a3208274620052022ad51a81a703a6ead09d505a3",
-      "version": "3.45.1"
+      "date": "2024-03-12T11:06:23Z",
+      "sha256": "e00529b8a109713f89ccf305c85a74a579e8598d75a0ebcb3d832cb3674d893f",
+      "version": "3.45.2"
     },
     "srombauts/sqlitecpp": {
       "date": "2023-08-27T21:11:58Z",
@@ -543,9 +543,9 @@
       "version": "0.7.0-rc.0"
     },
     "tink-crypto/tink-cc": {
-      "date": "2023-11-30T14:12:51Z",
-      "sha256": "3080600b6c38421ebaca5bfc460aa965afc88c877695c080019a8905f0f1c1b8",
-      "version": "2.1.1"
+      "date": "2024-04-05T08:55:14Z",
+      "sha256": "d0fefc61e3bde758c8773f1348e6a64fc4fd6ecafe62c4adc0df8957ce800757",
+      "version": "2.1.2"
     },
     "tjol/ckdl": {
       "date": "2023-10-03T14:13:26Z",
@@ -597,9 +597,9 @@
       "version": "master"
     },
     "yhirose/cpp-peglib": {
-      "date": "2024-01-27T03:00:18Z",
-      "sha256": "bf39919237b727b0e8192c1d58d3adef06c8f431bbde53d1c92ec8c48722b77d",
-      "version": "1.8.6"
+      "date": "2024-04-01T14:57:41Z",
+      "sha256": "9185d26a1a977a860be1d673cfa7989aeab01c4ca5c93e93e3a4b87a7ca7732b",
+      "version": "1.8.8"
     },
     "yhirose/cpp-unicodelib": {
       "version": "master"
