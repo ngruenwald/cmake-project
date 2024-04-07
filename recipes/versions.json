@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-04-07T08:30:22.909871"
+    "date": "2024-04-07T09:04:55.360570"
   },
   "versions": {
     "3hren/blackhole": {
@@ -444,6 +444,11 @@
     },
     "paulftw/hiberlite": {
       "version": "master"
+    },
+    "philip82148/cpp-dump": {
+      "date": "2023-12-04T06:00:55Z",
+      "sha256": "6b852c91c397245183d4e90e5fbc142d743b844eea566c9d025875e0b7d29f3b",
+      "version": "0.5.0"
     },
     "pistacheio/pistache": {
       "version": "master"
