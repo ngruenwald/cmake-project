@@ -129,6 +129,8 @@ function(cmp_parse_project_file filename)
   _CMP_READ_DEPENDENCIES(PROJECT_DEV_DEPENDENCIES "${filecontent}" "dev-dependencies")
   _CMP_READ_DEPENDENCIES(PROJECT_BUILD_DEPENDENCIES "${filecontent}" "build-dependencies")
 
+  # add to watchlist
+  set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${filename}")
 endfunction()
 
 #
@@ -689,6 +691,8 @@ function(_cmp_load_recipe_data output name data recipe)
       string(CONFIGURE "${recipe_data}" recipe_data @ONLY)
       _cmp_merge_json_data(data "${recipe_data}" "${data}")
       set(${output} ${data} PARENT_SCOPE)
+      # add recipe to watchlist ... TODO: remove from watchlist if not required anymore
+      set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${recipe_path}")
     else()
       if(${recipe_fail_no_file})
         message(WARNING "specified recipe configuration '${recipe}' does not exist")
