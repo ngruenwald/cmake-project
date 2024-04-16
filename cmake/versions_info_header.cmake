@@ -89,6 +89,12 @@ function(_get_formatted_target_dependencies result count target)
   set(tmp "")
 
   get_target_property(deps ${target} LINK_LIBRARIES)
+
+  if("${deps}" STREQUAL "deps-NOTFOUND")
+    message("== " "No dependencies found. Make sure to call 'create_versions_hpp' after 'target_link_libraries'.")
+    set(deps)
+  endif()
+
   list(LENGTH deps len)
 
   foreach(dep IN ITEMS ${deps})
