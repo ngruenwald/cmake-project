@@ -736,9 +736,9 @@ function(_cmp_merge_json_data result base additional)
   set(tgt ${base})
 
   string(JSON length LENGTH "${additional}")
-  math(EXPR length "${length}-1")
 
   if(${length} GREATER 0)
+    math(EXPR length "${length}-1")
     foreach(idx RANGE ${length})
       string(JSON key MEMBER "${additional}" ${idx})
       string(JSON val GET    "${additional}" ${key})
