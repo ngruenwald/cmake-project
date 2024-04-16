@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-04-07T09:04:55.360570"
+    "date": "2024-04-16T04:06:58.685016"
   },
   "versions": {
     "3hren/blackhole": {
@@ -14,9 +14,9 @@
       "version": "0.59.0"
     },
     "abseil/abseil-cpp": {
-      "date": "2024-02-12T19:51:52Z",
-      "sha256": "edc6a93163af5b2a186d468717f6fe23653a5cb31a1e6932f0aba05af7d762e9",
-      "version": "20240116.1"
+      "date": "2024-04-08T20:32:39Z",
+      "sha256": "69909dd729932cbbabb9eeaff56179e8d124515f5d3ac906663d573d700b4c7d",
+      "version": "20240116.2"
     },
     "agauniyal/rang": {
       "date": "2021-07-30T14:22:25Z",
@@ -29,17 +29,17 @@
       "version": "0.1.0"
     },
     "andrewrk/libsoundio": {
-      "date": "2019-02-20T13:25:44Z",
-      "sha256": "8e9b5d68e32fd94e5733bb6e1f47001e16254295ab351cd33efdf9d26d93d2ea",
-      "version": "2.0.0"
+      "date": "2024-04-11T05:08:26Z",
+      "sha256": "ee3bfeb14c0e6e3c491840381fe78ab8a038352014e14214cdebb206d924c88d",
+      "version": "2.0.1-7"
     },
     "arashpartow/strtk": {
       "version": "master"
     },
     "baresip/re": {
-      "date": "2024-03-06T13:01:45Z",
-      "sha256": "ae7cc9a7f4222554dbda2123182e7c1e8c3b88a8cd088def76061ad6bab67b0c",
-      "version": "3.10.0"
+      "date": "2024-04-09T07:26:31Z",
+      "sha256": "63189a3d3a3119597905afbdf4c6510b02b19c7f8c85fd0277abe05cddd20c00",
+      "version": "3.11.0"
     },
     "bfgroup/lyra": {
       "date": "2022-11-07T21:49:52Z",
@@ -75,14 +75,14 @@
       "version": "1.0.6"
     },
     "catchorg/catch2": {
-      "date": "2024-03-01T21:07:10Z",
-      "sha256": "2de1868288b26a19c2aebfc3fe53a748ec3ec5fc32cc742dfccaf6c685a0dc07",
-      "version": "3.5.3"
+      "date": "2024-04-10T10:05:46Z",
+      "sha256": "190a236fe0772ac4f5eebfdebfc18f92eeecfd270c55a1e5095ae4f10be2343f",
+      "version": "3.5.4"
     },
     "chriskohlhoff/asio": {
-      "date": "2024-04-01T21:31:23Z",
-      "sha256": "68edd869a1a59505f74be920a02115ee5d6add19c4f69ff868598206285aa0a9",
-      "version": "1-30-1"
+      "date": "2024-04-15T21:55:02Z",
+      "sha256": "948373ed2e838ee1181937380c754e8fe6da8b18022eae922bcdc0cd38d6dbde",
+      "version": "1-30-2"
     },
     "cjlove/config-cpp": {
       "version": "master"
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-03-31T16:31:51Z",
-      "sha256": "1bb21eeeb5aaacbb32e88fecec82dabeb40bf8249583d721b892b890b7e1c16d",
-      "version": "2024.04.01.00"
+      "date": "2024-04-14T18:28:32Z",
+      "sha256": "0fee55cb95d286298f87892fced8cdfc1e85aac8d0a403be567a517af1a1c1cb",
+      "version": "2024.04.15.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-03-31T16:31:51Z",
-      "sha256": "6ae7161ba0b5e8fd2bbbaaa84d8bc5d151770943c0514cbb4af57fa1854936ff",
-      "version": "2024.04.01.00"
+      "date": "2024-04-14T18:28:32Z",
+      "sha256": "c2f16bd130fa06cc2b6a588d64b7bc9830a9bee3ddfe52b1b1d286dbe04ee2e9",
+      "version": "2024.04.15.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-04-06T14:43:15Z",
-      "sha256": "b4bbb7c95652820d36e260d3455358ae8744c9e659420d2bd667a98c2ae0978c",
+      "date": "2024-04-15T17:35:21Z",
+      "sha256": "7144dfb8fcc6f264ad5d0a2bd620f4b49c885f733b7716e9eaac991a5c6204fa",
       "tag_filter": "^b\\d+$",
-      "version": "2619"
+      "version": "2679"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-01-05T15:11:27Z",
@@ -279,9 +279,9 @@
       "version": "master"
     },
     "libarchive/libarchive": {
-      "date": "2023-09-11T21:59:08Z",
-      "sha256": "d4d41a5f4839ce85f36c9e67b0f78db96e8732402db3f55881c8429b0c30f210",
-      "version": "3.7.2"
+      "date": "2024-04-07T22:11:03Z",
+      "sha256": "7dcb9262cbbb5c1510b1ed973d20809a100f28e578ffcc7e87aeab73dea56401",
+      "version": "3.7.3"
     },
     "libcpr/cpr": {
       "date": "2023-10-14T12:45:47Z",
@@ -397,9 +397,9 @@
       "version": "1.3.0"
     },
     "ocornut/imgui": {
-      "date": "2024-02-22T18:55:40Z",
-      "sha256": "c6b91ff89ecdef2ef568a2eda87d3d9f5421c619a2cdfa9836752ee84aabaf2b",
-      "version": "1.90.4"
+      "date": "2024-04-11T13:45:27Z",
+      "sha256": "8860aa37506d7e16cf093ba26fa51c2bbd48addcc389d3b315bf690f66d709e4",
+      "version": "1.90.5"
     },
     "open-telemetry/opentelemetry-cpp": {
       "date": "2024-02-27T20:32:08Z",
@@ -412,10 +412,10 @@
       "version": "4.9.0"
     },
     "openssl/openssl": {
-      "date": "2024-01-30T13:14:56Z",
-      "sha256": "538cf4e3c575e32d1cfbf3ab0c456192ede571201c7e9bcf2287bda57862a750",
+      "date": "2024-04-09T12:12:22Z",
+      "sha256": "aea9f3d568f4799eaaf95eb743e3117a49d73b5b723f96cab380fc622563c9ab",
       "tag_filter": "^openssl-\\d+\\.\\d+\\.\\d+$",
-      "version": "3.2.1"
+      "version": "3.3.0"
     },
     "p-ranav/argparse": {
       "date": "2023-11-06T01:15:14Z",
@@ -523,9 +523,9 @@
       "version": "master"
     },
     "sqlite/sqlite": {
-      "date": "2024-03-12T11:06:23Z",
-      "sha256": "e00529b8a109713f89ccf305c85a74a579e8598d75a0ebcb3d832cb3674d893f",
-      "version": "3.45.2"
+      "date": "2024-04-15T13:34:05Z",
+      "sha256": "2e5922db807a521023f35dde48af450d104f7b766619f0b0ffb2de22003ed713",
+      "version": "3.45.3"
     },
     "srombauts/sqlitecpp": {
       "date": "2023-08-27T21:11:58Z",
