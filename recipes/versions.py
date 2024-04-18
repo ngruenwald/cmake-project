@@ -186,7 +186,7 @@ def api_get(url: str):
     wait_seconds = 60
     for _ in range(0, num_loops):
         headers = { "Authorization": f"Bearer {TOKEN}" } if TOKEN else None
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=30)
         if response.status_code == 403:
             # API rate limit?
             print("403 - waiting 60 seconds ...")
