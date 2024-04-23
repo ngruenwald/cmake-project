@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-04-18T04:15:37.550437"
+    "date": "2024-04-23T18:28:22.078243"
   },
   "versions": {
     "3hren/blackhole": {
@@ -52,9 +52,9 @@
       "version": "2.2.3"
     },
     "blueloveth/pocketpy": {
-      "date": "2024-03-27T08:07:35Z",
-      "sha256": "3751ce03fc85227bac2edfc6cea93d41a9161d3d170cedbaed2dc95e59f1ac38",
-      "version": "1.4.3"
+      "date": "2024-04-18T14:29:59Z",
+      "sha256": "129f870a2ac21a3bc46b4edff3d1c0a39bbe46734ce1ac1d8ee9d5d72837bb05",
+      "version": "1.4.5"
     },
     "bnhoyt/inih": {
       "version": "master"
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-04-14T18:28:32Z",
-      "sha256": "0fee55cb95d286298f87892fced8cdfc1e85aac8d0a403be567a517af1a1c1cb",
-      "version": "2024.04.15.00"
+      "date": "2024-04-21T23:38:06Z",
+      "sha256": "cce1240a666cdb846ca3a9e6ff830aa8e33fe98d8617545f07f94a80e237da8b",
+      "version": "2024.04.22.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-04-14T18:28:32Z",
-      "sha256": "c2f16bd130fa06cc2b6a588d64b7bc9830a9bee3ddfe52b1b1d286dbe04ee2e9",
-      "version": "2024.04.15.00"
+      "date": "2024-04-21T16:32:13Z",
+      "sha256": "2071235b889c3c60291438b3f44ad86f2e840035b25c86c561b3c08886d3855d",
+      "version": "2024.04.22.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-04-17T20:58:26Z",
-      "sha256": "78acbf8a83dd5c7a743e280679b1da975631964d01cda05593be078cdc90260f",
+      "date": "2024-04-22T19:00:36Z",
+      "sha256": "21030fe4756669d7a8e7cd84492977e2aedb96c2b7b2e45e748ccc90e9d366f1",
       "tag_filter": "^b\\d+$",
-      "version": "2690"
+      "version": "2715"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-04-16T11:08:31Z",
@@ -402,9 +402,9 @@
       "version": "1.90.5"
     },
     "open-telemetry/opentelemetry-cpp": {
-      "date": "2024-02-27T20:32:08Z",
-      "sha256": "c8611f32dc35ee2775efda99f1f3d4a185f5b3102a7617da79702588d8da4d5d",
-      "version": "1.14.2"
+      "date": "2024-04-21T20:11:48Z",
+      "sha256": "57f127380244fa892d86894fe4bf6b54c040e078083718a27512fd5850b0c033",
+      "version": "1.15.0"
     },
     "opencv/opencv": {
       "date": "2023-12-27T16:46:55Z",
@@ -548,9 +548,9 @@
       "version": "0.7.0-rc.0"
     },
     "tink-crypto/tink-cc": {
-      "date": "2024-04-05T08:55:14Z",
-      "sha256": "d0fefc61e3bde758c8773f1348e6a64fc4fd6ecafe62c4adc0df8957ce800757",
-      "version": "2.1.2"
+      "date": "2024-04-23T16:46:55Z",
+      "sha256": "14a3f64a56d7e9296889d7eba7a3b8787c3281e5bc5791033c54baf810a0b6ef",
+      "version": "2.1.3"
     },
     "tjol/ckdl": {
       "date": "2023-10-03T14:13:26Z",
