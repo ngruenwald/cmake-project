@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-04-23T18:33:00.416936"
+    "date": "2024-04-26T21:41:13.987800"
   },
   "versions": {
     "3hren/blackhole": {
@@ -172,9 +172,9 @@
       "version": "master"
     },
     "gabime/spdlog": {
-      "date": "2024-01-12T10:12:27Z",
-      "sha256": "9f6763bb76fff7db371f5733626c83352edd7c57899501ab00248fafad9cc504",
-      "version": "1.13.0"
+      "date": "2024-04-25T22:43:02Z",
+      "sha256": "2cd8a65885e7937fdd046b181eed7e95d61bab7006bd0fb7b9c766185ed3e0ae",
+      "version": "1.14.0"
     },
     "gflags/gflags": {
       "date": "2018-11-11T21:21:00Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-04-22T19:00:36Z",
-      "sha256": "21030fe4756669d7a8e7cd84492977e2aedb96c2b7b2e45e748ccc90e9d366f1",
+      "date": "2024-04-26T18:08:30Z",
+      "sha256": "c57b349a7d191d6a9e55e8727ee0210477b07215524fcefcb3ea7285c98b1cb7",
       "tag_filter": "^b\\d+$",
-      "version": "2715"
+      "version": "2749"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-04-16T11:08:31Z",
@@ -232,9 +232,9 @@
       "version": "0.10.11"
     },
     "grpc/grpc": {
-      "date": "2024-03-08T01:33:47Z",
-      "sha256": "f672a3a3b370f2853869745110dabfb6c13af93e17ffad4676a0b95b5ec204af",
-      "version": "1.62.1"
+      "date": "2024-04-26T06:05:05Z",
+      "sha256": "daa1b06a19b5f7e4603e1f8980eeab43cf69b6e89bee3b2547f275fa5af7f480",
+      "version": "1.63.0"
     },
     "j0r1/jrtplib": {
       "date": "2020-04-18T09:44:45Z",
@@ -279,9 +279,9 @@
       "version": "master"
     },
     "libarchive/libarchive": {
-      "date": "2024-04-07T22:11:03Z",
-      "sha256": "7dcb9262cbbb5c1510b1ed973d20809a100f28e578ffcc7e87aeab73dea56401",
-      "version": "3.7.3"
+      "date": "2024-04-26T09:22:15Z",
+      "sha256": "5a57816a6af9499554cb8b95c25123f262c678c0a54c81a19d4bfbbe6f02ac9a",
+      "version": "3.7.4"
     },
     "libcpr/cpr": {
       "date": "2023-10-14T12:45:47Z",
