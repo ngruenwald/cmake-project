@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-04-26T21:41:13.987800"
+    "date": "2024-04-28T06:46:01.111756"
   },
   "versions": {
     "3hren/blackhole": {
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-04-26T18:08:30Z",
-      "sha256": "c57b349a7d191d6a9e55e8727ee0210477b07215524fcefcb3ea7285c98b1cb7",
+      "date": "2024-04-27T19:02:06Z",
+      "sha256": "78bd900a2307e70006246134b9c49a75b2987c24839e74ef0cc449f74f7dadc7",
       "tag_filter": "^b\\d+$",
-      "version": "2749"
+      "version": "2751"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-04-16T11:08:31Z",
