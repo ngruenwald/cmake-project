@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-05-06T20:32:02.914082"
+    "date": "2024-05-17T05:45:28.845466"
   },
   "versions": {
     "3hren/blackhole": {
@@ -37,9 +37,9 @@
       "version": "master"
     },
     "baresip/re": {
-      "date": "2024-04-09T07:26:31Z",
-      "sha256": "63189a3d3a3119597905afbdf4c6510b02b19c7f8c85fd0277abe05cddd20c00",
-      "version": "3.11.0"
+      "date": "2024-05-15T06:37:35Z",
+      "sha256": "e3cbc710ff4c8fdac2a3206074edd144c56f91bcf8768bf3073c251bc44ae0ca",
+      "version": "3.12.0"
     },
     "bfgroup/lyra": {
       "date": "2022-11-07T21:49:52Z",
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-05-05T16:33:25Z",
-      "sha256": "b3e981be83ad652aef7ab3cdca4219b347f50c8c70a4118d13d33b813696637c",
-      "version": "2024.05.06.00"
+      "date": "2024-05-12T16:33:50Z",
+      "sha256": "7d033413d6baf1e2f5dbd29d025da9e9b84410cfe26fa5ccc1f0e024ddbf5804",
+      "version": "2024.05.13.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-05-05T16:33:25Z",
-      "sha256": "60d025413931f6e7fa6498fab3e399f8e9059815ae9c20ec0df3754975021bff",
-      "version": "2024.05.06.00"
+      "date": "2024-05-12T16:33:50Z",
+      "sha256": "6dfa5fa2ae4c98f3e14558eefb86bd079a8b40e2e57be7ddfe4e31bdd911224c",
+      "version": "2024.05.13.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -188,15 +188,15 @@
       "version": "2797"
     },
     "ggerganov/whisper.cpp": {
-      "date": "2024-04-16T11:08:31Z",
-      "sha256": "27a1ea36933bc6ebeb62eb714930f430173af6016636d9f4f5c84b1f167221a7",
-      "version": "1.5.5"
+      "date": "2024-05-15T06:59:48Z",
+      "sha256": "fb722652cb21cbbb6eabe8d4f4ed227bd9029869c8b171a29562ef03f870bf45",
+      "version": "1.6.0"
     },
     "gnome/libxml2": {
-      "date": "2024-03-15T11:15:36Z",
-      "sha256": "8cd337f71366b6ef8087df75784882035ea15a1d1ea975744b5ae1f824e9db48",
+      "date": "2024-05-13T09:34:02Z",
+      "sha256": "4a09d67e5889b522f0070fe5014c2239de5e14fabe259eed4c608647cdc48b4a",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "2.12.6"
+      "version": "2.12.7"
     },
     "google/benchmark": {
       "date": "2023-08-31T12:16:50Z",
@@ -227,14 +227,14 @@
       "version": "main"
     },
     "google/mediapipe": {
-      "date": "2024-05-03T22:22:58Z",
-      "sha256": "ac608502f6b89404973f9e61b1d3222ddba24559976f9379757f65f9de42959e",
-      "version": "0.10.13"
+      "date": "2024-05-13T16:36:56Z",
+      "sha256": "62b8413a9632f5bccb46632d7ebc409cf4579808bacd50ab40e4ff50c0f93191",
+      "version": "0.10.14"
     },
     "grpc/grpc": {
-      "date": "2024-04-26T06:05:05Z",
-      "sha256": "daa1b06a19b5f7e4603e1f8980eeab43cf69b6e89bee3b2547f275fa5af7f480",
-      "version": "1.63.0"
+      "date": "2024-05-16T01:01:03Z",
+      "sha256": "a8922a05b196ef759a2745ffd965413dd177949fb373e648569d5458fdc515d4",
+      "version": "1.64.0"
     },
     "j0r1/jrtplib": {
       "date": "2020-04-18T09:44:45Z",
@@ -250,10 +250,10 @@
       "version": "3.2.1"
     },
     "jart/cosmopolitan": {
-      "date": "2024-05-03T16:20:41Z",
-      "sha256": "5c6b946aa6864221d60f6fb5f680ac2458749f6a68c37088b8872f74c3480546",
+      "date": "2024-05-08T11:13:37Z",
+      "sha256": "44193ea8ac6c3a5f9f59cf70deeed96a0f6c264fba2edd10996f7e4033ea3d58",
       "tag_filter": "^\\d+(\\.\\d+){1,3}$",
-      "version": "3.3.4"
+      "version": "3.3.6"
     },
     "jbeder/yaml-cpp": {
       "date": "2023-08-10T19:27:56Z",
@@ -289,9 +289,9 @@
       "version": "1.10.5"
     },
     "libgit2/libgit2": {
-      "date": "2024-03-20T20:19:37Z",
-      "sha256": "cb1e312f8b3ee3f7adc874ab118965ac0d22e10e160eabfde99137a4cd04fb16",
-      "version": "1.8.0"
+      "date": "2024-05-16T09:58:48Z",
+      "sha256": "7ef1d7cbeb8f08df379a6de208d703bd6a8cd3afcd85ceab4a01d1ae5a7258a7",
+      "version": "1.8.1"
     },
     "libharu/libharu": {
       "date": "2023-09-18T19:47:01Z",
@@ -362,9 +362,9 @@
       "version": "4.0.5"
     },
     "nghttp2/nghttp2": {
-      "date": "2024-04-04T08:16:56Z",
-      "sha256": "236cdb58ee177f53e182c42d4de946b5598dffd04c9256f1e5fabb56ecb68c2d",
-      "version": "1.61.0"
+      "date": "2024-05-13T08:31:43Z",
+      "sha256": "cffb725c6c4bcd79d8208fe0f4d337b4a62119ac74d7fcdb258ea65c9e279314",
+      "version": "1.62.0"
     },
     "ngruenwald/config": {
       "version": "main"
@@ -397,9 +397,9 @@
       "version": "1.3.0"
     },
     "ocornut/imgui": {
-      "date": "2024-04-11T13:45:27Z",
-      "sha256": "8860aa37506d7e16cf093ba26fa51c2bbd48addcc389d3b315bf690f66d709e4",
-      "version": "1.90.5"
+      "date": "2024-05-08T13:38:33Z",
+      "sha256": "e252eb70b923e4bb86dd0112ccbbe0c7c7151fbfd45669134577c2552f6e7427",
+      "version": "1.90.6"
     },
     "open-telemetry/opentelemetry-cpp": {
       "date": "2024-04-21T20:11:48Z",
@@ -553,9 +553,9 @@
       "version": "0.7.0-rc.0"
     },
     "tink-crypto/tink-cc": {
-      "date": "2024-04-23T16:46:55Z",
-      "sha256": "14a3f64a56d7e9296889d7eba7a3b8787c3281e5bc5791033c54baf810a0b6ef",
-      "version": "2.1.3"
+      "date": "2024-05-07T15:01:19Z",
+      "sha256": "88e1442182452caa16d0954ceaf73e17b0aa30837ee6c0cc16bf0112313ce753",
+      "version": "2.2.0"
     },
     "tjol/ckdl": {
       "date": "2023-10-03T14:13:26Z",
@@ -571,9 +571,9 @@
       "version": "master"
     },
     "userver-framework/userver": {
-      "date": "2023-09-20T17:09:22Z",
-      "sha256": "f12c5f8852e6aca40544637c49dde2d3e794bfb4b8466892306246d92319829c",
-      "version": "1.0.0"
+      "date": "2024-05-15T16:05:52Z",
+      "sha256": "fd3d5bdc505fd9cdbd02dc084a29d78f157fe926a3f73ff23fc692da28394e4b",
+      "version": "2.0"
     },
     "webmproject/libwebm": {
       "date": "2023-10-26T17:44:02Z",
