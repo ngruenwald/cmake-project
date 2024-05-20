@@ -833,9 +833,10 @@ function(_cmp_parse_common_properties result data)
   #
 
   if(NOT "${git_repository}" STREQUAL "")
-    list(APPEND params GIT "${git_repository}")
+    list(APPEND params GIT_REPOSITORY "${git_repository}")
 
     if(NOT "${git_tag}" STREQUAL "")
+      string(REPLACE "{{version}}" "${version}" git_tag "${git_tag}")
       list(APPEND params GIT_TAG "${git_tag}")
     endif()
 
