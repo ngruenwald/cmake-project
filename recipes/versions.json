@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-05-17T05:45:28.845466"
+    "date": "2024-05-20T08:13:53.573498"
   },
   "versions": {
     "3hren/blackhole": {
@@ -129,9 +129,9 @@
       "version": "1.9.4"
     },
     "eliaskosunen/scnlib": {
-      "date": "2024-02-19T20:45:17Z",
-      "sha256": "b9d691f218ca17c6f3457ecd795b62820815c021b0d607fba12d55dbb7aa2197",
-      "version": "2.0.2"
+      "date": "2024-05-19T20:56:51Z",
+      "sha256": "78d13b0119e684450f3b2916f868ee528a5b9f227e9fe67c4fc23043c6d0aab9",
+      "version": "2.0.3"
     },
     "erikd/libsndfile": {
       "date": "2023-08-13T08:53:51Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-05-06T18:12:14Z",
-      "sha256": "10ddc6c73355b1c3152a70290fe2a7baa9b4d38464b918e5d6aee0615980c3f0",
+      "date": "2024-05-20T05:56:05Z",
+      "sha256": "4a7bc52757aabfa5b8a570971d4880cdf3109329a221468b7eb23b31de58db2e",
       "tag_filter": "^b\\d+$",
-      "version": "2797"
+      "version": "2943"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-05-15T06:59:48Z",
@@ -362,9 +362,9 @@
       "version": "4.0.5"
     },
     "nghttp2/nghttp2": {
-      "date": "2024-05-13T08:31:43Z",
-      "sha256": "cffb725c6c4bcd79d8208fe0f4d337b4a62119ac74d7fcdb258ea65c9e279314",
-      "version": "1.62.0"
+      "date": "2024-05-19T03:16:46Z",
+      "sha256": "2ac4835503199ad75e7a6cf72290d31464663f7d99c3b85386d72b2c97544671",
+      "version": "1.62.1"
     },
     "ngruenwald/config": {
       "version": "main"
