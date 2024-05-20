@@ -284,7 +284,7 @@ function(cmp_find_project_dependencies)
   set(oneValueArgs TYPE)
   cmake_parse_arguments(ARG "" "${oneValueArgs}" "" ${ARGN})
 
-  set(allowed_types "prod;dev;build")
+  set(allowed_types "dev;build;prod")
 
   if(NOT DEFINED ARG_TYPE)
     set(ARG_TYPE ${allowed_types})
