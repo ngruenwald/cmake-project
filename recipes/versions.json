@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-05-20T08:13:53.573498"
+    "date": "2024-05-20T17:51:09.881479"
   },
   "versions": {
     "3hren/blackhole": {
@@ -345,6 +345,11 @@
       "date": "2019-12-12T13:09:48Z",
       "sha256": "d7472a77ca0e235d6d74e6a0258b5df12a0f9de14aa2109c8b9bb319a11258a7",
       "version": "12"
+    },
+    "nats-io/nats.c": {
+      "date": "2024-04-17T16:59:49Z",
+      "sha256": "96599ef4c3fd4603690426440e82671f26f4139663c87d8c571ff5e4d0f581fe",
+      "version": "3.8.2"
     },
     "neargye/magic_enum": {
       "date": "2023-11-16T08:32:10Z",
