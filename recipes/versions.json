@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-05-20T17:51:09.881479"
+    "date": "2024-05-23T16:50:46.377684"
   },
   "versions": {
     "3hren/blackhole": {
@@ -98,10 +98,10 @@
       "version": "1.1.1"
     },
     "curl/curl": {
-      "date": "2024-03-27T07:11:20Z",
-      "sha256": "1522999600630964adc3130eada47dc0be2a71908a36944b7aa78aad2b1006b7",
+      "date": "2024-05-22T05:51:13Z",
+      "sha256": "49075127aa177f66acb4cb66452a68f044754b29ed3772384a7673cf80538eef",
       "tag_filter": "^curl-\\d+_\\d+_\\d+$",
-      "version": "8_7_1"
+      "version": "8_8_0"
     },
     "cyan4973/xxhash": {
       "date": "2015-08-20T16:05:38Z",
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-05-12T16:33:50Z",
-      "sha256": "7d033413d6baf1e2f5dbd29d025da9e9b84410cfe26fa5ccc1f0e024ddbf5804",
-      "version": "2024.05.13.00"
+      "date": "2024-05-19T16:31:34Z",
+      "sha256": "bf7611c350cb67e72a0440d487d014e07c3d76d42839148faa0006c8cac62cca",
+      "version": "2024.05.20.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-05-12T16:33:50Z",
-      "sha256": "6dfa5fa2ae4c98f3e14558eefb86bd079a8b40e2e57be7ddfe4e31bdd911224c",
-      "version": "2024.05.13.00"
+      "date": "2024-05-19T16:31:34Z",
+      "sha256": "6e00c54760a30024e2a68513bdaa67c392d42b19f40bf4abd611c36d03d2137a",
+      "version": "2024.05.20.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,15 +182,15 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-05-20T05:56:05Z",
-      "sha256": "4a7bc52757aabfa5b8a570971d4880cdf3109329a221468b7eb23b31de58db2e",
+      "date": "2024-05-23T14:17:43Z",
+      "sha256": "61a6ba4a93a3fee91b0fef0cb2f19eedfac75e78b40acae461f1c6804d9543c6",
       "tag_filter": "^b\\d+$",
-      "version": "2943"
+      "version": "2985"
     },
     "ggerganov/whisper.cpp": {
-      "date": "2024-05-15T06:59:48Z",
-      "sha256": "fb722652cb21cbbb6eabe8d4f4ed227bd9029869c8b171a29562ef03f870bf45",
-      "version": "1.6.0"
+      "date": "2024-05-21T15:44:37Z",
+      "sha256": "feb2520d3f8bb9ce94753b29b6862648f1f0c25499fdf003c6a7171b45c70b2c",
+      "version": "1.6.1"
     },
     "gnome/libxml2": {
       "date": "2024-05-13T09:34:02Z",
@@ -199,9 +199,9 @@
       "version": "2.12.7"
     },
     "google/benchmark": {
-      "date": "2023-08-31T12:16:50Z",
-      "sha256": "abfc22e33e3594d0edf8eaddaf4d84a2ffc491ad74b6a7edc6e7a608f690e691",
-      "version": "1.8.3"
+      "date": "2024-05-23T14:02:46Z",
+      "sha256": "84c49c4c07074f36fbf8b4f182ed7d75191a6fa72756ab4a17848455499f4286",
+      "version": "1.8.4"
     },
     "google/brotli": {
       "date": "2023-08-29T10:59:55Z",
@@ -465,10 +465,10 @@
       "version": "19.7.0"
     },
     "protocolbuffers/protobuf": {
-      "date": "2024-03-27T17:31:42Z",
-      "sha256": "c968404387c9cccd18676c6e1d83a1dcc39d162a7f468dace4b243c274de1f02",
+      "date": "2024-05-22T18:02:29Z",
+      "sha256": "06363dafe375ebe0a50c167288bd26da64b49243570ed9a34db48896c07fb47b",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "5.26.1"
+      "version": "5.27.0"
     },
     "quicknir/wise_enum": {
       "date": "2019-07-31T16:35:59Z",
@@ -528,9 +528,9 @@
       "version": "master"
     },
     "sqlite/sqlite": {
-      "date": "2024-04-15T13:34:05Z",
-      "sha256": "2e5922db807a521023f35dde48af450d104f7b766619f0b0ffb2de22003ed713",
-      "version": "3.45.3"
+      "date": "2024-05-23T13:25:27Z",
+      "sha256": "2de705774e7fcd31aa7d5f855603a39e3749421ef1ba31672ed874bc5f61bfe7",
+      "version": "3.46.0"
     },
     "srombauts/sqlitecpp": {
       "date": "2023-08-27T21:11:58Z",
