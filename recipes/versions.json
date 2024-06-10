@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-04T19:12:22.650786"
+    "date": "2024-06-10T19:35:01.405907"
   },
   "versions": {
     "3hren/blackhole": {
@@ -129,9 +129,9 @@
       "version": "1.9.4"
     },
     "eliaskosunen/scnlib": {
-      "date": "2024-05-19T20:56:51Z",
-      "sha256": "78d13b0119e684450f3b2916f868ee528a5b9f227e9fe67c4fc23043c6d0aab9",
-      "version": "2.0.3"
+      "date": "2024-06-07T21:31:11Z",
+      "sha256": "5a67a484815dfb579cf0cecc7390ea729a132e513eed0d76852c9772b1769000",
+      "version": "3.0.0"
     },
     "erikd/libsndfile": {
       "date": "2023-08-13T08:53:51Z",
@@ -139,9 +139,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-06-03T08:46:35Z",
-      "sha256": "93b486b50a3e92fbfa2527deee13110253ae1bd6a4aaf02cc680109634f83d4b",
-      "version": "2024.06.03.00"
+      "date": "2024-06-10T09:42:15Z",
+      "sha256": "fbb83e90e60eb0c5a35e99f3ca6b80dc7d1957c89a73474427020a9b67cb4f5b",
+      "version": "2024.06.10.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -149,9 +149,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-06-03T08:46:35Z",
-      "sha256": "318452f613dc260a95bb7b110cecf8be0d5f6815cdaaecfd4a2cdd8924bb4256",
-      "version": "2024.06.03.00"
+      "date": "2024-06-10T09:42:15Z",
+      "sha256": "fedf522a95d7c24b10b90911c055056e3454163ecc6744626c8b93ccabe64a95",
+      "version": "2024.06.10.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-06-04T12:32:42Z",
-      "sha256": "a0572a6747aa51d92481e26bff1311d76b75b1e71dbdc9320fd2d10bf936da97",
+      "date": "2024-06-05T08:29:20Z",
+      "sha256": "18b38478d6f14c803f1b65d9fcc66088f890b37bad79ebd6d77a5e7fc345ea05",
       "tag_filter": "^b\\d+$",
-      "version": "3083"
+      "version": "3091"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-05-27T07:35:09Z",
@@ -209,9 +209,9 @@
       "version": "1.1.0"
     },
     "google/glog": {
-      "date": "2024-02-17T17:49:26Z",
-      "sha256": "6e1216d7bc5bb785b9c596ac59b975423c0882488f46c45760d0c2a9ef77295b",
-      "version": "0.7.0"
+      "date": "2024-06-08T15:07:34Z",
+      "sha256": "c17d85c03ad9630006ef32c7be7c65656aba2e7e2fbfc82226b7e680c771fc88",
+      "version": "0.7.1"
     },
     "google/googletest": {
       "date": "2023-08-02T15:24:13Z",
@@ -232,9 +232,9 @@
       "version": "0.10.14"
     },
     "grpc/grpc": {
-      "date": "2024-05-29T23:42:24Z",
-      "sha256": "4b5906ce4336833463696136425da24620334d212d15291c48a41fee8d1b4ec7",
-      "version": "1.64.1"
+      "date": "2024-06-07T18:23:36Z",
+      "sha256": "8579095a31e280d0c5fcc81ea0a2a0efb2900dbfbac0eb018a961a5be22e076e",
+      "version": "1.64.2"
     },
     "j0r1/jrtplib": {
       "date": "2020-04-18T09:44:45Z",
@@ -402,9 +402,9 @@
       "version": "1.3.0"
     },
     "ocornut/imgui": {
-      "date": "2024-05-27T13:07:14Z",
-      "sha256": "a5d45e45b1369402e64d10be6c30f3afb98c228a4d8a54a2c034db5a245536f0",
-      "version": "1.90.7"
+      "date": "2024-06-06T15:29:19Z",
+      "sha256": "4c343889116e11a6640c39f49fcabc87eec07319009a0d406cc19689a6277f55",
+      "version": "1.90.8"
     },
     "open-telemetry/opentelemetry-cpp": {
       "date": "2024-04-21T20:11:48Z",
@@ -465,10 +465,10 @@
       "version": "19.7.0"
     },
     "protocolbuffers/protobuf": {
-      "date": "2024-05-22T18:02:29Z",
-      "sha256": "06363dafe375ebe0a50c167288bd26da64b49243570ed9a34db48896c07fb47b",
+      "date": "2024-06-05T14:55:44Z",
+      "sha256": "c0e8e568a441c8d84866122d80fb63fb352f4eef018e47b4af298d974805694c",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "5.27.0"
+      "version": "5.27.1"
     },
     "quicknir/wise_enum": {
       "date": "2019-07-31T16:35:59Z",
