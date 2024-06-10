@@ -32,7 +32,7 @@ static const struct VersionInfo TargetDependencies[]
 ]=]
   )
 
-  _create_versions_header(${target} "versions.h" ${template})
+  _create_versions_header(${target} "versions.h" "${template}")
 endfunction()
 
 
