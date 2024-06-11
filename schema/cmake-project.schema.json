@@ -1,155 +1,430 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
     "$ref": "#/definitions/CMakeProject",
+
+    "description": "NOTE: This is work-in-progress. Currently the validation of exactly one kind of project configuration does not work!",
+
     "definitions": {
+
         "CMakeProject": {
+            "title": "CMakeProject",
+            "description": "cmake-project.json file specification",
             "type": "object",
             "additionalProperties": false,
             "properties": {
                 "project": {
+                    "title": "Project information",
                     "$ref": "#/definitions/Project"
                 },
                 "dependencies": {
+                    "title": "Project dependencies",
                     "$ref": "#/definitions/Dependencies"
                 },
                 "dev-dependencies": {
+                    "title": "Development dependencies",
                     "$ref": "#/definitions/Dependencies"
                 },
                 "build-dependencies": {
+                    "title": "Build dependencies",
                     "$ref": "#/definitions/Dependencies"
                 }
             },
             "required": [
                 "project"
-            ],
-            "title": "CMakeProject"
+            ]
         },
+
         "Project": {
+            "title": "Project information",
             "type": "object",
             "additionalProperties": false,
             "properties": {
                 "name": {
+                    "title": "Project name",
                     "type": "string"
                 },
                 "version": {
+                    "title": "Project version",
                     "type": "string"
                 },
                 "description": {
-                    "type": "string"
+                    "title": "Project description",
+                    "type": "string",
+                    "default": ""
                 },
                 "authors": {
+                    "title": "List of authors",
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "default": []
                 },
                 "documentation": {
+                    "title": "Documentation URL",
                     "type": "string",
-                    "format": "uri"
+                    "format": "uri",
+                    "default": ""
                 },
                 "repository": {
+                    "title": "Repository URL",
                     "type": "string",
-                    "format": "uri"
+                    "format": "uri",
+                    "default": ""
                 },
                 "readme": {
-                    "type": "string"
+                    "title": "Readme file",
+                    "type": "string",
+                    "default": ""
                 },
                 "license": {
-                    "type": "string"
+                    "title": "License identifier",
+                    "type": "string",
+                    "default": ""
                 },
                 "license-file": {
-                    "type": "string"
+                    "title": "License file",
+                    "type": "string",
+                    "default": ""
                 },
                 "keywords": {
+                    "title": "List of keywords",
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "default": []
                 },
                 "categories": {
+                    "title": "List of categories",
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "default": []
+                },
+                "languages": {
+                    "title": "List of languages",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": ["C", "CXX"]
                 },
                 "dependency_defaults": {
+                    "title": "Default settings for dependencies",
                     "$ref": "#/definitions/DependencyDefaults"
                 }
             },
             "required": [
                 "name",
                 "version"
-            ],
-            "title": "Project"
+            ]
         },
+
         "DependencyDefaults": {
+            "title": "Default settings for dependencies",
             "type": "object",
             "additionalProperties": false,
             "properties": {
                 "method": {
-                    "type": "string"
+                    "title": "Retrieval method",
+                    "description": "Retrieval method (find_package, fetch_content, external_project, ...)",
+                    "type": "string",
+                    "default": "$<CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD>"
                 },
                 "branch": {
-                    "type": "string"
+                    "title": "Branch to use for Git dependencies",
+                    "type": "string",
+                    "default": "$<CMAKE_PROJECT_DEFAULT_GIT_BRANCH>"
+                },
+                "recipes-path": {
+                    "title": "Location of recipe files",
+                    "type": "string",
+                    "default": "$<CMAKE_PROJECT_DEFAULT_RECIPE_PATH>"
+                },
+                "prefix-path": {
+                    "title": "Location of downloaded dependencies",
+                    "type": "string",
+                    "default": ""
                 }
-            },
-            "title": "DependencyDefaults"
+            }
         },
+
         "Dependencies": {
+            "title": "Dependencies",
             "type": "object",
-            "additionalProperties": true,
-            "title": "Dependencies"
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "$ref": "#/definitions/FindPackageSettings"
+                },
+                {
+                    "$ref": "#/definitions/FetchContentSettings"
+                },
+                {
+                    "$ref": "#/definitions/ExternalProjectSettings"
+                }
+            ]
         },
-        "FindPackageDependency": {
+
+        "CommonDependencySettings": {
+            "title": "Common dependency settings",
             "type": "object",
             "properties": {
+                "skip": {
+                    "title": "Disable dependency",
+                    "type": "boolean",
+                    "default": false
+                },
+                "when": {
+                    "title": "Conditional use",
+                    "description": "CMake condition used for dependency inclusion. NOTE: variables must use angle brackets! e.g. $<CMAKE_SYSTEM_NAME>",
+                    "type": "string",
+                    "default": ""
+                },
+                "recipe": {
+                    "title": "Recipe name",
+                    "type": "string",
+                    "default": ""
+                },
                 "method": {
-                    "type": "string"
+                    "title": "Retrieval method",
+                    "description": "Retrieval method (find_package, fetch_content, external_project, ...)",
+                    "type": "string",
+                    "default": "$<CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD>"
                 },
                 "version": {
-                    "type": "string"
+                    "title": "Dependency version",
+                    "type": "string",
+                    "default": ""
                 },
+                "options": {
+                    "title": "Options used when gathering/building the dependency",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "default": {}
+                }
+            }
+        },
+
+        "CommonExternalContentSettings": {
+            "title": "Common settings for fetch_content and external_project",
+            "type": "object",
+            "properties": {
+                "git_repository": {
+                    "title": "URL of the git repository",
+                    "type": "string",
+                    "default": ""
+                },
+                "git_tag": {
+                    "title": "Git branch name, tag or commit hash",
+                    "type": "string",
+                    "default": ""
+                },
+                "git_shallow": {
+                    "title": "Perform shallow clone",
+                    "type": "boolean",
+                    "default": true
+                },
+                "url": {
+                    "title": "URL of the source archive to download",
+                    "type": "string",
+                    "default": ""
+                },
+                "url_hash": {
+                    "title": "Hash of the archive file to download",
+                    "type": "string",
+                    "default": ""
+                },
+                "update_disconnected": {
+                    "title": "Skips the (automatic) update step",
+                    "type": "boolean",
+                    "default": true
+                },
+                "depends": {
+                    "title": "Specify other targets on which the external project depends",
+                    "type": "string",
+                    "default": ""
+                },
+                "build_in_source": {
+                    "title": "Execute build in source tree",
+                    "type": "boolean",
+                    "default": false
+                },
+                "update_command": {
+                    "title": "Overrides the default download comand",
+                    "type": "string",
+                    "default": ""
+                },
+                "configure_command": {
+                    "title": "Overrides the default configure command",
+                    "type": "string",
+                    "default": ""
+                },
+                "build_command": {
+                    "title": "Overrides the default build command",
+                    "type": "string",
+                    "default": ""
+                },
+                "install_command": {
+                    "title": "Overrides the default install command",
+                    "type": "string",
+                    "default": ""
+                },
+                "test_command": {
+                    "title": "Overrides the default test command",
+                    "type": "string",
+                    "default": ""
+                },
+                "patch_command": {
+                    "title": "Custom command to patch the sources after an update",
+                    "type": "string",
+                    "default": ""
+                },
+                "binary_dir": {
+                    "title": "Specify the build directory loation",
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/CommonDependencySettings"
+                }
+            ]
+        },
+
+        "FindPackageSettings": {
+            "title": "FindPackage specific settings",
+            "type": "object",
+            "properties": {
                 "quiet": {
-                    "type": "boolean"
+                    "title": "Disables informational messages",
+                    "type": "boolean",
+                    "default": true
                 },
                 "module": {
-                    "type": "boolean"
+                    "title": "Module mode only",
+                    "type": "boolean",
+                    "default": false
                 },
                 "optional": {
-                    "type": "boolean"
+                    "title": "Dependency is not required",
+                    "type": "boolean",
+                    "default": false
                 },
                 "components": {
+                    "title": "Required components",
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "default": []
                 },
                 "optional_components": {
+                    "title": "Optional components",
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "default": []
                 },
                 "global": {
-                    "type": "boolean"
+                    "title": "Promote targets to global scope",
+                    "description": "CMake 3.24",
+                    "type": "boolean",
+                    "default": false
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/CommonDependencySettings"
+                }
+            ],
+            "additionalProperties": true
         },
-        "FetchContentDependency": {
+
+        "FetchContentSettings": {
+            "title": "FetchContent specific settings",
             "type": "object",
             "properties": {
-                "method": {
-                    "type": "string"
+                "exclude_from_all": {
+                    "title": "Do not include targets in the ALL target",
+                    "description": "CMake 3.28",
+                    "type": "boolean",
+                    "default": true
+                },
+                "system": {
+                    "title": "Set SYSTEM directory property",
+                    "description": "CMake 3.25",
+                    "type": "boolean",
+                    "default": true
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/CommonExternalContentSettings"
+                }
+            ],
+            "additionalProperties": true
         },
-        "ExternalProjectDependency": {
+
+        "ExternalProjectSettings": {
+            "title": "ExternalProject specific settings",
             "type": "object",
             "properties": {
-                "method": {
-                    "type": "string"
+                "cmake_args": {
+                    "title": "Arguments passed to the cmake command line",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": []
+                },
+                "options_as_args": {
+                    "title": "Pass options as cmake command args",
+                    "type": "boolean",
+                    "default": true
+                },
+                "targets": {
+                    "title": "Create custom targets",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Target"
+                    },
+                    "default": []
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/CommonExternalContentSettings"
+                }
+            ],
+            "additionalProperties": true
+        },
+
+        "Target": {
+            "title": "CMake target settings",
+            "type": "object",
+            "properties": {
+                "target": {
+                    "title": "Name of the target",
+                    "type": "string"
+                },
+                "binary": {
+                    "title": "Location of the output binary",
+                    "type": "string",
+                    "default": ""
+                }
+            },
+            "required": [
+                "target"
+            ]
         }
     }
 }
