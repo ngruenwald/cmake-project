@@ -439,10 +439,41 @@ endfunction()
 # @param[in]  data    Additional dependency information (JSON formatted)
 #
 function(_cmp_find_project_dependency name data)
-  _cmp_get_opt(skip   "${data}" "skip"    OFF)
+  _cmp_get_opt(skip "${data}" "skip" OFF)
 
   if(${skip})
+    message(DEBUG "ignoring \"${name}\" (skip)")
     return()
+  endif()
+
+  _cmp_get_opt(when "${data}" "when" "")
+
+  if(NOT "${when}" STREQUAL "")
+    separate_arguments(when UNIX_COMMAND ${when})
+
+    set(condition)
+    set(pattern "\\$<([^\\$<>]+)>")
+    foreach(wpart IN ITEMS ${when})
+      string(REGEX MATCHALL ${pattern} wmatch ${wpart})
+      list(LENGTH wmatch wlength)
+      if(${wlength} GREATER 0)
+        foreach(wm IN ITEMS ${wmatch})
+          string(REGEX REPLACE "^\\$<(.*)>$" "\\1" wtmp ${wm})
+          list(APPEND condition ${${wtmp}})
+        endforeach()
+      else()
+        list(APPEND condition ${wpart})
+      endif()
+    endforeach()
+
+    message(TRACE "${name} | condition: ${condition}")
+
+    if (${condition})
+      message(DEBUG "processing \"${name}\" (when)")
+    else()
+      message(DEBUG "ignoring \"${name}\" (when)")
+      return()
+    endif()
   endif()
 
   _cmp_get_opt(recipe "${data}" "recipe"  "")
