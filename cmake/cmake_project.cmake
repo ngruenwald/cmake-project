@@ -413,7 +413,17 @@ function(_cmp_find_project_dependencies type)
   math(EXPR length "${length}-1")
   foreach(idx RANGE ${length})
     string(JSON key MEMBER "${deps}" ${idx})
-    string(JSON dep GET "${deps}" ${key})
+    string(JSON typ TYPE   "${deps}" ${key})
+    string(JSON val GET    "${deps}" ${key})
+
+    if ("${typ}" STREQUAL "OBJECT")
+      set(dep ${val})
+    elseif("${typ}" STREQUAL "NUMBER" OR "${typ}" STREQUAL "STRING")
+      set(dep "{\"version\": \"${val}\"}")
+    else()
+      message(FATAL_ERROR "'${key}' has invalid type '${typ}'")
+    endif()
+
     _cmp_find_project_dependency(${key} ${dep})
   endforeach()
 
@@ -738,7 +748,7 @@ endfunction()
 #
 # _cmp_merge_json_data(result base additional)
 #
-# Merges the entreis from "additional" to "base".
+# Merges the entries from "additional" to "base".
 # Existing keys are overwritten.
 #
 # @param[out] result      The merged data
