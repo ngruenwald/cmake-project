@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-11T06:06:24.287916"
+    "date": "2024-06-12T04:48:37.095188"
   },
   "versions": {
     "3hren/blackhole": {
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-06-05T08:29:20Z",
-      "sha256": "18b38478d6f14c803f1b65d9fcc66088f890b37bad79ebd6d77a5e7fc345ea05",
+      "date": "2024-06-11T19:26:05Z",
+      "sha256": "b914526d96f727593c0cbf45e97736d885dd9aeac99da7932a15b94e064e95b3",
       "tag_filter": "^b\\d+$",
-      "version": "3091"
+      "version": "3135"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-05-27T07:35:09Z",
@@ -604,9 +604,9 @@
       "version": "2.5.3"
     },
     "yhirose/cpp-httplib": {
-      "date": "2024-02-06T03:12:43Z",
-      "sha256": "ead4fe8f6c9cba406c82dc55e3ed49174b43b643e3418a43311d00739637fbf4",
-      "version": "0.15.3"
+      "date": "2024-06-11T22:20:22Z",
+      "sha256": "d0ad25b71e2b30e146501b4c19b7b401ba77ebdba4c1b769c9ad64f7407fd841",
+      "version": "0.16.0"
     },
     "yhirose/cpp-mmaplib": {
       "version": "master"
