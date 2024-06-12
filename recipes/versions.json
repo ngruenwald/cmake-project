@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-12T04:48:37.095188"
+    "date": "2024-06-12T15:15:20.370693"
   },
   "versions": {
     "3hren/blackhole": {
@@ -182,10 +182,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-06-11T19:26:05Z",
-      "sha256": "b914526d96f727593c0cbf45e97736d885dd9aeac99da7932a15b94e064e95b3",
+      "date": "2024-06-12T13:00:22Z",
+      "sha256": "dd66d09dc61cc020e3359fed2f475ab84052f9477d346e427fb17eabd5e66dde",
       "tag_filter": "^b\\d+$",
-      "version": "3135"
+      "version": "3140"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-05-27T07:35:09Z",
@@ -193,10 +193,10 @@
       "version": "1.6.2"
     },
     "gnome/libxml2": {
-      "date": "2024-05-13T09:34:02Z",
-      "sha256": "4a09d67e5889b522f0070fe5014c2239de5e14fabe259eed4c608647cdc48b4a",
+      "date": "2024-06-12T13:45:38Z",
+      "sha256": "4ac32665fd5f4c8d33039054cea94372df52bc8260e1b7a067d28a12e2a3e7f5",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "2.12.7"
+      "version": "2.13.0"
     },
     "google/benchmark": {
       "date": "2024-05-23T14:02:46Z",
