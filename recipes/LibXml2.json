@@ -4,7 +4,7 @@
     "target": ""
   },
 
-  "version": "2.11.5",
+  "version": "2.12.7",
 
   "method": "fetch_content",
   "url": "https://github.com/GNOME/libxml2/archive/refs/tags/v{{version}}.zip",

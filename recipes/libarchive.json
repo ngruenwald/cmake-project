@@ -4,7 +4,7 @@
     "target": "archive_static, archive"
   },
 
-  "version": "3.7.1",
+  "version": "3.7.4",
 
   "method": "fetch_content",
   "url": "https://github.com/libarchive/libarchive/archive/refs/tags/v{{version}}.zip",

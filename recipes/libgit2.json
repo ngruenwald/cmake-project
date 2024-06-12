@@ -4,7 +4,7 @@
     "target": "libgit2"
   },
 
-  "version": "1.7.1",
+  "version": "1.8.1",
 
   "method": "fetch_content",
   "url": "https://github.com/libgit2/libgit2/archive/refs/tags/v{{version}}.zip",

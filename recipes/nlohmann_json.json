@@ -4,7 +4,7 @@
     "target": "nlohmann_json::nlohmann_json"
   },
 
-  "version": "3.11.2",
+  "version": "3.11.3",
 
   "method": "fetch_content",
   "url": "https://github.com/nlohmann/json/archive/refs/tags/v{{version}}.zip",

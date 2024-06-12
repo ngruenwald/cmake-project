@@ -4,7 +4,7 @@
     "target": "cxxopts::cxxopts"
   },
 
-  "version": "3.1.1",
+  "version": "3.2.1",
 
   "method": "fetch_content",
   "url": "https://github.com/jarro2783/cxxopts/archive/refs/tags/v{{version}}.zip",

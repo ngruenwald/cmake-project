@@ -4,7 +4,7 @@
     "target": "OpenSSL::Crypto, OpenSSL::SSL"
   },
 
-  "version": "3.1.4",
+  "version": "3.3.1",
 
   "method": "external_project",
   "url": "https://github.com/openssl/openssl/archive/refs/tags/openssl-{{version}}.zip",

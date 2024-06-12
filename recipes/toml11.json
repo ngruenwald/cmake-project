@@ -4,7 +4,7 @@
     "target": "toml11::toml11"
   },
 
-  "version": "3.7.1",
+  "version": "3.8.1",
 
   "method": "fetch_content",
   "url": "https://github.com/ToruNiina/toml11/archive/refs/tags/v{{version}}.zip",
