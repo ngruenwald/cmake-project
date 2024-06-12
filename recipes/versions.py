@@ -1,10 +1,10 @@
 import argparse
+import datetime
 import json
 import os
 import regex
 import requests
 
-from datetime import datetime
 from functools import cmp_to_key
 from hashlib import sha256
 from subprocess import Popen
@@ -29,6 +29,7 @@ def main() -> None:
     parser.add_argument("--add", default=None, help="Add new package")
     parser.add_argument("--delay", type=float, default=None, help="Delay in seconds between package checks")
     parser.add_argument("--commit", action="store_true", help="Create commit")
+    parser.add_argument("--recipes", action="store_true", help="Update recipe files")
     args = parser.parse_args()
 
     if args.token is not None:
@@ -37,7 +38,7 @@ def main() -> None:
         set_token(os.getenv("TOKEN"))
 
     changes: list[tuple[str, str, str]] = []
-    now = datetime.utcnow()
+    now = datetime.datetime.now(datetime.UTC)
     data = read_version_file("versions.json")
     data["meta"]["date"] = now.isoformat()
     if args.add:
@@ -45,7 +46,7 @@ def main() -> None:
         package = parts[0]
         version = parts[1] if len(parts) > 1 else ""
         info = {"version": version}
-        change = update_package(package, info, args.force, args.yes)
+        change = update_package(package, info, args.force, args.yes, args.recipes)
         if change:
             changes.append(change)
         data["versions"].update({package: info})
@@ -54,7 +55,7 @@ def main() -> None:
             if args.delay:
                 sleep(args.delay)
             if not args.package or args.package == package:
-                change = update_package(package, info, args.force, args.yes)
+                change = update_package(package, info, args.force, args.yes, args.recipes)
                 if change:
                     changes.append(change)
     # filename = args.output if args.output else f"versions-{now.date().isoformat()}.json"
@@ -74,7 +75,7 @@ def write_version_file(name: str, data: dict) -> None:
         stream.write(json.dumps(data, indent=2, sort_keys=True))
 
 
-def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> tuple[str, str, str] | None:
+def update_package(package: str, info: dict, force: bool, auto_accept: bool, update_recipe) -> tuple[str, str, str] | None:
     # TODO: lookup additional information from recipe file!
     # NOTE: currently we check all packages against github
     try:
@@ -119,6 +120,11 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> 
         file_url = f"https://github.com/{package}/archive/refs/tags/{tag['name']}.zip"
         info["sha256"] = get_file_hash(file_url)
 
+        if update_recipe:
+            recipe = info.get("recipe")
+            if recipe:
+                update_recipe_version(recipe, tag_version)
+
         print(f"  {version } -> {tag_version}")
 
         return (package, version, tag_version)
@@ -126,6 +132,19 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool) -> 
     except Exception as error:
         print(error)
         return None
+
+
+def update_recipe_version(recipe: str, version: str) -> None:
+    try:
+        with open(recipe, "r") as stream:
+            data = json.load(stream)
+        if data["version"] == version:
+            return
+        data["version"] = version
+        with open(recipe, "w") as stream:
+            stream.write(json.dumps(data, indent=2))
+    except Exception as err:
+        print(f"  failed to update recipe: {err}")
 
 
 def compare_tag_versions(a: str, b: str) -> int:

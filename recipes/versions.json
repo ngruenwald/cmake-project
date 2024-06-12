@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-12T15:15:20.370693"
+    "date": "2024-06-12T19:14:32.037918+00:00"
   },
   "versions": {
     "3hren/blackhole": {
@@ -34,15 +34,18 @@
       "version": "2.0.1-7"
     },
     "arashpartow/strtk": {
+      "recipe": "strtk.json",
       "version": "master"
     },
     "baresip/re": {
       "date": "2024-05-15T06:37:35Z",
+      "recipe": "re.json",
       "sha256": "e3cbc710ff4c8fdac2a3206074edd144c56f91bcf8768bf3073c251bc44ae0ca",
       "version": "3.12.0"
     },
     "bfgroup/lyra": {
       "date": "2022-11-07T21:49:52Z",
+      "recipe": "lyra.json",
       "sha256": "bc1bba5d4897205484c2f135db825f1189a74520592ee59d4f58b36c58c92f35",
       "version": "1.6.1"
     },
@@ -61,6 +64,7 @@
     },
     "bombela/backward-cpp": {
       "date": "2021-08-12T22:49:08Z",
+      "recipe": "backward.json",
       "sha256": "9b07e12656ab9af8779a84e06865233b9e30fadbb063bf94dd81d318081db8c2",
       "version": "1.6"
     },
@@ -76,6 +80,7 @@
     },
     "catchorg/catch2": {
       "date": "2024-05-05T18:58:18Z",
+      "recipe": "catch2.json",
       "sha256": "aa0ebf551ffbf098ec1e253b5fee234c30b4ee54a31b1be63cb1a7735d3cf391",
       "version": "3.6.0"
     },
@@ -155,6 +160,7 @@
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
+      "recipe": "fmt.json",
       "sha256": "d368f9c39a33a3aef800f5be372ec1df1c12ad57ada1f60adc62f24c0e348469",
       "version": "10.2.1"
     },
@@ -165,6 +171,7 @@
     },
     "fr00b0/nod": {
       "date": "2022-05-02T05:35:42Z",
+      "recipe": "nod.json",
       "sha256": "e5f9880d6bb526b8e538285e62741745e19ebf3655e2959d206e724c80c69e32",
       "version": "0.5.4"
     },
@@ -173,6 +180,7 @@
     },
     "gabime/spdlog": {
       "date": "2024-04-30T10:14:29Z",
+      "recipe": "spdlog.json",
       "sha256": "429dfdf3afc1984feb59e414353c21c110bc79609f6d7899d52f6aa388646f6d",
       "version": "1.14.1"
     },
@@ -194,6 +202,7 @@
     },
     "gnome/libxml2": {
       "date": "2024-06-12T13:45:38Z",
+      "recipe": "LibXml2.json",
       "sha256": "4ac32665fd5f4c8d33039054cea94372df52bc8260e1b7a067d28a12e2a3e7f5",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
       "version": "2.13.0"
@@ -246,6 +255,7 @@
     },
     "jarro2783/cxxopts": {
       "date": "2024-02-20T08:39:34Z",
+      "recipe": "cxxopts.json",
       "sha256": "210f7cb72c4dc0dbc855e31ff5aa0676b6a53fcc756e7e79d1fd0bc6520bc6d7",
       "version": "3.2.1"
     },
@@ -257,6 +267,7 @@
     },
     "jbeder/yaml-cpp": {
       "date": "2023-08-10T19:27:56Z",
+      "recipe": "yaml-cpp.json",
       "sha256": "334e80ab7b52e14c23f94e041c74bab0742f2281aad55f66be2f19f4b7747071",
       "version": "0.8.0"
     },
@@ -280,6 +291,7 @@
     },
     "libarchive/libarchive": {
       "date": "2024-04-26T09:22:15Z",
+      "recipe": "libarchive.json",
       "sha256": "5a57816a6af9499554cb8b95c25123f262c678c0a54c81a19d4bfbbe6f02ac9a",
       "version": "3.7.4"
     },
@@ -290,6 +302,7 @@
     },
     "libgit2/libgit2": {
       "date": "2024-05-16T09:58:48Z",
+      "recipe": "libgit2.json",
       "sha256": "7ef1d7cbeb8f08df379a6de208d703bd6a8cd3afcd85ceab4a01d1ae5a7258a7",
       "version": "1.8.1"
     },
@@ -305,6 +318,7 @@
     },
     "madler/zlib": {
       "date": "2024-01-22T18:14:31Z",
+      "recipe": "zlib.json",
       "sha256": "50b24b47bf19e1f35d2a21ff36d2a366638cdf958219a66f30ce0861201760e6",
       "version": "1.3.1"
     },
@@ -348,6 +362,7 @@
     },
     "nats-io/nats.c": {
       "date": "2024-04-17T16:59:49Z",
+      "recipe": "natsc.json",
       "sha256": "96599ef4c3fd4603690426440e82671f26f4139663c87d8c571ff5e4d0f581fe",
       "version": "3.8.2"
     },
@@ -371,25 +386,33 @@
       "sha256": "2ac4835503199ad75e7a6cf72290d31464663f7d99c3b85386d72b2c97544671",
       "version": "1.62.1"
     },
+    "ngruenwald/cmake-modules": {
+      "recipe": "cmake-modules.json",
+      "version": "main"
+    },
     "ngruenwald/config": {
       "version": "main"
     },
     "ngruenwald/config-generator": {
+      "recipe": "cgen.json",
       "version": "main"
     },
     "ngruenwald/cpp-soaplib": {
       "version": "main"
     },
     "ngruenwald/fundus": {
+      "recipe": "fundus.json",
       "version": "main"
     },
     "ngruenwald/tempus": {
       "date": "2022-07-28T15:43:33Z",
+      "recipe": "tempus.json",
       "sha256": "dd5193ee84989c6b78bb9607f03910b141299157c93d77a8dbf3592f70a78b52",
       "version": "0.1.1"
     },
     "nlohmann/json": {
       "date": "2023-11-28T21:36:31Z",
+      "recipe": "nlohmann_json.json",
       "sha256": "04022b05d806eb5ff73023c280b68697d12b93e1b7267a0b22a1a39ec7578069",
       "version": "3.11.3"
     },
@@ -408,6 +431,7 @@
     },
     "open-telemetry/opentelemetry-cpp": {
       "date": "2024-04-21T20:11:48Z",
+      "recipe": "opentelemetry.json",
       "sha256": "57f127380244fa892d86894fe4bf6b54c040e078083718a27512fd5850b0c033",
       "version": "1.15.0"
     },
@@ -418,12 +442,14 @@
     },
     "openssl/openssl": {
       "date": "2024-06-04T12:53:04Z",
+      "recipe": "OpenSSL.json",
       "sha256": "307284f39bfb7061229c57e263e707655aa80aa9950bf6def28ed63fec91a726",
       "tag_filter": "^openssl-\\d+\\.\\d+\\.\\d+$",
       "version": "3.3.1"
     },
     "p-ranav/argparse": {
       "date": "2023-11-06T01:15:14Z",
+      "recipe": "argparse.json",
       "sha256": "674e724c2702f0bfef1619161815257a407e1babce30d908327729fba6ce4124",
       "version": "3.0"
     },
@@ -444,6 +470,7 @@
     },
     "pantor/inja": {
       "date": "2023-01-29T12:10:03Z",
+      "recipe": "inja.json",
       "sha256": "4ad04d380b8377874c7a097a662c1f67f40da5fb7d3abc3851544f59c3613a20",
       "version": "3.4.0"
     },
@@ -456,6 +483,7 @@
       "version": "0.6.0"
     },
     "pistacheio/pistache": {
+      "recipe": "pistache.json",
       "version": "master"
     },
     "portaudio/portaudio": {
@@ -559,16 +587,19 @@
     },
     "tink-crypto/tink-cc": {
       "date": "2024-05-07T15:01:19Z",
+      "recipe": "tink.json",
       "sha256": "88e1442182452caa16d0954ceaf73e17b0aa30837ee6c0cc16bf0112313ce753",
       "version": "2.2.0"
     },
     "tjol/ckdl": {
       "date": "2023-10-03T14:13:26Z",
+      "recipe": "ckdl.json",
       "sha256": "2dc68da7d741bea64246446dabf3decbe101e8ca3e395ce603471090e389cb58",
       "version": "0.1.2"
     },
     "toruniina/toml11": {
       "date": "2024-01-07T09:06:50Z",
+      "recipe": "toml11.json",
       "sha256": "72e956f42002dd1566c5551a693ec0f6fa3bea3a0e7bcea29bcdace98738da74",
       "version": "3.8.1"
     },
@@ -605,6 +636,7 @@
     },
     "yhirose/cpp-httplib": {
       "date": "2024-06-11T22:20:22Z",
+      "recipe": "httplib.json",
       "sha256": "d0ad25b71e2b30e146501b4c19b7b401ba77ebdba4c1b769c9ad64f7407fd841",
       "version": "0.16.0"
     },
@@ -626,6 +658,7 @@
     },
     "zeux/pugixml": {
       "date": "2023-09-07T18:55:13Z",
+      "recipe": "pugixml.json",
       "sha256": "86a2b2f16d3e107b9ea5043ef9c458306b94d38f6203d58a196dc9b9dc6351a6",
       "version": "1.14"
     },
