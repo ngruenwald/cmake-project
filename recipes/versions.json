@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-12T19:14:32.037918+00:00"
+    "date": "2024-06-17T04:54:26.201720+00:00"
   },
   "versions": {
     "3hren/blackhole": {
@@ -134,9 +134,9 @@
       "version": "1.9.4"
     },
     "eliaskosunen/scnlib": {
-      "date": "2024-06-07T21:31:11Z",
-      "sha256": "5a67a484815dfb579cf0cecc7390ea729a132e513eed0d76852c9772b1769000",
-      "version": "3.0.0"
+      "date": "2024-06-15T10:18:27Z",
+      "sha256": "0b39c519df3a5d17142047f314692c7791fcc7fae50e4221377fcee16f983245",
+      "version": "3.0.1"
     },
     "erikd/libsndfile": {
       "date": "2023-08-13T08:53:51Z",
@@ -598,10 +598,10 @@
       "version": "0.1.2"
     },
     "toruniina/toml11": {
-      "date": "2024-01-07T09:06:50Z",
+      "date": "2024-06-16T15:56:07Z",
       "recipe": "toml11.json",
-      "sha256": "72e956f42002dd1566c5551a693ec0f6fa3bea3a0e7bcea29bcdace98738da74",
-      "version": "3.8.1"
+      "sha256": "a2be2f23f6ed4d28dcd2c2941cbacc7c45ec68af75263dce91cf0be0c72e7ac1",
+      "version": "4.0.0"
     },
     "twitter/vireo": {
       "version": "master"
