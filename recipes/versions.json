@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-17T04:54:26.201720+00:00"
+    "date": "2024-06-19T15:53:25.001008+00:00"
   },
   "versions": {
     "3hren/blackhole": {
@@ -38,10 +38,10 @@
       "version": "master"
     },
     "baresip/re": {
-      "date": "2024-05-15T06:37:35Z",
+      "date": "2024-06-19T05:32:40Z",
       "recipe": "re.json",
-      "sha256": "e3cbc710ff4c8fdac2a3206074edd144c56f91bcf8768bf3073c251bc44ae0ca",
-      "version": "3.12.0"
+      "sha256": "8b547276e9d415e40a9e60028e69caef5ac179b8225692cdb650d1e40a62923c",
+      "version": "3.13.0"
     },
     "bfgroup/lyra": {
       "date": "2022-11-07T21:49:52Z",
@@ -144,9 +144,9 @@
       "version": "1.2.2"
     },
     "facebook/proxygen": {
-      "date": "2024-06-10T09:42:15Z",
-      "sha256": "fbb83e90e60eb0c5a35e99f3ca6b80dc7d1957c89a73474427020a9b67cb4f5b",
-      "version": "2024.06.10.00"
+      "date": "2024-06-16T16:31:32Z",
+      "sha256": "963554dc2298f8f0c241c7a5a24fb20f8ea0d6e21dd134fe549c11736cfb19da",
+      "version": "2024.06.17.00"
     },
     "facebook/zstd": {
       "date": "2017-09-18T22:50:14Z",
@@ -154,9 +154,9 @@
       "version": "2"
     },
     "facebookincubator/fizz": {
-      "date": "2024-06-10T09:42:15Z",
-      "sha256": "fedf522a95d7c24b10b90911c055056e3454163ecc6744626c8b93ccabe64a95",
-      "version": "2024.06.10.00"
+      "date": "2024-06-16T16:31:32Z",
+      "sha256": "efad1a2f7bd38d516148d2529b35f9cefc1d2fea791ac76474d96b2a4637d79a",
+      "version": "2024.06.17.00"
     },
     "fmtlib/fmt": {
       "date": "2024-01-03T19:17:28Z",
@@ -190,10 +190,10 @@
       "version": "2.2.2"
     },
     "ggerganov/llama.cpp": {
-      "date": "2024-06-12T13:00:22Z",
-      "sha256": "dd66d09dc61cc020e3359fed2f475ab84052f9477d346e427fb17eabd5e66dde",
+      "date": "2024-06-19T13:04:15Z",
+      "sha256": "3ab273ee6be478cbb69444dc6f6e608a1cd24c7b46488930487e09f34ea5d495",
       "tag_filter": "^b\\d+$",
-      "version": "3140"
+      "version": "3184"
     },
     "ggerganov/whisper.cpp": {
       "date": "2024-05-27T07:35:09Z",
