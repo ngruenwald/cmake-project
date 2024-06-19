@@ -3,7 +3,7 @@
     "source": "https://github.com/GNOME/libxml2",
     "target": ""
   },
-  "version": "2.13.0",
+  "version": "2.13.1",
   "method": "fetch_content",
   "url": "https://github.com/GNOME/libxml2/archive/refs/tags/v{{version}}.zip",
   "update_disconnected": true,

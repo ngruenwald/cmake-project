@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-19T15:53:25.001008+00:00"
+    "date": "2024-06-19T16:02:44.747996+00:00"
   },
   "versions": {
     "3hren/blackhole": {
@@ -129,9 +129,10 @@
       "version": "2.4.11"
     },
     "drogonframework/drogon": {
-      "date": "2024-05-04T14:42:15Z",
-      "sha256": "06ff0ba75b9a430483139b962ff338cb18698fe47f7a4f82ffb06264cdd0ca0c",
-      "version": "1.9.4"
+      "date": "2024-06-08T12:31:23Z",
+      "sha256": "dec0994090a83afb4943b83bb547e37886acf7c2186eb1c52b9ac4c02d05ccc2",
+      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
+      "version": "1.9.5"
     },
     "eliaskosunen/scnlib": {
       "date": "2024-06-15T10:18:27Z",
@@ -201,11 +202,11 @@
       "version": "1.6.2"
     },
     "gnome/libxml2": {
-      "date": "2024-06-12T13:45:38Z",
+      "date": "2024-06-19T10:13:15Z",
       "recipe": "LibXml2.json",
-      "sha256": "4ac32665fd5f4c8d33039054cea94372df52bc8260e1b7a067d28a12e2a3e7f5",
+      "sha256": "06087c0dc72ec87ff566ad5cde3e4e98bcef340c90449c5b59986efc57e68ac5",
       "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-      "version": "2.13.0"
+      "version": "2.13.1"
     },
     "google/benchmark": {
       "date": "2024-05-23T14:02:46Z",
@@ -243,6 +244,7 @@
     "grpc/grpc": {
       "date": "2024-06-07T18:23:36Z",
       "sha256": "8579095a31e280d0c5fcc81ea0a2a0efb2900dbfbac0eb018a961a5be22e076e",
+      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
       "version": "1.64.2"
     },
     "j0r1/jrtplib": {
