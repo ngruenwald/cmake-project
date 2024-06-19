@@ -14,6 +14,14 @@ from time import sleep
 TOKEN: str | None = None
 
 
+class Change:
+    def __init__(self, package: str, old_version: str, new_version: str, recipe_file: str | None):
+        self.package = package
+        self.old_version = old_version
+        self.new_version = new_version
+        self.recipe_file = recipe_file
+
+
 def set_token(token: str) -> None:
     global TOKEN
     TOKEN = token
@@ -37,7 +45,7 @@ def main() -> None:
     else:
         set_token(os.getenv("TOKEN"))
 
-    changes: list[tuple[str, str, str]] = []
+    changes: list[Change] = []
     now = datetime.datetime.now(datetime.UTC)
     data = read_version_file("versions.json")
     data["meta"]["date"] = now.isoformat()
@@ -75,7 +83,7 @@ def write_version_file(name: str, data: dict) -> None:
         stream.write(json.dumps(data, indent=2, sort_keys=True))
 
 
-def update_package(package: str, info: dict, force: bool, auto_accept: bool, update_recipe) -> tuple[str, str, str] | None:
+def update_package(package: str, info: dict, force: bool, auto_accept: bool, update_recipe) -> Change | None:
     # TODO: lookup additional information from recipe file!
     # NOTE: currently we check all packages against github
     try:
@@ -120,14 +128,16 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool, upd
         file_url = f"https://github.com/{package}/archive/refs/tags/{tag['name']}.zip"
         info["sha256"] = get_file_hash(file_url)
 
+        recipe_file = None
+
         if update_recipe:
-            recipe = info.get("recipe")
-            if recipe:
-                update_recipe_version(recipe, tag_version)
+            recipe_file = info.get("recipe")
+            if recipe_file:
+                update_recipe_version(recipe_file, tag_version)
 
         print(f"  {version } -> {tag_version}")
 
-        return (package, version, tag_version)
+        return Change(package, version, tag_version, recipe_file)
 
     except Exception as error:
         print(error)
@@ -249,14 +259,17 @@ def ask_user(question: str) -> bool:
             return False
 
 
-def create_commit(filename: str, changes: list[tuple[str, str, str]]) -> bool:
+def create_commit(filename: str, changes: list[Change]) -> bool:
     message = "maint: update versions\n"
     for change in changes:
-        message += f"\n  * {change[0]} {change[2]}"
+        message += f"\n  * {change.package} {change.new_version}"
     commands = [
         ["git", "add", filename],
         ["git", "commit", "-m", message]
     ]
+    for change in changes:
+        if change.recipe_file:
+            commands.insert(0, ["git", "add", change.recipe_file])
     for command in commands:
         proc = Popen(command)
         if proc.wait() != 0:
