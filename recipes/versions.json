@@ -1,6 +1,6 @@
 {
   "meta": {
-    "date": "2024-06-19T16:02:44.747996+00:00"
+    "date": "2024-06-19T16:04:57.108424+00:00"
   },
   "versions": {
     "3hren/blackhole": {
@@ -306,6 +306,7 @@
       "date": "2024-05-16T09:58:48Z",
       "recipe": "libgit2.json",
       "sha256": "7ef1d7cbeb8f08df379a6de208d703bd6a8cd3afcd85ceab4a01d1ae5a7258a7",
+      "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
       "version": "1.8.1"
     },
     "libharu/libharu": {
