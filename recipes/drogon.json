@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "https://github.com/drogonframework/drogon",
+    "package": "drogonframework/drogon",
+    "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
+    "date": "2024-06-08T12:31:23Z",
+    "target": ""
+  },
+  "version": "1.9.5",
+  "method": "fetch_content",
+  "url": "https://github.com/drogonframework/drogon/archive/refs/tags/v{{version}}.zip",
+  "url_hash": "dec0994090a83afb4943b83bb547e37886acf7c2186eb1c52b9ac4c02d05ccc2",
+  "update_disconnected": true,
+  "options": {}
+}

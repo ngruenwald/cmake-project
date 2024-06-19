@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "https://github.com/jinja2cpp/jinja2cpp",
+    "package": "jinja2cpp/jinja2cpp",
+    "tag_filter": "",
+    "date": "2023-11-19T20:10:21Z",
+    "target": ""
+  },
+  "version": "1.3.1",
+  "method": "fetch_content",
+  "url": "https://github.com/jinja2cpp/jinja2cpp/archive/refs/tags/v{{version}}.zip",
+  "url_hash": "f56ff908867688851f0b157c30dca3843e7a707411956c3b0d5bf01967181e8c",
+  "update_disconnected": true,
+  "options": {}
+}

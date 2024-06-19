@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "https://github.com/ocornut/imgui",
+    "package": "ocornut/imgui",
+    "tag_filter": "",
+    "date": "2024-06-06T15:29:19Z",
+    "target": ""
+  },
+  "version": "1.90.8",
+  "method": "fetch_content",
+  "url": "https://github.com/ocornut/imgui/archive/refs/tags/v{{version}}.zip",
+  "url_hash": "4c343889116e11a6640c39f49fcabc87eec07319009a0d406cc19689a6277f55",
+  "update_disconnected": true,
+  "options": {}
+}

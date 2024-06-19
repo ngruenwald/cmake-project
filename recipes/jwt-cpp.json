@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "https://github.com/thalhammer/jwt-cpp",
+    "package": "thalhammer/jwt-cpp",
+    "tag_filter": "",
+    "date": "2022-11-05T14:03:37Z",
+    "target": ""
+  },
+  "version": "0.7.0-rc.0",
+  "method": "fetch_content",
+  "url": "https://github.com/thalhammer/jwt-cpp/archive/refs/tags/v{{version}}.zip",
+  "url_hash": "1d76db0a3a5bb977442a884c38bd887fbc3e5632d3b98c95db7d26c420f5af8d",
+  "update_disconnected": true,
+  "options": {}
+}

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "source": "https://github.com/testcontainers/testcontainers-c",
+    "package": "testcontainers/testcontainers-c",
+    "tag_filter": "",
+    "date": "2023-11-29T07:40:01Z",
+    "target": ""
+  },
+  "version": "0.0.2",
+  "method": "fetch_content",
+  "url": "https://github.com/testcontainers/testcontainers-c/archive/refs/tags/v{{version}}.zip",
+  "url_hash": "81b04cf210050aa1e88e3b81da2a387e30ec37406f225cf724ffc29174b9bca6",
+  "update_disconnected": true,
+  "options": {}
+}
