@@ -1,5 +1,5 @@
 import argparse
-import datetime
+import glob
 import json
 import os
 import regex
@@ -15,14 +15,20 @@ TOKEN: str | None = None
 
 
 class Change:
-    def __init__(self, package: str, old_version: str, new_version: str, recipe_file: str | None):
+    def __init__(
+        self,
+        package: str,
+        old_version: str,
+        new_version: str,
+        recipe_file: str | None,
+    ):
         self.package = package
         self.old_version = old_version
         self.new_version = new_version
         self.recipe_file = recipe_file
 
 
-def set_token(token: str) -> None:
+def set_token(token: str | None) -> None:
     global TOKEN
     TOKEN = token
 
@@ -32,12 +38,17 @@ def main() -> None:
     parser.add_argument("--force", action="store_true", help="Force check")
     parser.add_argument("--token", default=None, help="Github access token")
     parser.add_argument("--yes", action="store_true", help="Accept all changes")
-    parser.add_argument("--output", default=None, help="Output file")
-    parser.add_argument("--package", default=None, help="Process only specified package")
-    parser.add_argument("--add", default=None, help="Add new package")
-    parser.add_argument("--delay", type=float, default=None, help="Delay in seconds between package checks")
+    parser.add_argument(
+        "--package", default=None, help="Process only specified package"
+    )
+    parser.add_argument(
+        "--delay",
+        type=float,
+        default=None,
+        help="Delay in seconds between package checks",
+    )
     parser.add_argument("--commit", action="store_true", help="Create commit")
-    parser.add_argument("--recipes", action="store_true", help="Update recipe files")
+    parser.add_argument("--path", default=".", help="Recipe path")
     args = parser.parse_args()
 
     if args.token is not None:
@@ -46,47 +57,37 @@ def main() -> None:
         set_token(os.getenv("TOKEN"))
 
     changes: list[Change] = []
-    now = datetime.datetime.now(datetime.UTC)
-    data = read_version_file("versions.json")
-    data["meta"]["date"] = now.isoformat()
-    if args.add:
-        parts = args.add.split(":", maxsplit=1)
-        package = parts[0]
-        version = parts[1] if len(parts) > 1 else ""
-        info = {"version": version}
-        change = update_package(package, info, args.force, args.yes, args.recipes)
+    for recipe_file in glob.glob(f"{args.path}/*.json"):
+        if args.delay:
+            sleep(args.delay)
+        change = update_package(recipe_file, args.force, args.yes, args.package)
         if change:
             changes.append(change)
-        data["versions"].update({package: info})
-    else:
-        for package, info in data["versions"].items():
-            if args.delay:
-                sleep(args.delay)
-            if not args.package or args.package == package:
-                change = update_package(package, info, args.force, args.yes, args.recipes)
-                if change:
-                    changes.append(change)
-    # filename = args.output if args.output else f"versions-{now.date().isoformat()}.json"
-    filename = args.output if args.output else "versions.json"
-    write_version_file(filename, data)
     if changes and args.commit:
-        create_commit(filename, changes)
+        create_commit(changes)
 
 
-def read_version_file(name: str) -> dict:
-    with open(name, "r") as stream:
-        return json.load(stream)
+def package_name_from_recipe_file(filename: str) -> str:
+    return os.path.splitext(os.path.basename(filename))[-1]
 
 
-def write_version_file(name: str, data: dict) -> None:
-    with open(name, "w") as stream:
-        stream.write(json.dumps(data, indent=2, sort_keys=True))
-
-
-def update_package(package: str, info: dict, force: bool, auto_accept: bool, update_recipe) -> Change | None:
-    # TODO: lookup additional information from recipe file!
+def update_package(
+    recipe_file: str,
+    force: bool,
+    auto_accept: bool,
+    package_filter: str | None,
+) -> Change | None:
     # NOTE: currently we check all packages against github
     try:
+        info = read_recipe_file(recipe_file)
+        meta = info.get("meta", {})
+        package = meta.get("package")
+        if not package:
+            package = package_name_from_recipe_file(recipe_file)
+
+        if package_filter and package != package_filter:
+            return None
+
         print(f"* checking {package}")
 
         version = info["version"]
@@ -102,7 +103,7 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool, upd
             return None
 
         tags = api_get_list(f"https://api.github.com/repos/{package}/tags")
-        tags = filter_tags(tags, info.get("tag_filter"))
+        tags = filter_tags(tags, meta.get("tag_filter", ""))
         tags = sorted(tags, key=cmp_to_key(compare_tag_versions))
         tag = tags[0]
 
@@ -111,29 +112,31 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool, upd
         if force:
             needs_update = True
         else:
-            needs_update = compare_versions(parse_version(version), parse_version(tag_version)) < 0
+            needs_update = (
+                compare_versions(parse_version(version), parse_version(tag_version)) < 0
+            )
             if needs_update and not auto_accept:
-                needs_update =  ask_user(f"  update {package} from {version} to {tag_version}?")
+                needs_update = ask_user(
+                    f"  update {package} from {version} to {tag_version}?"
+                )
 
         if not needs_update:
             print("  no updates")
             return None
 
         commit_sha = tag["commit"]["sha"]
-        commit = api_get(f"https://api.github.com/repos/{package}/git/commits/{commit_sha}").json()
+        commit = api_get(
+            f"https://api.github.com/repos/{package}/git/commits/{commit_sha}"
+        ).json()
 
         info["version"] = tag_version
-        info["date"] = commit["author"]["date"]
+        meta["date"] = commit["author"]["date"]
         # info["sha256"] = get_file_hash(tag["zipball_url"])
         file_url = f"https://github.com/{package}/archive/refs/tags/{tag['name']}.zip"
-        info["sha256"] = get_file_hash(file_url)
+        info["url_hash"] = get_file_hash(file_url)
 
-        recipe_file = None
-
-        if update_recipe:
-            recipe_file = info.get("recipe")
-            if recipe_file:
-                update_recipe_version(recipe_file, tag_version)
+        info["meta"] = meta
+        write_recipe_file(recipe_file, info)
 
         print(f"  {version } -> {tag_version}")
 
@@ -144,20 +147,17 @@ def update_package(package: str, info: dict, force: bool, auto_accept: bool, upd
         return None
 
 
-def update_recipe_version(recipe: str, version: str) -> None:
-    try:
-        with open(recipe, "r") as stream:
-            data = json.load(stream)
-        if data["version"] == version:
-            return
-        data["version"] = version
-        with open(recipe, "w") as stream:
-            stream.write(json.dumps(data, indent=2))
-    except Exception as err:
-        print(f"  failed to update recipe: {err}")
+def read_recipe_file(name: str) -> dict:
+    with open(name, "r") as stream:
+        return json.load(stream)
 
 
-def compare_tag_versions(a: str, b: str) -> int:
+def write_recipe_file(name: str, data: dict) -> None:
+    with open(name, "w") as stream:
+        stream.write(json.dumps(data, indent=2, sort_keys=False))
+
+
+def compare_tag_versions(a: dict, b: dict) -> int:
     tag_a = parse_version(a["name"])
     tag_b = parse_version(b["name"])
     return compare_versions(tag_b, tag_a)
@@ -199,6 +199,7 @@ def parse_version(s: str):
 def trim_version_string(s: str) -> str:
     if not s:
         return s
+    idx = 0
     for idx in range(0, len(s)):
         if s[idx].isnumeric():
             break
@@ -214,16 +215,16 @@ def api_get(url: str):
     num_loops = 10
     wait_seconds = 60
     for _ in range(0, num_loops):
-        headers = { "Authorization": f"Bearer {TOKEN}" } if TOKEN else None
+        headers = {"Authorization": f"Bearer {TOKEN}"} if TOKEN else None
         response = requests.get(url, headers=headers, timeout=30)
         if response.status_code == 403:
             # API rate limit?
             print("403 - waiting 60 seconds ...")
             sleep(wait_seconds)
         else:
-            break
-    response.raise_for_status()
-    return response
+            response.raise_for_status()
+            return response
+    raise Exception("no response")
 
 
 def api_get_list(url: str) -> list:
@@ -259,21 +260,23 @@ def ask_user(question: str) -> bool:
             return False
 
 
-def create_commit(filename: str, changes: list[Change]) -> bool:
+def create_commit(changes: list[Change]) -> bool:
+    commands = []
+    for change in changes:
+        commands.append(["git", "add", change.recipe_file])
+    if not commands:
+        return True
+
     message = "maint: update versions\n"
     for change in changes:
         message += f"\n  * {change.package} {change.new_version}"
-    commands = [
-        ["git", "add", filename],
-        ["git", "commit", "-m", message]
-    ]
-    for change in changes:
-        if change.recipe_file:
-            commands.insert(0, ["git", "add", change.recipe_file])
+    commands.append(["git", "commit", "-m", message])
+
     for command in commands:
         proc = Popen(command)
         if proc.wait() != 0:
             return False
+
     return True
 
 
