@@ -1,11 +1,12 @@
 {
   "meta": {
     "source": "https://github.com/fmtlib/fmt",
+    "package": "fmtlib/fmt",
+    "tag_filter": "",
+    "date": "2024-01-03T19:17:28Z",
     "target": "fmt::fmt"
   },
-
   "version": "10.2.1",
-
   "method": "fetch_content",
   "url": "https://github.com/fmtlib/fmt/archive/refs/tags/{{version}}.zip",
   "options": {

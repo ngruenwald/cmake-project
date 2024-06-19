@@ -1,11 +1,12 @@
 {
   "meta": {
     "source": "https://github.com/pistacheio/pistache",
+    "package": "pistacheio/pistache",
+    "tag_filter": "",
+    "date": "",
     "target": "pistache_static"
   },
-
   "version": "fe5639a81a4392a7b8ab22c29a3d5c761e8e98d6",
-
   "method": "fetch_content",
   "url": "https://github.com/pistacheio/pistache/archive/{{version}}.zip",
   "update_disconnected": true,

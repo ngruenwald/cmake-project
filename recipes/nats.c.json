@@ -1,13 +1,15 @@
 {
   "meta": {
     "source": "https://github.com/nats-io/nats.c",
+    "package": "nats-io/nats.c",
+    "tag_filter": "",
+    "date": "2024-04-17T16:59:49Z",
     "target": "nats_static"
   },
-
   "version": "3.8.2",
-
   "method": "fetch_content",
   "url": "https://github.com/nats-io/nats.c/archive/refs/tags/v{{version}}.zip",
+  "url_hash": "96599ef4c3fd4603690426440e82671f26f4139663c87d8c571ff5e4d0f581fe",
   "update_disconnected": true,
   "options": {
     "NATS_UPDATE_VERSION": "OFF",
