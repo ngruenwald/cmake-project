@@ -9,7 +9,7 @@
   "version": "2.13.1",
   "method": "fetch_content",
   "url": "https://github.com/GNOME/libxml2/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "06087c0dc72ec87ff566ad5cde3e4e98bcef340c90449c5b59986efc57e68ac5",
+  "url_hash": "SHA256=06087c0dc72ec87ff566ad5cde3e4e98bcef340c90449c5b59986efc57e68ac5",
   "update_disconnected": true,
   "options": {
     "BUILD_SHARED_LIBS": "OFF"

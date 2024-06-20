@@ -9,7 +9,7 @@
   "version": "1.10.5",
   "method": "fetch_content",
   "url": "https://github.com/libcpr/cpr/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "846c5aeeeb090bac96abb577025dc20f06e8a777da2ab2ac7b75254b43a3ed65",
+  "url_hash": "SHA256=846c5aeeeb090bac96abb577025dc20f06e8a777da2ab2ac7b75254b43a3ed65",
   "update_disconnected": true,
   "options": {}
 }

@@ -9,7 +9,7 @@
   "version": "2.2.1",
   "method": "fetch_content",
   "url": "https://github.com/mengrao/fmtlog/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "c70458b9f67682093d88fd64f20fe1d387d2e7194f5a6d9f7f8a7b78a9c9d966",
+  "url_hash": "SHA256=c70458b9f67682093d88fd64f20fe1d387d2e7194f5a6d9f7f8a7b78a9c9d966",
   "update_disconnected": true,
   "options": {}
 }

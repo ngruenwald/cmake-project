@@ -133,7 +133,7 @@ def update_package(
         meta["date"] = commit["author"]["date"]
         # info["sha256"] = get_file_hash(tag["zipball_url"])
         file_url = f"https://github.com/{package}/archive/refs/tags/{tag['name']}.zip"
-        info["url_hash"] = get_file_hash(file_url)
+        info["url_hash"] = f"SHA256={get_file_hash(file_url)}"
 
         info["meta"] = meta
         write_recipe_file(recipe_file, info)

@@ -9,7 +9,7 @@
   "version": "1.9.5",
   "method": "fetch_content",
   "url": "https://github.com/drogonframework/drogon/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "dec0994090a83afb4943b83bb547e37886acf7c2186eb1c52b9ac4c02d05ccc2",
+  "url_hash": "SHA256=dec0994090a83afb4943b83bb547e37886acf7c2186eb1c52b9ac4c02d05ccc2",
   "update_disconnected": true,
   "options": {}
 }

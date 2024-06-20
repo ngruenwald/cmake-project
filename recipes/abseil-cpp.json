@@ -9,7 +9,7 @@
   "version": "20240116.2",
   "method": "fetch_content",
   "url": "https://github.com/abseil/abseil-cpp/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "69909dd729932cbbabb9eeaff56179e8d124515f5d3ac906663d573d700b4c7d",
+  "url_hash": "SHA256=69909dd729932cbbabb9eeaff56179e8d124515f5d3ac906663d573d700b4c7d",
   "update_disconnected": true,
   "options": {}
 }

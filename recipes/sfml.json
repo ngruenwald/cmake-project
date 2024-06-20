@@ -9,7 +9,7 @@
   "version": "2.6.1",
   "method": "fetch_content",
   "url": "https://github.com/sfml/sfml/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "d7c4c524b4224dbc31f802a270f62503a3c37540897de06290d856a74d6faf7c",
+  "url_hash": "SHA256=d7c4c524b4224dbc31f802a270f62503a3c37540897de06290d856a74d6faf7c",
   "update_disconnected": true,
   "options": {}
 }

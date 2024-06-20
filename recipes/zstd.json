@@ -9,7 +9,7 @@
   "version": "2",
   "method": "fetch_content",
   "url": "https://github.com/facebook/zstd/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "fceb3d62dc95b8bb7649654756e12460518250ea0509e93917af195e7e1cfe66",
+  "url_hash": "SHA256=fceb3d62dc95b8bb7649654756e12460518250ea0509e93917af195e7e1cfe66",
   "update_disconnected": true,
   "options": {}
 }

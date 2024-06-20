@@ -9,7 +9,7 @@
   "version": "2.1",
   "method": "fetch_content",
   "url": "https://github.com/ryanhaining/cppitertools/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "204fa0c872c0f34c9263862a5f4b93a9858fde9fdae8064febc7683863f1497d",
+  "url_hash": "SHA256=204fa0c872c0f34c9263862a5f4b93a9858fde9fdae8064febc7683863f1497d",
   "update_disconnected": true,
   "options": {}
 }

@@ -9,7 +9,7 @@
   "version": "0.10.14",
   "method": "fetch_content",
   "url": "https://github.com/google/mediapipe/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "62b8413a9632f5bccb46632d7ebc409cf4579808bacd50ab40e4ff50c0f93191",
+  "url_hash": "SHA256=62b8413a9632f5bccb46632d7ebc409cf4579808bacd50ab40e4ff50c0f93191",
   "update_disconnected": true,
   "options": {}
 }

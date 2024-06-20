@@ -9,7 +9,7 @@
   "version": "1.4.5",
   "method": "fetch_content",
   "url": "https://github.com/blueloveth/pocketpy/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "129f870a2ac21a3bc46b4edff3d1c0a39bbe46734ce1ac1d8ee9d5d72837bb05",
+  "url_hash": "SHA256=129f870a2ac21a3bc46b4edff3d1c0a39bbe46734ce1ac1d8ee9d5d72837bb05",
   "update_disconnected": true,
   "options": {}
 }

@@ -9,7 +9,7 @@
   "version": "2.0.1-7",
   "method": "fetch_content",
   "url": "https://github.com/andrewrk/libsoundio/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "ee3bfeb14c0e6e3c491840381fe78ab8a038352014e14214cdebb206d924c88d",
+  "url_hash": "SHA256=ee3bfeb14c0e6e3c491840381fe78ab8a038352014e14214cdebb206d924c88d",
   "update_disconnected": true,
   "options": {}
 }

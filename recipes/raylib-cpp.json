@@ -9,7 +9,7 @@
   "version": "5.0.1",
   "method": "fetch_content",
   "url": "https://github.com/robloach/raylib-cpp/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "6a886627ddeb4a84e8267b6bde43aa26e3ba9a65adae8f65bd7954db3ed6a00a",
+  "url_hash": "SHA256=6a886627ddeb4a84e8267b6bde43aa26e3ba9a65adae8f65bd7954db3ed6a00a",
   "update_disconnected": true,
   "options": {}
 }

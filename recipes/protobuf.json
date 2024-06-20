@@ -9,7 +9,7 @@
   "version": "5.27.1",
   "method": "fetch_content",
   "url": "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "c0e8e568a441c8d84866122d80fb63fb352f4eef018e47b4af298d974805694c",
+  "url_hash": "SHA256=c0e8e568a441c8d84866122d80fb63fb352f4eef018e47b4af298d974805694c",
   "update_disconnected": true,
   "options": {}
 }

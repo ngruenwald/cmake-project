@@ -9,7 +9,7 @@
   "version": "2.3.3",
   "method": "fetch_content",
   "url": "https://github.com/khizmax/libcds/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "05a355ab59e6b9383788c771e8f0e7622b302b87b8732fc29538d4a4764f1f0c",
+  "url_hash": "SHA256=05a355ab59e6b9383788c771e8f0e7622b302b87b8732fc29538d4a4764f1f0c",
   "update_disconnected": true,
   "options": {}
 }
