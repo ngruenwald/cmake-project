@@ -634,6 +634,12 @@ function(cmp_fetch_content name data)
   endif()
 
   _cmp_ext_version(fversion ${data})
+  _cmp_get_opt(targets "${data}" "targets" "")
+  if(NOT "${targets}" STREQUAL "")
+    _cmp_get_base_dirs(binary_dir include_dir)
+    _cmp_create_targets("${targets}" "${fversion}" "${binary_dir}" "${include_dir}" "${name}" TRUE)
+  endif()
+
   message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (fetch)")
 endfunction()
 
@@ -681,7 +687,22 @@ function(cmp_external_project)
   include(ExternalProject)
   ExternalProject_Add("${name}" ${params})
 
-  # TODO
+  _cmp_ext_version(fversion ${data})
+  _cmp_get_opt(targets "${data}" "targets" "")
+  if(NOT "${targets}" STREQUAL "")
+    _cmp_get_base_dirs(binary_dir include_dir)
+    _cmp_create_targets("${targets}" "${fversion}" "${binary_dir}" "${include_dir}" "${name}" TRUE)
+  endif()
+
+  message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (external)")
+endfunction()
+
+#
+# _cmp_get_base_dirs
+#
+# @param[out] bin_dir     Binary directory (string)
+# @param[out] inc_dir     Include directory (string)
+function(_cmp_get_base_dirs bin_dir inc_dir)
   set(include_dir ${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}/include)
   if(${CMAKE_SIZEOF_VOID_P} EQUAL 8)
     set(libsuffix 64)
@@ -690,18 +711,33 @@ function(cmp_external_project)
   endif()
   set(binary_dir ${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}/lib${libsuffix})
 
-  # We cannot use find_library because ExternalProject_Add() is performed at build time.
-  # And to please the property INTERFACE_INCLUDE_DIRECTORIES,
-  # we make the include directory in advance.
-  file(MAKE_DIRECTORY ${include_dir})
+  # if(create_dir)
+  #   # We cannot use find_library because ExternalProject_Add() is performed at build time.
+  #   # And to please the property INTERFACE_INCLUDE_DIRECTORIES,
+  #   # we make the include directory in advance.
+  #   file(MAKE_DIRECTORY ${include_dir})
+  # endif()
 
-  _cmp_ext_version(fversion ${data})
+  set(${bin_dir} ${binary_dir} PARENT_SCOPE)
+  set(${inc_dir} ${include_dir} PARENT_SCOPE)
+endfunction()
 
-  _cmp_get_opt(targets "${data}" "targets" "")
-
+#
+# _cmp_create_targets
+#
+# Create CMake targets
+#
+# @param[in] targets            List of targets (json array of objects)
+# @param[in] version            Target version (string)
+# @param[in] base_binary_dir    Base directory for binary files (string)
+# @param[in] base_include_dir   Base directory for include files (string)
+# @param[in] dependency         Name of a target dependency (string)
+# @param[in] create_inc_dir     Create include directories (bool)
+function(_cmp_create_targets targets version base_binary_dir base_include_dir dependency create_inc_dir)
   foreach(target IN ITEMS ${targets})
-    _cmp_get_opt(target_name    "${target}" "target"  "")
-    _cmp_get_opt(target_binary  "${target}" "binary"  "")
+    _cmp_get_opt(target_name    "${target}" "target"      "")
+    _cmp_get_opt(target_binary  "${target}" "binary"      "")
+    _cmp_get_opt(target_include "${target}" "include-dir" "")
 
     if("${target_name}" STREQUAL "")
       continue()
@@ -716,16 +752,28 @@ function(cmp_external_project)
         set(suffix ".a")
       endif()
       add_library(${target_name} STATIC IMPORTED GLOBAL)
-      set_target_properties(${target_name} PROPERTIES IMPORTED_LOCATION ${binary_dir}/${target_binary}${suffix})
+      set_target_properties(${target_name} PROPERTIES IMPORTED_LOCATION ${base_binary_dir}/${target_binary}${suffix})
+    endif()
+
+    if("${target_include}" STREQUAL "")
+      set(include_dir "${base_include_dir}/${target_include}")
+    else()
+      set(include_dir "${base_include_dir}")
+    endif()
+
+    if(${create_inc_dir})
+      if(NOT "${include_dir}" STREQUAL "")
+        file(MAKE_DIRECTORY ${include_dir})
+      endif()
     endif()
 
     set_target_properties(${target_name} PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${include_dir})
-    set_target_properties(${target_name} PROPERTIES VERSION "${fversion}")
+    set_target_properties(${target_name} PROPERTIES VERSION "${version}")
 
-    add_dependencies(${target_name} ${name})
+    if(NOT "${dependency}" STREQUAL "")
+      add_dependencies(${target_name} ${dependency})
+    endif()
   endforeach()
-
-  message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (external)")
 endfunction()
 
 #
