@@ -476,8 +476,18 @@ function(_cmp_find_project_dependency name data)
     endif()
   endif()
 
+  # get version and hash before merging with the recipe
+  _cmp_get_opt(cver "${data}" "version" "")
+  _cmp_get_opt(chash "${data}" "url_hash" "")
+  
   _cmp_get_opt(recipe "${data}" "recipe"  "")
   _cmp_load_recipe_data(data "${name}" "${data}" "${recipe}")
+
+  # replace/clear hash if version was set in project config
+  if(NOT "${cver}" STREQUAL "")
+    message(DEBUG ">> ${name}: changing url_hash to '${chash}'")
+    string(JSON data SET "${data}" "url_hash" "\"${chash}\"")
+  endif()
 
   _cmp_get_opt(method "${data}" "method"  "")
 
