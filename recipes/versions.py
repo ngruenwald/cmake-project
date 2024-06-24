@@ -90,6 +90,12 @@ def update_package(
 
         print(f"* checking {package}")
 
+        # check url
+        url = info.get("url", "")
+        if "://github.com" not in url:
+            print("  skipping non github project")
+            return
+
         version = info["version"]
 
         # branch names
@@ -98,6 +104,8 @@ def update_package(
             return None
 
         # commits
+        # ... abit useless when processing recipes,
+        #     since the cmake code can't handle the leading '#' character
         if version.startswith("#"):
             print("  skipping commit")
             return None
