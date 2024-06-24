@@ -1,15 +1,15 @@
-{
+v{
   "meta": {
     "source": "https://github.com/pistacheio/pistache",
     "package": "pistacheio/pistache",
     "tag_filter": "",
-    "date": "",
+    "date": "2022-09-02T20:59:00Z",
     "target": "pistache_static"
   },
-  "version": "fe5639a81a4392a7b8ab22c29a3d5c761e8e98d6",
+  "version": "0.0.5",
   "method": "fetch_content",
   "url": "https://github.com/pistacheio/pistache/archive/{{version}}.zip",
-  "url_hash": "",
+  "url_hash": "SHA256=d9bb59e2de6d76fbce834569b08dda94e9b9e4b363bdc9be333f8ba11f138caa",
   "update_disconnected": true,
   "options": {
     "BUILD_SHARED_LIBS": "OFF",
