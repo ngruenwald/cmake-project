@@ -479,7 +479,7 @@ function(_cmp_find_project_dependency name data)
   # get version and hash before merging with the recipe
   _cmp_get_opt(cver "${data}" "version" "")
   _cmp_get_opt(chash "${data}" "url_hash" "")
-  
+
   _cmp_get_opt(recipe "${data}" "recipe"  "")
   _cmp_load_recipe_data(data "${name}" "${data}" "${recipe}")
 
@@ -931,6 +931,14 @@ function(_cmp_parse_common_properties result data)
   #
 
   if(NOT "${url}" STREQUAL "")
+    if("${version}" MATCHES "^#.*$")
+      string(REPEAT "[0-9A-Fa-f]" 7 pattern)
+      set(pattern "^#${pattern}+$")
+      if("${version}" MATCHES "${pattern}")
+        string(REGEX REPLACE "^#" "" version "${version}")
+      endif()
+    endif()
+
     string(REPLACE "{{version}}" "${version}" url "${url}")
 
     list(APPEND params URL "${url}")
