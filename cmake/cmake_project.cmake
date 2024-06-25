@@ -1081,7 +1081,7 @@ endmacro()
 # script mode
 #
 
-macro(_CMP_RUN_AS_SCRIPT)
+function(extract_cli_arguments result)
   set(append FALSE)
   foreach(idx RANGE ${CMAKE_ARGC})
     if(${append})
@@ -1091,26 +1091,75 @@ macro(_CMP_RUN_AS_SCRIPT)
       set(append TRUE)
     endif()
   endforeach()
+  set(${result} ${arguments} PARENT_SCOPE)
+endfunction()
 
-  message(TRACE "arguments: ${arguments}")
-
+function(extract_method_arguments result arguments ignore)
   foreach(arg IN ITEMS ${arguments})
-    if("${arg}" MATCHES "--get-recipe=")
-      set(method "get_recipe")
-      string(REGEX REPLACE "^--get-recipe=" "" recipe "${arg}")
+    if("${arg}" MATCHES "^--(.*)=(.*)$")
+      set(key "${CMAKE_MATCH_1}")
+      set(val "${CMAKE_MATCH_2}")
+
+      if("${key}" IN_LIST ignore)
+        continue()
+      endif()
+
+      string(REGEX REPLACE "[-. \t]" "_" key "${key}")
+      string(TOUPPER "${key}" key)
+
+      string(TOLOWER "${val}" tmp)
+      if("${tmp}" STREQUAL "true")
+        set(val TRUE)
+      elseif("${tmp}" STREQUAL "false")
+        set(val FALSE)
+      endif()
+
+      list(APPEND args ${key} "${val}")
     endif()
   endforeach()
+  set(${result} ${args} PARENT_SCOPE)
+endfunction()
+
+macro(_CMP_RUN_AS_SCRIPT)
+  extract_cli_arguments(arguments)
+  message(TRACE "arguments: ${arguments}")
+
+  # first param is the command
+  list(POP_FRONT arguments method)
+  string(REPLACE "-" "_" method "${method}")
+  message(TRACE "method: ${method}, arguments: ${arguments}")
+  extract_method_arguments(method_arguments "${arguments}" "")
 
   message(TRACE "method: ${method}")
-  message(TRACE "recipe: ${recipe}")
+  message(TRACE "method_args: ${method_arguments}")
 
-  cmake_language(CALL _cmp_${method} "${recipe}")
+  cmake_language(CALL _cmp_${method} ${method_arguments})
 endmacro()
 
-function(_cmp_get_recipe recipe)
-  set(url "https://raw.githubusercontent.com/ngruenwald/cmake-project/main/recipes/${recipe}")
+function(_cmp_get_recipe)
+  set(oneValueArgs RECIPE URL LOCAL_PATH)
+  cmake_parse_arguments(ARG "" "${oneValueArgs}" "" ${ARGN})
 
-  set(local_path "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/recipes")
+  if(DEFINED ARG_RECIPE)
+    set(recipe "${ARG_RECIPE}")
+  else()
+    message(FATAL_ERROR "no recipe specified (use --recipe=<recipe>)")
+  endif()
+
+  if(DEFINED ARG_URL)
+    set(url "${ARG_URL}")
+  else()
+    set(url "https://raw.githubusercontent.com/ngruenwald/cmake-project/main/recipes/")
+  endif()
+
+  if(DEFINED ARG_LOCAL_PATH)
+    set(local_path "${ARG_LOCAL_PATH}")
+  else()
+    set(local_path "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/recipes")
+  endif()
+
+  set(url "${url}/${recipe}")
+
   set(local_file "${local_path}/${recipe}")
   set(local_temp "${local_file}.tmp")
 
@@ -1118,7 +1167,7 @@ function(_cmp_get_recipe recipe)
   list(GET status 0 code)
   if(${code} EQUAL 0)
     file(RENAME "${local_temp}" "${local_file}")
-    message(STATUS "downloaded recipe '${recipe}' to '${local_file}'")
+    message("downloaded recipe '${recipe}' to '${local_file}'")
   else()
     file(REMOVE "${local_temp}")
     list(GET status 1 message)
