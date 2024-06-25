@@ -1078,44 +1078,105 @@ macro(_CMP_READ_DEPENDENCIES result content fieldname)
 endmacro()
 
 #
+# script mode
+#
+
+macro(_CMP_RUN_AS_SCRIPT)
+  set(append FALSE)
+  foreach(idx RANGE ${CMAKE_ARGC})
+    if(${append})
+      list(APPEND arguments "${CMAKE_ARGV${idx}}")
+    endif()
+    if("${CMAKE_ARGV${idx}}" STREQUAL "--")
+      set(append TRUE)
+    endif()
+  endforeach()
+
+  message(TRACE "arguments: ${arguments}")
+
+  foreach(arg IN ITEMS ${arguments})
+    if("${arg}" MATCHES "--get-recipe=")
+      set(method "get_recipe")
+      string(REGEX REPLACE "^--get-recipe=" "" recipe "${arg}")
+    endif()
+  endforeach()
+
+  message(TRACE "method: ${method}")
+  message(TRACE "recipe: ${recipe}")
+
+  cmake_language(CALL _cmp_${method} "${recipe}")
+endmacro()
+
+function(_cmp_get_recipe recipe)
+  set(url "https://raw.githubusercontent.com/ngruenwald/cmake-project/main/recipes/${recipe}")
+
+  set(local_path "${CMAKE_CURRENT_FUNCTION_LIST_DIR}/recipes")
+  set(local_file "${local_path}/${recipe}")
+  set(local_temp "${local_file}.tmp")
+
+  file(DOWNLOAD "${url}" "${local_temp}" STATUS status)
+  list(GET status 0 code)
+  if(${code} EQUAL 0)
+    file(RENAME "${local_temp}" "${local_file}")
+    message(STATUS "downloaded recipe '${recipe}' to '${local_file}'")
+  else()
+    file(REMOVE "${local_temp}")
+    list(GET status 1 message)
+    message(FATAL_ERROR "could not download recipe '${recipe}': ${message} (${code})")
+  endif()
+endfunction()
+
+#
+# module mode
+#
+
+macro(_CMP_RUN_AS_MODULE)
+  if(DEFINED CMAKE_PROJECT_FILE)
+    cmp_parse_project_file(${CMAKE_PROJECT_FILE})
+  else()
+    macro(_cmp_search_and_load rootdir)
+      set(__candidates cmake-project.json cmake_project.json cmakeproject.json CMakeProject.json)
+      foreach(file IN ITEMS ${__candidates})
+        if(EXISTS ${rootdir}/${file})
+          cmp_parse_project_file(${rootdir}/${file})
+          set(__candidate_found 1)
+          break()
+        endif()
+      endforeach()
+      if(NOT DEFINED __candidate_found)
+        message(FATAL_ERROR ${CM_MESSAGE_PREFIX} "no suitable cmake project file found in '${rootdir}'")
+      endif()
+    endmacro()
+    _cmp_search_and_load(${CMAKE_SOURCE_DIR})
+  endif()
+
+  if(${CMAKE_PROJECT_AUTO_SETUP})
+    list(APPEND CM_PROJECT_PARAMS "${CM_PROJECT_NAME}")
+    if(NOT "${CM_PROJECT_VERSION}" STREQUAL "")
+      list(APPEND CM_PROJECT_PARAMS VERSION "${CM_PROJECT_VERSION}")
+    endif()
+    if(NOT "${CM_PROJECT_DESCRIPTION}" STREQUAL "")
+      list(APPEND CM_PROJECT_PARAMS DESCRIPTION "${CM_PROJECT_DESCRIPTION}")
+    endif()
+    if(NOT "${CM_PROJECT_HOMEPAGE_URL}" STREQUAL "")
+      list(APPEND CM_PROJECT_PARAMS HOMEPAGE_URL "${CM_PROJECT_HOMEPAGE_URL}")
+    endif()
+    if(NOT "${CM_PROJECT_LANGUAGES}" STREQUAL "")
+      list(APPEND CM_PROJECT_PARAMS LANGUAGES ${CM_PROJECT_LANGUAGES})
+    endif()
+
+    project(${CM_PROJECT_PARAMS})
+
+    cmp_find_project_dependencies()
+  endif()
+endmacro()
+
+#
 # auto-magic
 #
 
-if(DEFINED CMAKE_PROJECT_FILE)
-  cmp_parse_project_file(${CMAKE_PROJECT_FILE})
+if(CMAKE_SCRIPT_MODE_FILE AND NOT CMAKE_PARENT_LIST_FILE)
+  _CMP_RUN_AS_SCRIPT()
 else()
-  macro(_cmp_search_and_load rootdir)
-    set(__candidates cmake-project.json cmake_project.json cmakeproject.json CMakeProject.json)
-    foreach(file IN ITEMS ${__candidates})
-      if(EXISTS ${rootdir}/${file})
-        cmp_parse_project_file(${rootdir}/${file})
-        set(__candidate_found 1)
-        break()
-      endif()
-    endforeach()
-    if(NOT DEFINED __candidate_found)
-      message(FATAL_ERROR ${CM_MESSAGE_PREFIX} "no suitable cmake project file found in '${rootdir}'")
-    endif()
-  endmacro()
-  _cmp_search_and_load(${CMAKE_SOURCE_DIR})
-endif()
-
-if(${CMAKE_PROJECT_AUTO_SETUP})
-  list(APPEND CM_PROJECT_PARAMS "${CM_PROJECT_NAME}")
-  if(NOT "${CM_PROJECT_VERSION}" STREQUAL "")
-    list(APPEND CM_PROJECT_PARAMS VERSION "${CM_PROJECT_VERSION}")
-  endif()
-  if(NOT "${CM_PROJECT_DESCRIPTION}" STREQUAL "")
-    list(APPEND CM_PROJECT_PARAMS DESCRIPTION "${CM_PROJECT_DESCRIPTION}")
-  endif()
-  if(NOT "${CM_PROJECT_HOMEPAGE_URL}" STREQUAL "")
-    list(APPEND CM_PROJECT_PARAMS HOMEPAGE_URL "${CM_PROJECT_HOMEPAGE_URL}")
-  endif()
-  if(NOT "${CM_PROJECT_LANGUAGES}" STREQUAL "")
-    list(APPEND CM_PROJECT_PARAMS LANGUAGES ${CM_PROJECT_LANGUAGES})
-  endif()
-
-  project(${CM_PROJECT_PARAMS})
-
-  cmp_find_project_dependencies()
+  _CMP_RUN_AS_MODULE()
 endif()
