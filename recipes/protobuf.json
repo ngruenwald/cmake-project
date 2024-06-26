@@ -3,13 +3,13 @@
     "source": "https://github.com/protocolbuffers/protobuf",
     "package": "protocolbuffers/protobuf",
     "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-    "date": "2024-06-05T14:55:44Z",
+    "date": "2024-06-25T17:53:13Z",
     "target": ""
   },
-  "version": "5.27.1",
+  "version": "5.27.2",
   "method": "fetch_content",
   "url": "https://github.com/protocolbuffers/protobuf/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=c0e8e568a441c8d84866122d80fb63fb352f4eef018e47b4af298d974805694c",
+  "url_hash": "SHA256=bfd98e5e23fcf68c85a78f0ac3d558f486ec21ccb2bf4b5383a98e2cf4e967ff",
   "update_disconnected": true,
   "options": {}
 }
