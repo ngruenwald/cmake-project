@@ -3,13 +3,13 @@
     "source": "https://github.com/ocornut/imgui",
     "package": "ocornut/imgui",
     "tag_filter": "",
-    "date": "2024-06-06T15:29:19Z",
+    "date": "2024-07-01T14:50:03Z",
     "target": ""
   },
-  "version": "1.90.8",
+  "version": "1.90.9",
   "method": "fetch_content",
   "url": "https://github.com/ocornut/imgui/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=4c343889116e11a6640c39f49fcabc87eec07319009a0d406cc19689a6277f55",
+  "url_hash": "SHA256=4fa247c7abbb00fc255631479004de549b86a41f49fddd7d44cd2cf8d647c5a7",
   "update_disconnected": true,
   "options": {}
 }
