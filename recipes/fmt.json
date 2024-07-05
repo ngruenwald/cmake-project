@@ -3,10 +3,10 @@
     "source": "https://github.com/fmtlib/fmt",
     "package": "fmtlib/fmt",
     "tag_filter": "",
-    "date": "2024-07-01T13:02:59Z",
+    "date": "2024-07-05T15:25:31Z",
     "target": "fmt::fmt"
   },
-  "version": "11.0.0",
+  "version": "11.0.1",
   "method": "fetch_content",
   "url": "https://github.com/fmtlib/fmt/archive/refs/tags/{{version}}.zip",
   "options": {
@@ -14,5 +14,5 @@
     "FMT_DOC": "OFF",
     "FMT_TEST": "OFF"
   },
-  "url_hash": "SHA256=24a72558cb99d33177931fff9dc364e569c195547cf32737e000975db5eea99f"
+  "url_hash": "SHA256=b694bb0e46b2a3e308c25a59befa8d716dc4af9cc6a19aa924b4eb5c859dcdf2"
 }
