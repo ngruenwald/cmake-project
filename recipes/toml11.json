@@ -3,13 +3,13 @@
     "source": "https://github.com/ToruNiina/toml11",
     "package": "toruniina/toml11",
     "tag_filter": "",
-    "date": "2024-06-30T14:59:23Z",
+    "date": "2024-07-06T09:59:03Z",
     "target": "toml11::toml11"
   },
-  "version": "4.0.2",
+  "version": "4.0.3",
   "method": "fetch_content",
   "url": "https://github.com/ToruNiina/toml11/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=754bc7c87aa41aaa4d5de05c15a7f18c3e16e70133bdc946750cb9e7fe290aaf",
+  "url_hash": "SHA256=8fae37e0e1f5cb42b5e655e6cad67bddd6e49f4a02ddbb713fbb24af9179c28f",
   "update_disconnected": true,
   "options": {
     "toml11_BUILD_TESTS": "OFF"
