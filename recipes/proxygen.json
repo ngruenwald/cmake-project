@@ -3,13 +3,13 @@
     "source": "https://github.com/facebook/proxygen",
     "package": "facebook/proxygen",
     "tag_filter": "",
-    "date": "2024-06-30T16:31:35Z",
+    "date": "2024-07-07T16:31:09Z",
     "target": ""
   },
-  "version": "2024.07.01.00",
+  "version": "2024.07.08.00",
   "method": "fetch_content",
   "url": "https://github.com/facebook/proxygen/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=71cb1918b7cabf773020cb9ad6235aa52ba35c6bb0d52b49c1d1e40e8c04103b",
+  "url_hash": "SHA256=87e9c19a8d8c2239634908d831181a068cc5f81858fc2b91f6902587c80f9d87",
   "update_disconnected": true,
   "options": {}
 }
