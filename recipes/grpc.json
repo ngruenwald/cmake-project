@@ -3,13 +3,13 @@
     "source": "https://github.com/grpc/grpc",
     "package": "grpc/grpc",
     "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-    "date": "2024-06-28T03:26:05Z",
+    "date": "2024-07-16T22:53:49Z",
     "target": ""
   },
-  "version": "1.65.0",
+  "version": "1.65.1",
   "method": "fetch_content",
   "url": "https://github.com/grpc/grpc/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=e2bd1c061d01b2e2fefb364d7de34caafd95137d6a4aea35324bc3c4b2be72a2",
+  "url_hash": "SHA256=0499a344a56cbd961836a1821b4c42f37d6d5698b373c5324492b01bb0377d25",
   "update_disconnected": true,
   "options": {}
 }
