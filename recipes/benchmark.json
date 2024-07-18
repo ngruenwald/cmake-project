@@ -3,13 +3,13 @@
     "source": "https://github.com/google/benchmark",
     "package": "google/benchmark",
     "tag_filter": "",
-    "date": "2024-05-23T14:02:46Z",
+    "date": "2024-07-18T10:13:04Z",
     "target": ""
   },
-  "version": "1.8.4",
+  "version": "1.8.5",
   "method": "fetch_content",
   "url": "https://github.com/google/benchmark/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=84c49c4c07074f36fbf8b4f182ed7d75191a6fa72756ab4a17848455499f4286",
+  "url_hash": "SHA256=39f57865cdbfa06f02ae91ea76465246046cc47d5908aa5a3abeb9026fb73dcc",
   "update_disconnected": true,
   "options": {}
 }

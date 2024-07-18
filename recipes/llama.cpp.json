@@ -3,13 +3,13 @@
     "source": "https://github.com/ggerganov/llama.cpp",
     "package": "ggerganov/llama.cpp",
     "tag_filter": "^b\\d+$",
-    "date": "2024-07-17T11:23:50Z",
+    "date": "2024-07-18T08:06:22Z",
     "target": ""
   },
-  "version": "3408",
+  "version": "3412",
   "method": "fetch_content",
   "url": "https://github.com/ggerganov/llama.cpp/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=691315915a4f553c5d638ea9cb405bd45e54a9a817e642a0834992b0401cbab5",
+  "url_hash": "SHA256=df1d3999bfa0c9b5b0df29821e39d8fbc564c25fa46ba99115eba2d74c9e7ff3",
   "update_disconnected": true,
   "options": {}
 }
