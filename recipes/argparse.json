@@ -3,13 +3,13 @@
     "source": "https://github.com/p-ranav/argparse",
     "package": "p-ranav/argparse",
     "tag_filter": "",
-    "date": "2023-11-06T01:15:14Z",
+    "date": "2024-07-17T23:53:38Z",
     "target": "argparse::argparse"
   },
-  "version": "3.0",
+  "version": "3.1",
   "method": "fetch_content",
   "url": "https://github.com/p-ranav/argparse/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=674e724c2702f0bfef1619161815257a407e1babce30d908327729fba6ce4124",
+  "url_hash": "SHA256=3e5a59ab7688dcd1f918bc92051a10564113d4f36c3bbed3ef596c25e519a062",
   "update_disconnected": true,
   "options": {
     "ARGPARSE_BUILD_TESTS": "OFF",
