@@ -3,13 +3,13 @@
     "source": "https://github.com/drogonframework/drogon",
     "package": "drogonframework/drogon",
     "tag_filter": "^v\\d+\\.\\d+\\.\\d+$",
-    "date": "2024-06-08T12:31:23Z",
+    "date": "2024-07-20T15:35:17Z",
     "target": ""
   },
-  "version": "1.9.5",
+  "version": "1.9.6",
   "method": "fetch_content",
   "url": "https://github.com/drogonframework/drogon/archive/refs/tags/v{{version}}.zip",
-  "url_hash": "SHA256=dec0994090a83afb4943b83bb547e37886acf7c2186eb1c52b9ac4c02d05ccc2",
+  "url_hash": "SHA256=f9cf6635d9b19d6bdf88022684d8f01f1052a6783c18e6f2829381b8afd5169d",
   "update_disconnected": true,
   "options": {}
 }
