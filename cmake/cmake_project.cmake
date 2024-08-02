@@ -618,6 +618,7 @@ function(cmp_fetch_content name data)
 
   _cmp_get_opt(exclude_from_all "${data}" "exclude_from_all"  ON)
   _cmp_get_opt(system           "${data}" "system"            ON)
+  _cmp_get_opt(install_source   "${data}" "install_source"    OFF)
 
   if(${exclude_from_all})
     list(APPEND params EXCLUDE_FROM_ALL)
@@ -662,6 +663,15 @@ function(cmp_fetch_content name data)
     endforeach()
     # file(WRITE "${cmake_script_name}" "${cmake_script}")
     include("${cmake_script_name}")
+  endif()
+
+  if(${install_source} AND NOT "${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}" STREQUAL "")
+    execute_process(
+      COMMAND
+        "${CMAKE_COMMAND}" -E copy_directory
+          "${CMAKE_BINARY_DIR}/_deps/${name}-src"
+          "${CMAKE_PROJECT_EXTERNAL_INSTALL_LOCATION}"
+    )
   endif()
 
   _cmp_ext_version(fversion ${data})
