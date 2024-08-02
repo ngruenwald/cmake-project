@@ -810,6 +810,9 @@ function(_cmp_create_targets targets version base_binary_dir base_include_dir de
 
     if("${target_include}" STREQUAL "")
       set(include_dir "${base_include_dir}")
+    elseif(IS_ABSOLUTE "${target_include}")
+      set(include_dir "${target_include}")
+      set(create_inc_dir FALSE)  # TBD
     else()
       set(include_dir "${base_include_dir}/${target_include}")
     endif()
