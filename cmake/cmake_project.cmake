@@ -787,13 +787,20 @@ function(_cmp_create_targets targets version base_binary_dir base_include_dir de
     if("${target_binary}" STREQUAL "")
       add_library(${target_name} INTERFACE IMPORTED GLOBAL)
     else()
-      if(WIN32)
-        set(suffix ".lib")
-      else()
-        set(suffix ".a")
+      get_filename_component(binary_ext "${target_binary}" EXT)
+
+      if("${binary_ext}" STREQUAL "")
+        if(WIN32)
+          set(suffix ".lib")
+        else()
+          set(suffix ".a")
+        endif()
       endif()
+
       add_library(${target_name} STATIC IMPORTED GLOBAL)
-      set_target_properties(${target_name} PROPERTIES IMPORTED_LOCATION ${base_binary_dir}/${target_binary}${suffix})
+
+      file(REAL_PATH "${base_binary_dir}/${target_binary}${suffix}" binary_path)
+      set_target_properties(${target_name} PROPERTIES IMPORTED_LOCATION ${binary_path})
     endif()
 
     if("${target_include}" STREQUAL "")
