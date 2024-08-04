@@ -169,6 +169,8 @@ These are JSON files containing the same parameters as the dependency block
 would contain. Properties set in the main configuration override properties
 from the recipe.
 
+A collection of recipe files can be found [here][1].
+
 <!-- References -->
 
 [1]: schema/cmake-project.schema.json (JSON Schema)
@@ -176,3 +178,4 @@ from the recipe.
 [3]: https://cmake.org/cmake/help/latest/module/FetchContent.html (CMake Documentation)
 [4]: https://cmake.org/cmake/help/latest/module/ExternalProject.html (CMake Documentation)
 [5]: cmake/cmp_kubus.cmake (kubus_find_package)
+[6]: https://github.org/ngruenwald/cmake-project-recipes (Recipes)
