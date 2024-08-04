@@ -126,6 +126,7 @@ function(cmp_parse_project_file filename)
   _cmp_get_opt(dd_method "${dd_data}" "method" "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
   _cmp_get_opt(dd_branch "${dd_data}" "branch" "${CMAKE_PROJECT_DEFAULT_GIT_BRANCH}")
   _cmp_get_opt(dd_repath "${dd_data}" "recipes-path" "${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}")
+  _cmp_get_opt(dd_mdpath "${dd_data}" "modules-path" "${CMAKE_PROJECT_EXTRA_MODULES_DIR}")
 
   if(NOT "${dd_method}" STREQUAL "")
     set(CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD "${dd_method}" PARENT_SCOPE)
@@ -141,6 +142,14 @@ function(cmp_parse_project_file filename)
       set(dd_repath "${filepath}/${dd_repath}")
     endif()
     set(CMAKE_PROJECT_DEFAULT_RECIPE_PATH "${dd_repath}" PARENT_SCOPE)
+  endif()
+
+  if(NOT "${dd_mdpath}" STREQUAL "")
+    if(NOT IS_ABSOLUTE "${dd_mdpath}")
+      get_filename_component(filepath "${filename}" DIRECTORY)
+      set(dd_mdpath "${filepath}/${dd_mdpath}")
+    endif()
+    set(CMAKE_PROJECT_EXTRA_MODULES_DIR "${dd_mdpath}" PARENT_SCOPE)
   endif()
 
   # dependencies
