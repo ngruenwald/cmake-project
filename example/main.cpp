@@ -1,9 +1,5 @@
 #include <fmt/core.h>
 
-#include <openssl/evp.h>
-#include <openssl/bio.h>
-#include <openssl/err.h>
-
 #include "versions.h"
 #include "versions.hpp"
 
@@ -43,6 +39,4 @@ int main(int argc, char** argv)
     {
         fmt::print("* {} {}\n", ver.first, ver.second);
     }
-
-    auto ctx = EVP_MD_CTX_new();
 }

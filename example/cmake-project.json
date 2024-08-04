@@ -1,29 +1,24 @@
 {
-    "project": {
-        "name": "hello_world",
-        "version": "0.1.0",
-        "description": "outputs hello world",
-        "dependency-defaults": {
-            "recipes-path": "../recipes"
-        }
-    },
-    "dependencies": {
-        "fmt": {
-            "version": "10.1.1"
-        },
-        "LibXml2": {},
-        "OpenSSL": {
-            "skip": false,
-            "version": "3.1.4",
-            "url_hash": "SHA256=c087d98815696d3f1b19848604aef1382d11e216634d3b72bd61ec27fb645f80"
-        }
-    },
-    "dev-dependencies": {
-        "catch2": {
-            "version": "3.4.0",
-	    "url_hash": "SHA256=cd175f5b7e62c29558d4c17d2b94325ee0ab6d0bf1a4b3d61bc8dbcc688ea3c2"
-        },
-        "config-generator": {
-        }
+  "project": {
+    "name": "hello_world",
+    "version": "0.1.0",
+    "description": "outputs hello world",
+    "dependency-defaults": {
+      "recipes-path": "recipes"
     }
+  },
+  "dependencies": {
+    "fmt": "10.1.1",
+    "OpenSSL": {
+      "skip": false,
+      "version": "3.1.4",
+      "url_hash": "SHA256=c087d98815696d3f1b19848604aef1382d11e216634d3b72bd61ec27fb645f80"
+    }
+  },
+  "dev-dependencies": {
+    "catch2": {
+      "version": "3.4.0",
+      "url_hash": "SHA256=cd175f5b7e62c29558d4c17d2b94325ee0ab6d0bf1a4b3d61bc8dbcc688ea3c2"
+    }
+  }
 }
