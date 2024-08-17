@@ -120,8 +120,8 @@ function(cmp_parse_project_file filename)
         set(${key} ${val} PARENT_SCOPE)
       endforeach()
     endif()
-  endif() 
-  
+  endif()
+
   _cmp_read_project_field(dd_data "${filecontent}" "dependency-defaults" DEFAULT "")
   _cmp_get_opt(dd_method "${dd_data}" "method" "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
   _cmp_get_opt(dd_branch "${dd_data}" "branch" "${CMAKE_PROJECT_DEFAULT_GIT_BRANCH}")
@@ -444,7 +444,7 @@ function(_cmp_find_project_dependencies type)
     string(JSON typ TYPE   "${deps}" ${key})
     string(JSON val GET    "${deps}" ${key})
 
-    if ("${typ}" STREQUAL "OBJECT")
+    if("${typ}" STREQUAL "OBJECT")
       set(dep ${val})
     elseif("${typ}" STREQUAL "NUMBER" OR "${typ}" STREQUAL "STRING")
       set(dep "{\"version\": \"${val}\"}")
@@ -495,7 +495,7 @@ function(_cmp_find_project_dependency name data)
 
     message(TRACE "${name} | condition: ${condition}")
 
-    if (${condition})
+    if(${condition})
       message(DEBUG "processing \"${name}\" (when)")
     else()
       message(DEBUG "ignoring \"${name}\" (when)")
