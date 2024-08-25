@@ -56,5 +56,15 @@ function(_install_cmake_project path workdir url version)
   set(${path} "${workdir}/source/cmake" PARENT_SCOPE)
 endfunction()
 
+function(_cmpi_get_script_dir script_dir)
+  set(${script_dir} "${CMAKE_CURRENT_FUNCTION_LIST_DIR}" PARENT_SCOPE)
+endfunction()
+
 _install_cmake_project(_cmp_install_path "${CMP_INSTALL_DIR}" "${CMP_SOURCE_URL}" "${CMP_VERSION}")
+
+if(NOT DEFINED CMAKE_PROJECT_EXTRA_MODULES_DIR)
+  _cmpi_get_script_dir(_cmpi_script_dir)
+  set(CMAKE_PROJECT_EXTRA_MODULES_DIR ${_cmpi_script_dir})
+endif()
+
 include("${_cmp_install_path}/cmake_project.cmake")
