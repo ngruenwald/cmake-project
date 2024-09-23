@@ -108,23 +108,7 @@ function(cmp_parse_project_file filename)
   string(REPLACE "," ";" project_languages "${project_languages}")
   set(${CMAKE_PROJECT_VAR_PREFIX}PROJECT_LANGUAGES "${project_languages}" PARENT_SCOPE)
 
-  if(TRUE)
-    _cmp_read_project_field(project_vars "${filecontent}" "vars" DEFAULT "{}")
-    string(JSON length ERROR_VARIABLE error LENGTH "${project_vars}")
-    if(NOT "${error}" STREQUAL "NOTFOUND")
-      # do nothing
-    elseif(${length} LESS_EQUAL 0)
-      # do nothing
-    else()
-      math(EXPR length "${length}-1")
-      foreach(idx RANGE ${length})
-        string(JSON key MEMBER "${project_vars}" ${idx})
-        string(JSON val GET    "${project_vars}" ${key})
-        message(DEBUG "set ${key}=${val}")
-        set(${key} ${val} PARENT_SCOPE)
-      endforeach()
-    endif()
-  endif()
+  _CMP_READ_PROJECT_FIELD_OPT(PROJECT_VARIABLES "${filecontent}" "vars" "{}")
 
   _cmp_read_project_field(dd_data "${filecontent}" "dependency-defaults" DEFAULT "")
   _cmp_get_opt(dd_method "${dd_data}" "method" "${CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD}")
@@ -872,6 +856,29 @@ function(_cmp_create_targets targets version base_binary_dir base_include_dir de
 endfunction()
 
 #
+# _cmp_set_project_vars
+#
+# Set project variables in parent scope.
+#
+function(_cmp_set_project_vars)
+  set(project_vars ${CM_PROJECT_VARIABLES})
+  string(JSON length ERROR_VARIABLE error LENGTH "${project_vars}")
+  if(NOT "${error}" STREQUAL "NOTFOUND")
+    # do nothing
+  elseif(${length} LESS_EQUAL 0)
+    # do nothing
+  else()
+    math(EXPR length "${length}-1")
+    foreach(idx RANGE ${length})
+      string(JSON key MEMBER "${project_vars}" ${idx})
+      string(JSON val GET    "${project_vars}" ${key})
+      message(DEBUG "set ${key}=${val}")
+      set(${key} ${val} PARENT_SCOPE)
+    endforeach()
+  endif()
+endfunction()
+
+#
 # _cmp_load_recipe_data
 #
 # Tries to load the recipe data from the given recipe filepath.
@@ -1300,6 +1307,8 @@ macro(_CMP_RUN_AS_MODULE)
     endif()
 
     project(${CM_PROJECT_PARAMS})
+
+    _cmp_set_project_vars()
 
     cmp_find_project_dependencies()
   endif()
