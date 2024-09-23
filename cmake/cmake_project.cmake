@@ -536,6 +536,32 @@ function(_cmp_find_project_dependency name data)
   endif()
 endfunction()
 
+
+function(cmp_pkg_config name data)
+  _cmp_get_opt(target "${data}" "target" "")
+
+  find_package(PkgConfig QUIET REQUIRED)
+  pkg_check_modules("${name}" REQUIRED QUIET IMPORTED_TARGET GLOBAL "${target}")
+
+  if(${name}_FOUND)
+    string(TOUPPER "${name}" uname)
+    if(DEFINED ${name}_VERSION)
+      set(fversion ${${name}_VERSION})
+    elseif(DEFINED ${name}_VERSION_STRING)
+      set(fversion ${${name}_VERSION_STRING})
+    elseif(DEFINED ${uname}_VERSION)
+      set(fversion ${${uname}_VERSION})
+    elseif(DEFINED ${uname}_VERSION_STRING)
+      set(fversion ${${uname}_VERSION_STRING})
+    else()
+      set(fversion ${version})
+    endif()
+  endif()
+
+  message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (package)")
+endfunction()
+
+
 #
 # cmp_find_package(name data)
 #
