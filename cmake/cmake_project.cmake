@@ -709,6 +709,13 @@ function(cmp_fetch_content name data)
     _cmp_create_targets("${targets}" "${fversion}" "${binary_dir}" "${include_dir}" "${name}" TRUE)
   endif()
 
+  if(TARGET ${name})
+    get_target_property(tversion ${name} VERSION)
+    if("${tversion}" STREQUAL "tversion-NOTFOUND")
+      set_target_properties(${name} PROPERTIES VERSION "${fversion}")
+    endif()
+  endif()
+  
   message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (fetch)")
 endfunction()
 
@@ -763,6 +770,13 @@ function(cmp_external_project)
     _cmp_create_targets("${targets}" "${fversion}" "${binary_dir}" "${include_dir}" "${name}" TRUE)
   endif()
 
+  if(TARGET ${name})
+    get_target_property(tversion ${name} VERSION)
+    if("${tversion}" STREQUAL "tversion-NOTFOUND")
+      set_target_properties(${name} PROPERTIES VERSION "${fversion}")
+    endif()
+  endif()
+  
   message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (external)")
 endfunction()
 
