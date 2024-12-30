@@ -25,6 +25,13 @@ if(NOT DEFINED CMAKE_PROJECT_DEFAULT_GIT_BRANCH)
   set(CMAKE_PROJECT_DEFAULT_GIT_BRANCH "main")
 endif()
 
+if(NOT DEFINED CMAKE_PROJECT_DEFAULT_REMOTE_RECIPE_URL)
+  set(
+    CMAKE_PROJECT_DEFAULT_REMOTE_RECIPE_URL
+    "https://github.com/ngruenwald/cmake-project-recipes/archive/refs/heads/main.zip"
+  )
+endif()
+
 if(NOT DEFINED CMAKE_PROJECT_DEFAULT_RECIPE_PATH)
   if(DEFINED CMAKE_PROJECT_EXTRA_MODULES_DIR)
     set(CMAKE_PROJECT_DEFAULT_RECIPE_PATH "${CMAKE_PROJECT_EXTRA_MODULES_DIR}/recipes")
@@ -115,6 +122,8 @@ function(cmp_parse_project_file filename)
   _cmp_get_opt(dd_branch "${dd_data}" "branch" "${CMAKE_PROJECT_DEFAULT_GIT_BRANCH}")
   _cmp_get_opt(dd_repath "${dd_data}" "recipes-path" "${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}")
   _cmp_get_opt(dd_mdpath "${dd_data}" "modules-path" "${CMAKE_PROJECT_EXTRA_MODULES_DIR}")
+  _cmp_get_opt(dd_remote_recipes "${dd_data}" "remote-recipes" OFF)
+  _cmp_get_opt(dd_remote_recipes_url "${dd_data}" "remote-recipes-url" "${CMAKE_PROJECT_DEFAULT_REMOTE_RECIPE_URL}")
 
   if(NOT "${dd_method}" STREQUAL "")
     set(CMAKE_PROJECT_DEFAULT_DEPENDENCY_METHOD "${dd_method}" PARENT_SCOPE)
@@ -138,6 +147,11 @@ function(cmp_parse_project_file filename)
       set(dd_mdpath "${filepath}/${dd_mdpath}")
     endif()
     set(CMAKE_PROJECT_EXTRA_MODULES_DIR "${dd_mdpath}" PARENT_SCOPE)
+  endif()
+
+  if(${dd_remote_recipes})
+    _cmp_fetch_remote_recipes(remote_recipes_path "${dd_remote_recipes_url}")
+    set(CMAKE_PROJECT_REMOTE_RECIPE_PATH "${remote_recipes_path}" PARENT_SCOPE)
   endif()
 
   # dependencies
@@ -912,12 +926,21 @@ function(_cmp_load_recipe_data output name data recipe)
   endif()
 
   if(NOT "${recipe}" STREQUAL "")
+    # prefer local recipes
     set(recipe_path "${recipe}")
     if(NOT IS_ABSOLUTE "${recipe_path}")
-      file(REAL_PATH "${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}/${recipe_path}" recipe_path)
+      set(recipe_path "${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}/${recipe_path}")
+      cmake_path(NORMAL_PATH recipe_path)
+    endif()
+    if(NOT EXISTS "${recipe_path}" AND NOT "${CMAKE_PROJECT_REMOTE_RECIPE_PATH}" STREQUAL "")
+      set(recipe_path "${recipe}")
+      if(NOT IS_ABSOLUTE "${recipe_path}")
+        set(recipe_path "${CMAKE_PROJECT_REMOTE_RECIPE_PATH}/${recipe_path}")
+        cmake_path(NORMAL_PATH recipe_path)
+      endif()
     endif()
     if(EXISTS "${recipe_path}")
-      message(TRACE ${CM_MESSAGE_PREFIX} "loading recipe '${recipe_path}'")
+      message(DEBUG ${CM_MESSAGE_PREFIX} "loading recipe '${recipe_path}'")
       file(READ "${recipe_path}" recipe_data)
       string(CONFIGURE "${recipe_data}" recipe_data @ONLY)
       _cmp_merge_json_data(data "${recipe_data}" "${data}")
@@ -930,6 +953,20 @@ function(_cmp_load_recipe_data output name data recipe)
       endif()
     endif()
   endif()
+endfunction()
+
+#
+# _cmp_fetch_remote_recipes(url)
+#
+# @param[out] path  The local recipes path
+# @param[in]  url   The url from where to fetch the recipes
+#
+function(_cmp_fetch_remote_recipes path url)
+  set(data "{}")
+  string(JSON data SET "${data}" "url" "\"${url}\"")
+  cmp_fetch_content("cmake-project-recipes" ${data})
+  get_target_property(cmp_recipes_dir cmake_project_recipes RECIPES_PATH)
+  set(${path} ${cmp_recipes_dir} PARENT_SCOPE)
 endfunction()
 
 #
@@ -1303,6 +1340,12 @@ macro(_CMP_RUN_AS_MODULE)
       endif()
     endmacro()
     _cmp_search_and_load(${CMAKE_SOURCE_DIR})
+  endif()
+
+  message(DEBUG "using recipes from \"${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}\"")
+  if(NOT "${CMAKE_PROJECT_REMOTE_RECIPE_PATH}" STREQUAL "" AND
+      NOT "${CMAKE_PROJECT_REMOTE_RECIPE_PATH}" STREQUAL "${CMAKE_PROJECT_DEFAULT_RECIPE_PATH}")
+    message(DEBUG "using additional recipes from \"${CMAKE_PROJECT_REMOTE_RECIPE_PATH}\"")
   endif()
 
   if(${CMAKE_PROJECT_AUTO_SETUP})
