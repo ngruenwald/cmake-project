@@ -8,11 +8,22 @@
     }
   },
   "dependencies": {
-    "fmt": "10.1.1",
+    "fmt": {
+      "version": "12.0.0",
+      "requires": ["inja"]
+    },
     "OpenSSL": {
       "skip": false,
       "version": "3.1.4",
-      "url_hash": "SHA256=c087d98815696d3f1b19848604aef1382d11e216634d3b72bd61ec27fb645f80"
+      "url_hash": "SHA256=c087d98815696d3f1b19848604aef1382d11e216634d3b72bd61ec27fb645f80",
+      "requires": ["nlohmann_json"]
+    },
+    "inja": {
+      "version": "3.4.0",
+      "requires": ["nlohmann_json", "fmt"]
+    },
+    "nlohmann_json": {
+      "requires": ["fmt"]
     }
   },
   "dev-dependencies": {

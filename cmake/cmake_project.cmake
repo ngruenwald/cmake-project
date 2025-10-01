@@ -164,6 +164,253 @@ function(cmp_parse_project_file filename)
 endfunction()
 
 #
+# _cmp_json_escape(output input)
+#
+# This replaces certain characters of the input to ensure handling of lists
+#
+# @param[out]  output  The escaped output data
+# @param[in]   input   The unescaped input data
+#
+function(_cmp_json_escape output input)
+  string(REPLACE ";" "\\~" tmp "${input}")
+  string(REPLACE "{" "\\{" tmp "${tmp}")
+  string(REPLACE "}" "\\}" tmp "${tmp}")
+  set(${output} "${tmp}" PARENT_SCOPE)
+endfunction()
+
+#
+# _cmp_json_unescape(output input)
+#
+# This restores a previously escaped input
+#
+# @param[out]  output  The unescaped output data
+# @param[in]   input   The escaped input data
+#
+function(_cmp_json_unescape output input)
+  string(REPLACE "\\~" ";" tmp "${input}")
+  string(REPLACE "\\{" "{" tmp "${tmp}")
+  string(REPLACE "\\}" "}" tmp "${tmp}")
+  set(${output} "${tmp}" PARENT_SCOPE)
+endfunction()
+
+function(_cmp_find_by_key index list key value)
+  set(${index} -1 PARENT_SCOPE)
+  list(LENGTH list length)
+  if(${length} LESS_EQUAL 0)
+    return()
+  endif()
+  math(EXPR length "${length}-1")
+  foreach(idx RANGE ${length})
+    list(GET list ${idx} item)
+    string(JSON item_value ERROR_VARIABLE error GET "${item}" "${key}")
+    if(NOT "${error}" STREQUAL "NOTFOUND")
+      continue()
+    endif()
+    if(NOT "${value}" STREQUAL "${item_value}")
+      continue()
+    endif()
+    set(${index} ${idx} PARENT_SCOPE)
+    return()
+  endforeach()
+endfunction()
+
+#
+# _cmp_sort_deps(output_list visited_list changed_flag input_list visited_input_list)
+#
+# Sort the inputs
+#
+# @param[out] output_list   A list of sorted JSON objects
+# @param[out] visited_list  A list of strings containing the visited item names
+# @param[out] changed_flag  A boolean indicating if a sort took place
+# @param[in]  input_list    A list of (unsorted) JSON objects
+# @param[in]  visited_input_list  A list of item names that have already been visited
+#
+function(_cmp_sort_deps output_list visited_list changed_flag input_list visited_input_list)
+  set(changed FALSE)
+  set(output "")
+  set(visited "${visited_input_list}")
+
+  set(${output_list} "${output}" PARENT_SCOPE)
+  set(${visited_list} "${visited}" PARENT_SCOPE)
+  set(${changed_flag} ${changed} PARENT_SCOPE)
+
+  list(LENGTH input_list input_list_length)
+  if(${input_list_length} LESS_EQUAL 0)
+    return()
+  endif()
+  math(EXPR input_list_length "${input_list_length}-1")
+
+  foreach(idx RANGE ${input_list_length})
+    list(GET input_list ${idx} dep)
+    # _cmp_json_unescape(dep "${dep}")
+
+    string(JSON name ERROR_VARIABLE error GET "${dep}" "name")
+    if(NOT "${error}" STREQUAL "NOTFOUND")
+      message(DEBUG "no name")
+      continue()
+    endif()
+
+    _cmp_find_by_key(output_index "${output}" "name" "${name}")
+    if(NOT ${output_index} EQUAL -1)
+      message(DEBUG "already in output ${name}")
+      continue()
+    endif()
+
+    list(FIND visited "${name}" visited_index)
+    if(NOT ${visited_index} EQUAL -1)
+      message(TRACE "already visited ${name}")
+      list(APPEND output "${dep}")
+      continue()
+    endif()
+    list(APPEND visited "${name}")
+
+    string(JSON requires_list ERROR_VARIABLE error GET "${dep}" "requires")
+    if(NOT "${error}" STREQUAL "NOTFOUND")
+      message(TRACE "no requires for ${name}")
+      list(APPEND output "${dep}")
+      continue()
+    endif()
+
+    string(JSON requires_list_length ERROR_VARIABLE error LENGTH "${requires_list}")
+    if(NOT "${error}" STREQUAL "NOTFOUND")
+      message(TRACE "could not get length for ${name}")
+      list(APPEND output "${dep}")
+      continue()
+    endif()
+    if(${requires_list_length} LESS_EQUAL 0)
+      message(TRACE "zero requires for ${name}")
+      list(APPEND output "${dep}")
+      continue()
+    endif()
+    math(EXPR requires_list_length "${requires_list_length}-1")
+
+    foreach(requires_list_idx RANGE ${requires_list_length})
+      string(JSON requires_name GET "${requires_list}" ${requires_list_idx})
+
+      _cmp_find_by_key(input_list_requires_idx "${input_list}" "name" "${requires_name}")
+      if(${input_list_requires_idx} EQUAL -1)
+        message(FATAL_ERROR "'${name}' depends on '${requires_name}', but '${requires_name}' could not be found")
+        continue()
+      endif()
+      if(${input_list_requires_idx} LESS ${idx})
+        continue()
+      endif()
+
+      list(GET input_list ${input_list_requires_idx} requires_dep)
+      # _cmp_json_unescape(requires_dep "${requires_dep}")
+      list(APPEND output "${requires_dep}")
+      list(APPEND visited "${requires_name}")
+      set(changed TRUE)
+    endforeach()
+
+    list(APPEND output "${dep}")
+  endforeach()
+
+  set(${output_list} "${output}" PARENT_SCOPE)
+  set(${visited_list} "${visited}" PARENT_SCOPE)
+  set(${changed_flag} ${changed} PARENT_SCOPE)
+endfunction()
+
+#
+# _cmp_dict_to_array(output_list input_dict key_name)
+#
+# Converts a given input dictionary to a list of objects.
+# The key of the input data is added to the output data with the given key name.
+#
+# @param[out] output_list  A list of JSON objects
+# @param[in]  input_dict   A JSON dictionary
+#
+function(_cmp_dict_to_array output_list input_dict key_name)
+  set(output "")
+  set(${output_list} "${output}" PARENT_SCOPE)
+
+  string(JSON length ERROR_VARIABLE error LENGTH "${input_dict}")
+  if(NOT "${error}" STREQUAL "NOTFOUND")
+    return()
+  endif()
+  if(${length} LESS_EQUAL 0)
+    return()
+  endif()
+
+  math(EXPR length "${length}-1")
+  foreach(idx RANGE ${length})
+    string(JSON key MEMBER "${input_dict}" ${idx})
+    string(JSON typ TYPE   "${input_dict}" ${key})
+    string(JSON val GET    "${input_dict}" ${key})
+
+    if("${typ}" STREQUAL "OBJECT")
+      set(dep ${val})
+    elseif("${typ}" STREQUAL "NUMBER" OR "${typ}" STREQUAL "STRING")
+      set(dep "{\"version\": \"${val}\"}")
+    else()
+      message(FATAL_ERROR "'${key}' has invalid type '${typ}'")
+    endif()
+
+    string(JSON list_item SET "${dep}" "${key_name}" "\"${key}\"")
+    list(APPEND output "${list_item}")
+  endforeach()
+
+  set(${output_list} "${output}" PARENT_SCOPE)
+endfunction()
+
+#
+# _cmp_sort_dependencies(result types)
+#
+# Accumulates the dependencies of all given types and sorts them based on 'requires'
+# WARNING: cyclic dependencies will end up in a loop!
+#
+# @param[out] result    A list of sorted dependencies
+# @param[in]  types     Dependency types (prod, dev, build) to process
+#
+function(_cmp_sort_dependencies result types)
+  set(all_dependencies)
+  foreach(type IN ITEMS ${types})
+    if("${type}" STREQUAL "prod")
+      set(deps_var PROJECT_DEPENDENCIES)
+    elseif("${type}" STREQUAL "dev")
+      set(deps_var PROJECT_DEV_DEPENDENCIES)
+    elseif("${type}" STREQUAL "build")
+      set(deps_var PROJECT_BUILD_DEPENDENCIES)
+    else()
+      message(FATAL_ERROR ${CM_MESSAGE_PREFIX} "invalid dependency type '${type}'.\n  Possible values: prod, dev, build")
+    endif()
+    _cmp_dict_to_array(deps "${${CMAKE_PROJECT_VAR_PREFIX}${deps_var}}" "name")
+    list(APPEND all_dependencies ${deps})
+  endforeach()
+
+  list(LENGTH all_dependencies length)
+  if(${length} LESS_EQUAL 0)
+    return()
+  endif()
+  math(EXPR length "${length}-1")
+  foreach(idx RANGE ${length})
+    list(GET all_dependencies ${idx} dep)
+    _cmp_get_opt(name "${dep}" "name" "")
+    _cmp_get_opt(recipe "${dep}" "recipe"  "")
+    _cmp_load_recipe_data(dep "${name}" "${dep}" "${recipe}")
+    # _cmp_json_escape(dep "${dep}")
+    list(APPEND unsorted "${dep}")
+  endforeach()
+
+  set(changed TRUE)
+  set(sorted "${unsorted}")
+  set(visited "")
+  set(loop_exceeded TRUE)
+  foreach(idx RANGE 1000)
+    _cmp_sort_deps(sorted visited changed "${sorted}" "") # "${visited}")
+    if(${changed} EQUAL FALSE)
+      set(loop_exceeded FALSE)
+      break()
+    endif()
+  endforeach()
+  if(${loop_exceeded})
+    message(WARNING "dependency resolution loops exceeded!")
+  endif()
+
+  set(${result} "${sorted}" PARENT_SCOPE)
+endfunction()
+
+#
 # _cmp_get_opt(result data key def)
 #
 # Retrieve optional entry from JSON object
@@ -328,8 +575,10 @@ function(cmp_find_project_dependencies)
   set_property(GLOBAL PROPERTY __cmp_propagate_variables)
   set_property(GLOBAL PROPERTY __cmp_propagate_triggers)
 
-  foreach(type IN ITEMS ${ARG_TYPE})
-    _cmp_find_project_dependencies(${type})
+  _cmp_sort_dependencies(sorted_dependencies "${ARG_TYPE}")
+  foreach(dep IN ITEMS ${sorted_dependencies})
+    string(JSON key GET "${dep}" "name")
+    _cmp_find_project_dependency(${key} ${dep})
   endforeach()
 
   # set variables (local and parent scope)
@@ -729,7 +978,7 @@ function(cmp_fetch_content name data)
       set_target_properties(${name} PROPERTIES VERSION "${fversion}")
     endif()
   endif()
-  
+
   message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (fetch)")
 endfunction()
 
@@ -790,7 +1039,7 @@ function(cmp_external_project)
       set_target_properties(${name} PROPERTIES VERSION "${fversion}")
     endif()
   endif()
-  
+
   message(STATUS ${CM_MESSAGE_PREFIX} "using ${name} ${fversion} (external)")
 endfunction()
 
