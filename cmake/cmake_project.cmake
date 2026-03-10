@@ -662,9 +662,10 @@ endfunction()
 function(cmp_fetch_content name data)
   _cmp_parse_common_properties(params "${data}")
 
-  _cmp_get_opt(exclude_from_all "${data}" "exclude_from_all"  ON)
-  _cmp_get_opt(system           "${data}" "system"            ON)
-  _cmp_get_opt(install_source   "${data}" "install_source"    OFF)
+  _cmp_get_opt(exclude_from_all       "${data}" "exclude_from_all"      ON)
+  _cmp_get_opt(system                 "${data}" "system"                ON)
+  _cmp_get_opt(install_source         "${data}" "install_source"        OFF)
+  _cmp_get_opt(override_find_package  "${data}" "override_find_package" OFF)
 
   if(${exclude_from_all})
     list(APPEND params EXCLUDE_FROM_ALL)
@@ -672,6 +673,10 @@ function(cmp_fetch_content name data)
 
   if(${system} AND "${CMAKE_VERSION}" VERSION_GREATER_EQUAL "3.25.0")
     list(APPEND params SYSTEM)
+  endif()
+
+  if(${override_find_package})
+    list(APPEND params OVERRIDE_FIND_PACKAGE)
   endif()
 
   _cmp_get_opt(options "${data}" "options" "")
