@@ -791,6 +791,10 @@ endfunction()
 function(cmp_pkg_config name data)
   _cmp_get_opt(target "${data}" "target" "")
 
+  if("${target}" STREQUAL "")
+    message(FATAL_ERROR ${CM_MESSAGE_PREFIX} "pkg_config dependency '${name}' requires a non-empty 'target' field")
+  endif()
+
   find_package(PkgConfig QUIET REQUIRED)
   pkg_check_modules("${name}" REQUIRED QUIET IMPORTED_TARGET GLOBAL "${target}")
 
@@ -907,9 +911,10 @@ endfunction()
 function(cmp_fetch_content name data)
   _cmp_parse_common_properties(params "${data}")
 
-  _cmp_get_opt(exclude_from_all "${data}" "exclude_from_all"  ON)
-  _cmp_get_opt(system           "${data}" "system"            ON)
-  _cmp_get_opt(install_source   "${data}" "install_source"    OFF)
+  _cmp_get_opt(exclude_from_all       "${data}" "exclude_from_all"      ON)
+  _cmp_get_opt(system                 "${data}" "system"                ON)
+  _cmp_get_opt(install_source         "${data}" "install_source"        OFF)
+  _cmp_get_opt(override_find_package  "${data}" "override_find_package" OFF)
 
   if(${exclude_from_all})
     list(APPEND params EXCLUDE_FROM_ALL)
@@ -917,6 +922,10 @@ function(cmp_fetch_content name data)
 
   if(${system} AND "${CMAKE_VERSION}" VERSION_GREATER_EQUAL "3.25.0")
     list(APPEND params SYSTEM)
+  endif()
+
+  if(${override_find_package})
+    list(APPEND params OVERRIDE_FIND_PACKAGE)
   endif()
 
   _cmp_get_opt(options "${data}" "options" "")
@@ -944,7 +953,10 @@ function(cmp_fetch_content name data)
 
   _cmp_get_opt(cmake_script "${data}" "cmake_script" "")
   if(NOT "${cmake_script}" STREQUAL "")
-    set(cmake_script_name "${CMAKE_CURRENT_BINARY_DIR}/__todo_some_random_file_name.cmake")
+    string(REGEX REPLACE "[^A-Za-z0-9_]+" "_" name_safe "${name}")
+    string(REPLACE ";" "\n" cmake_script_content "${cmake_script}")
+    string(SHA256 cmake_script_hash "${cmake_script_content}")
+    set(cmake_script_name "${CMAKE_CURRENT_BINARY_DIR}/${name_safe}_${cmake_script_hash}.cmake")
     list(LENGTH cmake_script cslen)
     math(EXPR cslen "${cslen}-1")
     file(WRITE "${cmake_script_name}" "")
@@ -990,7 +1002,7 @@ endfunction()
 # @param[in] name   Name of the dependency
 # @param[in] data   Additional parameters
 #
-function(cmp_external_project)
+function(cmp_external_project name data)
   _cmp_parse_common_properties(params "${data}")
 
   _cmp_get_opt(cmake_args       "${data}" "cmake_args"      "")
